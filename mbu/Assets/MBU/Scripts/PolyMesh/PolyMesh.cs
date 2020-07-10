@@ -12,6 +12,7 @@ namespace VRKL.MBU
     /// </summary>
     [RequireComponent(typeof(MeshFilter))]
     [RequireComponent(typeof(MeshRenderer))]
+    [ExecuteInEditMode]
     public abstract class PolyMesh : MonoBehaviour
     {
         /// <summary>
