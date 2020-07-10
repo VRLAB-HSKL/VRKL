@@ -90,7 +90,7 @@ namespace VRKL.MBU
         /// </summary>
         protected virtual void Save()
         {
-            string folder = "Assets/Meshes";
+            string folder = "Assets/MBU/Meshes";
 
             if (!Saved)
             {

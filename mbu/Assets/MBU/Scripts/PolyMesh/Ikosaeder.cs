@@ -8,24 +8,24 @@ namespace VRKL.MBU
 {
 
     /// <summary>
-    /// Klasse für die Erzeugung eines Tetraeders während der Laufzeit einer Anwendung.
+    /// Klasse für die Erzeugung eines Ikosaeders während der Laufzeit einer Anwendung.
     /// <remarks>
-    /// Die vier Eckpunkte des Tetraeders werden wie in Blinn
+    /// Die Eckpunkte des Ikosaeders werden wie in Blinn
     /// und Brill/Bender, "Computergrafik", in den Einheitswürfel platziert.
     /// </remarks>
     /// </summary>
 
-    public class Tetraeder : PolyMesh
+    public class Ikosaeder : PolyMesh
     {
         /// <summary>
         /// Die Beschreibung setzen, damit wir das Netz mit dieser
         /// Beschreibung abspeichern können.
         /// 
-        /// Wir verwenden den Text "tetraeder".
+        /// Wir verwenden den Text "ikosaeder".
         /// </summary>
         protected override void Awake()
         {
-            Description = "tetraeder";
+            Description = "ikosaeder";
         }
         /// <summary>
         /// Wir erzeugen für jedes Face des Tetraeders ein SubMesh.
@@ -35,23 +35,52 @@ namespace VRKL.MBU
         /// </summary>
         protected override void Create()
         {
-            const int numberOfVertices = 4;
-            const int numberOfSubMeshes = 4;
+            const int numberOfVertices = 12;
+            const int numberOfSubMeshes = 20;
             Vector3[] vertices = new Vector3[numberOfVertices];
             int[][] topology = new int[numberOfSubMeshes][];
             Material[] materials = new Material[numberOfSubMeshes];
 
-            vertices[0] = new Vector3(1.0f, 1.0f, 1.0f);
-            vertices[1] = new Vector3(1.0f, -1.0f, -1.0f);
-            vertices[2] = new Vector3(-1.0f, -1.0f, 1.0f);
-            vertices[3] = new Vector3(-1.0f, 1.0f, -1.0f);
+            // Hilfsgrößen für die Eckpunktkoordinaten
+            // Tau, der Kehrwert des goldenen Schnitts
+            float X = 0.525731112119133606f;
+            float Z = 0.850650808352039932f;
+
+            vertices[0] = new Vector3( -X, 0.0f, Z );
+            vertices[1] = new Vector3(  X, 0.0f, Z );
+            vertices[2] = new Vector3( -X, 0.0f, -Z );
+            vertices[3] = new Vector3(  X, 0.0f, -Z ) ;
+            vertices[4] = new Vector3( 0.0f, Z,  X ) ;
+            vertices[5] = new Vector3( 0.0f, Z, -X);
+            vertices[6] = new Vector3( 0.0f, -Z, X);
+            vertices[7] = new Vector3( 0.0f, -Z, -X);
+            vertices[8] = new Vector3( Z, X, 0.0f );
+            vertices[9] = new Vector3(-Z, X, 0.0f );
+            vertices[10] = new Vector3( Z, -X, 0.0f);
+            vertices[11] = new Vector3( -Z, -X, 0.0f);
 
             // Die Einträge in der Topologie beziehen sich auf 
             // die Indizes der Eckpunkte.
-            topology[0] = new int[3] { 0, 3, 2 };
-            topology[1] = new int[3] { 0, 2, 1 };
-            topology[2] = new int[3] { 1, 2, 3 };
-            topology[3] = new int[3] { 0, 1, 3 };
+            topology[0] = new int[3] { 1, 4, 0 };
+            topology[1] = new int[3] { 4, 9 , 0 };
+            topology[2] = new int[3] { 4, 5, 9 };
+            topology[3] = new int[3] { 8, 5, 4 };
+            topology[4] = new int[3] { 1, 8, 4};
+            topology[5] = new int[3] { 1, 10, 8 };
+            topology[6] = new int[3] { 10, 3, 8 };
+            topology[7] = new int[3] { 8, 3, 5 };
+            topology[8] = new int[3] { 3, 2, 5 };
+            topology[9] = new int[3] { 3, 7, 2 };
+            topology[10] = new int[3] { 3, 10, 7 };
+            topology[11] = new int[3] { 10, 6, 7 };
+            topology[12] = new int[3] { 6, 11, 7};
+            topology[13] = new int[3] { 6, 0, 11 };
+            topology[14] = new int[3] { 6, 1, 0 };
+            topology[15] = new int[3] { 10, 1, 6 };
+            topology[16] = new int[3] { 11, 0, 9};
+            topology[17] = new int[3] { 2, 11, 9 };
+            topology[18] = new int[3] { 5, 2, 9 };
+            topology[19] = new int[3] { 11, 2, 7 };
 
             // Polygonales Netz erzeugen, Geometrie und Topologie zuweisen
             // Es wäre möglich weniger als vier SubMeshes zu erzeugen,
