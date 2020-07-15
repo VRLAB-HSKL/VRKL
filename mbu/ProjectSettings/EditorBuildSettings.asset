@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/MBU/Scenes/examine.unity
+    guid: 64c4e3af2b4991846ace61bd02670fdf
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 58e501cdc3ad83f4ea04ae70b610b9a9,
+      type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 3c5539065262b5b4d8ca1b0013a87c4f,
+      type: 2}
