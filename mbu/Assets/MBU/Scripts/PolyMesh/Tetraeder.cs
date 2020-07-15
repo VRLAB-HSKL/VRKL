@@ -18,16 +18,6 @@ namespace VRKL.MBU
     public class Tetraeder : PolyMesh
     {
         /// <summary>
-        /// Die Beschreibung setzen, damit wir das Netz mit dieser
-        /// Beschreibung abspeichern können.
-        /// 
-        /// Wir verwenden den Text "tetraeder".
-        /// </summary>
-        protected override void Awake()
-        {
-            Description = "tetraeder";
-        }
-        /// <summary>
         /// Wir erzeugen für jedes Face des Tetraeders ein SubMesh.
         /// Auch das Material muss anschließend für jedes SubMesh erzeugt
         /// und zugewiesen werden. Das könnte verwendet werden um

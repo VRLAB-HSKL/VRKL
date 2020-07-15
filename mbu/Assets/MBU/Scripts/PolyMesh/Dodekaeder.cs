@@ -19,16 +19,6 @@ namespace VRKL.MBU
     public class Dodekaeder : PolyMesh
     {
         /// <summary>
-        /// Die Beschreibung setzen, damit wir das Netz mit dieser
-        /// Beschreibung abspeichern können.
-        /// 
-        /// Wir verwenden den Text "dodekaeder".
-        /// </summary>
-        protected override void Awake()
-        {
-            Description = "dodekaeder";
-        }
-        /// <summary>
         /// Wir erzeugen für jedes Face des Dodekaeders ein SubMesh.
         /// Auch das Material muss anschließend für jedes SubMesh erzeugt
         /// und zugewiesen werden. Das könnte verwendet werden um

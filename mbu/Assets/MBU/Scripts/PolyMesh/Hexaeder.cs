@@ -17,19 +17,8 @@ namespace VRKL.MBU
     /// Der planare Graph für die verwendete Topologie finden wir in Abbildung 4.76.
     /// </remarks>
     /// </summary>
-
     public class Hexaeder : PolyMesh
     {
-        /// <summary>
-        /// Die Beschreibung setzen, damit wir das Netz mit dieser
-        /// Beschreibung abspeichern können.
-        /// 
-        /// Wir verwenden den Text "hexaeder".
-        /// </summary>
-        protected override void Awake()
-        {
-            Description = "hexaeder";
-        }
         /// <summary>
         /// Wir erzeugen für jedes Face des Tetraeders ein SubMesh.
         /// Auch das Material muss anschließend für jedes SubMesh erzeugt
