@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿//========= 2020 - Copyright Manfred Brill. All rights reserved. ===========
 
 namespace VRKL.MBU
 {
@@ -36,12 +36,6 @@ namespace VRKL.MBU
         /// Wird während des Verlassens eines States aufgerufen
         /// </summary>
         public abstract void OnStateQuit();
-
-        /// <summary>
-        /// Jeder Zustand weiß, was der nachfolgende Zustand ist
-        /// und wechselt in diesen Zustand mit Hilfe dieser Funktion.
-        /// </summary>
-        public abstract State ChangeState();
 
         /// <summary>
         /// Sollen die Zustandsklassen eine Ausgabe auf der Konsole durchführen?

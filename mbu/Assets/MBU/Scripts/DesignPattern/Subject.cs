@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿//========= 2020 - Copyright Manfred Brill. All rights reserved. ===========
+
+using System.Collections.Generic;
 
 namespace VRKL.MBU
 {
@@ -38,7 +40,7 @@ namespace VRKL.MBU
 
         /// <summary>
         /// Default-Konstruktor
-        /// </summary>
+        /// </summary
         protected Subject()
         {
             observers = new List<Observer>();

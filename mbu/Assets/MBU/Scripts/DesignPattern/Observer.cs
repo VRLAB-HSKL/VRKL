@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+﻿//========= 2020 - Copyright Manfred Brill. All rights reserved. ===========
 
+using UnityEngine;
 
 namespace VRKL.MBU
 {
