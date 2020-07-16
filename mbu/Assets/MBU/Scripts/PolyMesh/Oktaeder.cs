@@ -17,7 +17,6 @@ namespace VRKL.MBU
     /// Der planare Graph für die verwendete Topologie finden wir in Abbildung 4.76.
     /// </remarks>
     /// </summary>
-
     public class Oktaeder : PolyMesh
     {
         /// <summary>

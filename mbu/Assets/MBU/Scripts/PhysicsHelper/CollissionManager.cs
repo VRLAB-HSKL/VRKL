@@ -7,29 +7,32 @@
 /// 
 /// Voraussetzung: Diese GameObject hat *nicht* die Eigenschaft "isTrigger"!
 /// </summary>
-public class CollissionManager : MonoBehaviour
+namespace VRKL.MBU
 {
-    /// <summary>
-    /// Kollision hat begonnen
-    /// </summary>
-    /// <param name="collision">Daten der Kollision wie Name des
-    /// kollidierenden Objekts und weitere Informationen</param>
-    void OnCollisionEnter(Collision Coll)
+    public class CollissionManager : MonoBehaviour
     {
-        Debug.Log(">>> OnCollisionEnter");
-        Debug.Log("Eine Kollision mit  " + Coll.collider.gameObject.name + " hat begonnen!");
-        Debug.Log("<<< OnCollisionEnter");
-    }
+        /// <summary>
+        /// Kollision hat begonnen
+        /// </summary>
+        /// <param name="collision">Daten der Kollision wie Name des
+        /// kollidierenden Objekts und weitere Informationen</param>
+        void OnCollisionEnter(Collision Coll)
+        {
+            Debug.Log(">>> OnCollisionEnter");
+            Debug.Log("Eine Kollision mit  " + Coll.collider.gameObject.name + " hat begonnen!");
+            Debug.Log("<<< OnCollisionEnter");
+        }
 
-    /// <summary>
-    /// Kollision ist beendet
-    /// </summary>
-    /// <param name="collision">Daten der Kollision wie Name des
-    /// kollidierenden Objekts und weitere Informationen</param>
-    void OnCollisionExit(Collision Coll)
-    {
-        Debug.Log(">>> OnCollisionExit");
-        Debug.Log("Ende der Kollision mit " + Coll.collider.gameObject.name +  " ist beendet!");
-        Debug.Log(">>> OnCollisionExit");
+        /// <summary>
+        /// Kollision ist beendet
+        /// </summary>
+        /// <param name="collision">Daten der Kollision wie Name des
+        /// kollidierenden Objekts und weitere Informationen</param>
+        void OnCollisionExit(Collision Coll)
+        {
+            Debug.Log(">>> OnCollisionExit");
+            Debug.Log("Ende der Kollision mit " + Coll.collider.gameObject.name + " ist beendet!");
+            Debug.Log(">>> OnCollisionExit");
+        }
     }
 }

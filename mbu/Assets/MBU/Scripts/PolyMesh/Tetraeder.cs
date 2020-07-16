@@ -14,7 +14,6 @@ namespace VRKL.MBU
     /// und Brill/Bender, "Computergrafik", in den Einheitswürfel platziert.
     /// </remarks>
     /// </summary>
-
     public class Tetraeder : PolyMesh
     {
         /// <summary>
