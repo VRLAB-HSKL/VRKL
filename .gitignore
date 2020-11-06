@@ -5,6 +5,9 @@
 *~
 *.swp
 
+# mbu Package ignorieren, wir fügen das mit Hilfe eines GitHub-Release als binary hinzu
+**/mbu.unitypackage
+
 # Andere Unity Verzeichnisse
 Unity/**/Library/*
 Unity/**/obj/*
