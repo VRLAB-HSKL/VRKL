@@ -4,7 +4,7 @@ using UnityEngine;
 namespace VRKL.MBU
 {
     /// <summary>
-    /// Eine Kamera für "Fly"
+    /// Eine Kamera für "Fly" oder "Pilotsview".
     /// Die Klasse realisiert zwei verschiedene Möglichkeiten
     /// - Travelling mit Starrkörpertransformationen in Transform
     /// - Travelling mit Physik und Kollisiionen
@@ -24,7 +24,7 @@ namespace VRKL.MBU
     /// Änderungen: Manfred Brill, Sommersemester 2020
     /// </remarks>
     /// </summary>
-    [AddComponentMenu("Custom/VR/FlyingCamera")]
+    [AddComponentMenu("MBU/Camera/FlyingCamera")]
     [RequireComponent(typeof(Camera))]
     public class FlyingCamera : MonoBehaviour
     {
@@ -136,7 +136,7 @@ namespace VRKL.MBU
         /// </summary>
         /// <remarks>
         /// To Do: Statt switch Anweisung virtuelle Klasse und davon abgeleitet
-        /// zwei Klassen, einmal Ghost und einmal Phyisics!
+        /// zwei Klassen, einmal Ghost und einmal Physics!
         /// </remarks>
         public void FixedUpdate()
         {
