@@ -9,10 +9,10 @@
 **/mbu.unitypackage
 
 # Andere Unity Verzeichnisse
-Unity/**/Library/*
-Unity/**/obj/*
-Unity/**/ProjectSettings/*
-Unity/**/Logs/*
+**/Library/*
+**/obj/*
+**/ProjectSettings/*
+**/Logs/*
 
 # Assets wie MiddleVR, Steam, VRTK oder GitHub
 # Aktuell gehen wir davon aus, dass wir dies rekonstruieren können.
