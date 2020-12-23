@@ -5,6 +5,9 @@
 *~
 *.swp
 
+# Windows
+**/desktop.ini
+
 # mbu Package ignorieren, wir fügen das mit Hilfe eines GitHub-Release als binary hinzu
 **/mbu.unitypackage
 
