@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/MBU/Scenes/helloScene.unity
     guid: c7692156f3a757b43a3a313e30d0adc7
   m_configObjects:
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 58e501cdc3ad83f4ea04ae70b610b9a9,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b531b59fcd0552a438e77eb5465bf946,
       type: 2}
-    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 3c5539065262b5b4d8ca1b0013a87c4f,
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 584a713c26027d34296dbc2287952a96,
       type: 2}
