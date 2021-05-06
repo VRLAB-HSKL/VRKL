@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PhongOrange
-  m_Shader: {fileID: 4800000, guid: 0f66923c3066f0f4aab3ec3c1ce9922a, type: 3}
+  m_Name: JustColorOrange
+  m_Shader: {fileID: 4800000, guid: e4718a78d21bb2a4b957b61e9afcf631, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -25,12 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Shininess: 16
-    - _Step_x_1: 0.1
-    - _Step_x_2: 0.6
-    - _Step_x_3: 0.85
-    - _Step_y_1: 0.2
-    - _Step_y_2: 0.5
-    - _Step_y_3: 0.85
     m_Colors:
-    - _Color: {r: 1, g: 0.6728186, b: 0.19215685, a: 1}
-    - _SpecColor: {r: 1, g: 0.8902993, b: 0.15599996, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _MyColor: {r: 0.99215686, g: 0.59973437, b: 0, a: 1}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
