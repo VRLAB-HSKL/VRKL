@@ -32,5 +32,6 @@ Material:
     - _Step_y_2: 0.5
     - _Step_y_3: 0.85
     m_Colors:
-    - _Color: {r: 1, g: 0.6728186, b: 0.19215685, a: 1}
-    - _SpecColor: {r: 1, g: 0.8902993, b: 0.15599996, a: 1}
+    - _Color: {r: 0.8396226, g: 0.6204303, b: 0, a: 1}
+    - _SpecColor: {r: 0.9811321, g: 0.9769131, b: 0.9487362, a: 1}
+  m_BuildTextureStacks: []
