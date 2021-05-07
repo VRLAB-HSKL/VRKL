@@ -6,7 +6,6 @@ using UnityEngine;
 /// </summary>
 namespace VRKL.MBU
 {
-
     /// <summary>
     /// Klasse für die Erzeugung eines Hexaeders während der Laufzeit einer Anwendung.
     /// <remarks>
