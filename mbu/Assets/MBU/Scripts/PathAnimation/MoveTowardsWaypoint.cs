@@ -9,7 +9,7 @@ namespace VRKL.MBU
     /// <summary>
     /// Bewegung eines Objekts mit Hilfe von Zielpunkten.
     /// 
-    /// Diese Klasse setzt voraus, dass eine Komponente
+    /// Diese Klasse setzt voraus, dass es eine Komponente
     /// wie InteractiveWaypoints gibt, die wir für die 
     /// Definition der Wegpunkte verwenden. 
     /// 

@@ -7,10 +7,18 @@ using UnityEngine;
 namespace VRKL.MBU
 {
     /// <summary>
-    /// Die Anwendung mit der ESC-Taste beenden.
+    /// Die Anwendung mit dem Cancel-Button beenden.
     /// <remarks>
-    /// Wir verwenden ESC sowohl im Editor
-    /// als auch ein einem Build.
+    /// Wir verwenden die Klasse Input und die Buttons, die
+    /// im Input-Manager definiert sind. Diese Belegungen erhalten 
+    /// wir mit Edit -> Project Settings -> input Manager.
+    /// 
+    /// Dort werden logische Namen wie "Submit, Cancel oder Jump
+    /// und die Buttons dafür definiert. Der Vorteil dieser Methode
+    /// ist, dass wir nicht nur physikalisch vorhandene Tasten, sondern
+    /// auch Joystick-Buttons verwenden können wenn sie vorhanden sind.
+    /// 
+    /// Default ist "Cancel", was im Normalfall der Escape-Taste entspricht.
     /// </remarks>
     /// </summary>
     public class QuitApplication : MonoBehaviour
@@ -20,7 +28,8 @@ namespace VRKL.MBU
         /// </summary>
         private void Update()
         {
-            if (Input.GetKeyUp(KeyCode.Escape))
+
+            if (Input.GetButton("Cancel"))
             {
                 Application.Quit();
             #if UNITY_EDITOR

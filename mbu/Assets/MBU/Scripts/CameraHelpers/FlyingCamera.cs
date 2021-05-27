@@ -192,7 +192,7 @@ namespace VRKL.MBU
         /// Orientierung der Bewegung auf der Basis der Mausbewegung.
         /// 
         /// Die Mausbewegungen werden mit dem Dämpfungsfaktor multipliziert,
-        /// um die Sensitivität zu dämpfen.
+        /// um die Sensitivität zu steuern.
         /// 
         /// Wir verwenden Eulerwinkel.
         /// </summary>

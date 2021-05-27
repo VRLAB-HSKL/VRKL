@@ -1,4 +1,4 @@
-﻿//========= 2020 - Copyright Manfred Brill. All rights reserved. ===========
+﻿//========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 
 namespace VRKL.MBU
@@ -6,29 +6,19 @@ namespace VRKL.MBU
     /// <summary>
     /// Rotation eines Objekts um seinen Schwerpunkt.
     /// 
-    /// Die C#-Klasse verwendet die Renderer-Komponente
-    /// des untersuchten GameObjects. Dies wird durch
+    /// Die Klasse verwendet die Renderer-Komponente
+    /// des GameObjects, dem diese Klasse als Komponente
+    /// hinzugefügt ist. Dies wird durch
     /// <code>RequireComponent</code> sicher gestellt.
-    /// <remarks>
-    /// Mehr zur Examine-Metapher findet man in
-    /// Michael Bender, Manfred Brill: "Computergrafik",
-    /// Hanser Verlag, 2005.
-    /// </remarks>
+    /// 
+    /// Wir verwenden den Mittelpunkt
+    /// der axis-aligned BBox, die der Unity-Renderer erzeugt, als 
+    /// Ursprung unseres Examine-Koordinatensystems.
     /// </summary>
     [AddComponentMenu("MBU/Camera/RotateObject")]
     [RequireComponent(typeof(Renderer))]
     public class RotateObject : MonoBehaviour
     {
-        /// <summary>
-        /// Welches Objekt wollen wir untersuchen?
-        /// 
-        /// Voraussetzung für diese Klasse ist, dass das beobachtete Objekt
-        /// einen Renderer besitzt. Wir verwenden den Mittelpunkt
-        /// der axis-aligned BBox, die der Unity-Renderer erzeugt, als 
-        /// Ursprung unseres Examine-Koordinatensystems.
-        /// </summary>
-
-        /// <summary>
         /// Differenz des Rotationswinkels, falls ein Event 
         /// auftritt in Gradmaß.
         /// </summary>
@@ -81,10 +71,6 @@ namespace VRKL.MBU
 
         /// <summary>
         /// Um welchen Punkt in Weltkoordinaten rotiert die Kamera?
-        /// <remarks>
-        /// Wir verwenden das Zentrum des Colliders, der zu diesem
-        /// Objekt gehört.
-        /// </remarks>
         /// </summary>
         private Vector3 RotationPoint;
 

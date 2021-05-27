@@ -1,4 +1,4 @@
-﻿//========= 2020 - Copyright Manfred Brill. All rights reserved. ===========
+﻿//========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 
 namespace VRKL.MBU
@@ -6,10 +6,10 @@ namespace VRKL.MBU
     /// <summary>
     /// Examine-Metapher
     /// 
-    /// Die C#-Klasse verwendet die Renderer-Komponente
+    /// Die Klasse verwendet die Renderer-Komponente
     /// einer plane, die in Start erzeugt wird. 
     /// Als Ursprung der Rotationen wird das Zentrum dieser
-    /// Plane verwendet, die anschließend nicht dargestellt wird.
+    /// Plane verwendet, die nicht dargestellt wird.
     /// <remarks>
     /// Mehr zur Examine-Metapher findet man in
     /// Michael Bender, Manfred Brill: "Computergrafik",

@@ -216,7 +216,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &201533293
 GameObject:
@@ -311,7 +311,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &275774121
 GameObject:
@@ -348,8 +348,8 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
+    m_Type: 1
+    m_Resolution: 1
     m_CustomResolution: -1
     m_Strength: 0.542
     m_Bias: 0.05
@@ -581,7 +581,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1517854162
 GameObject:
@@ -676,7 +676,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &1685037666
 LightingSettings:
@@ -748,7 +748,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
       propertyPath: m_Name
-      value: MouseFlyingCamera
+      value: MouseWalkCamera
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
       propertyPath: m_RootOrder
@@ -800,7 +800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
       propertyPath: mode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
       propertyPath: movementSpeed
@@ -814,8 +814,31 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
+--- !u!1 &1777627067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 2c68534c077e20c42ac55675aef37484,
+    type: 3}
+  m_PrefabInstance: {fileID: 1777627066}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1777627068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777627067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4c446a0b333e943bb75b9b1689365f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TheTriggerButton: Fire1
+  TheSpeed: 5
+  WalkAxis: Mouse X
+  MouseSensitivity: 0.5
 --- !u!1001 &2366289384455771216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -831,7 +854,7 @@ PrefabInstance:
     - target: {fileID: 9204733672476674245, guid: 666d20742c333c346ad21d119b2be48e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9204733672476674245, guid: 666d20742c333c346ad21d119b2be48e,
         type: 3}
