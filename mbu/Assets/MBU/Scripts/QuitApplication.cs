@@ -18,7 +18,8 @@ namespace VRKL.MBU
     /// ist, dass wir nicht nur physikalisch vorhandene Tasten, sondern
     /// auch Joystick-Buttons verwenden können wenn sie vorhanden sind.
     /// 
-    /// Default ist "Cancel", was im Normalfall der Escape-Taste entspricht.
+    /// Default ist "Cancel", was im Normalfall auf der Tastatus
+	/// der Escape-Taste entspricht.
     /// </remarks>
     /// </summary>
     public class QuitApplication : MonoBehaviour

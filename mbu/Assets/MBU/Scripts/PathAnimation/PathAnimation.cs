@@ -7,19 +7,22 @@ using UnityEngine;
 namespace VRKL.MBU
 {
     /// <summary>
-    /// Bewegung eines Objekts entlang einer Parameterkurve
+    /// Abstrakte Basisklasse für die Bewegung eines GameObjects entlang einer Kurve
     /// </summary>
     public abstract class PathAnimation : MonoBehaviour
     {
-        [Range(8, 1024)]
-        [Tooltip("Radius")]
+        /// <summary>
+		///Wir nähern die Kurve mit Hilfe von Waypoints an.
+		/// </summary)
+		[Range(8, 1024)]
+        [Tooltip("Anzahl der Waypoints")]
         public int NumberOfPoints = 64;
         /// <summary>
-        /// Ist das Objekt näher beim Ziel als distance,
-        /// wird das nächste Ziel verwendet.
+        /// Ist das Objekt näher beim aktuellen Waypoint als distance,
+        /// wird der nächste Waypoint verwendet.
         /// </summary>
         [Range(0.1f, 10.0f)]
-        [Tooltip("Bei welchem Abstand gilt das Ziel als erreicht?")]
+        [Tooltip("Minimaler Abstand zu einem Waypoint")]
         public float distance = 1.0f;
         /// <summary>
         /// Geschwindigkeit der Bewegung
@@ -29,14 +32,16 @@ namespace VRKL.MBU
         public float speed = 5.0f;
 
         /// <summary>
-        /// Instanz der Klasse WaypointManager.
+        /// Instanz der Klasse WaypointManager
         /// 
         /// Die Berechnung von Positionen und die Verwaltung
         /// der Zielpunkte erfolgt in dieser C#-Klasse.
         /// Sie ist *nicht* von MonoBehaviour abgeleitet!
         /// </summary>
         protected WaypointManager manager = null;
-
+        /// <summary>
+        /// Array mit Instanzen von Vector3 für die Waypoints
+        /// </summary>
         protected Vector3[] waypoints;
 
         /// <summary>
@@ -47,7 +52,7 @@ namespace VRKL.MBU
         {
             ComputePath();
             this.manager = new WaypointManager(this.waypoints, distance);
-            // Bewegtes Objekt auf den ersten Zielpunkt setzen
+            // Den ersten Zielpunkt setzen
             transform.position = manager.GetWaypoint();
         }
 
