@@ -31,6 +31,26 @@ namespace VRKL.MBU
         protected MeshRenderer objectRenderer;
 
         /// <summary>
+        /// Anzahl der Eckpunkte
+        /// </summary>
+        public int NumberOfVertices
+        {
+            get { return _numberOfVertices; }
+            set { _numberOfVertices = _numberOfVertices; }
+        }
+        private int _numberOfVertices { get; set; } = 0;
+
+        /// <summary>
+        /// Anzahl der Facetten (in Unity spricht man von Submeshes)
+        /// </summary>
+        public int NumberOfSubMeshes
+        {
+            get { return _numberOfSubMeshes; }
+            set { _numberOfSubMeshes = _numberOfSubMeshes; }
+        }
+        private int _numberOfSubMeshes { get; set; } = 0;
+
+        /// <summary>
         /// Das polygonale Netz wird in der abgeleiteten Klasse
         /// mit Hilfe der Funktion Create erzeugt!
         /// </summary>
