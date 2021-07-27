@@ -37,9 +37,14 @@ namespace VRKL.MBU
         protected abstract void Create();
 
         /// <summary>
-        /// MeshRenderer und MeshFilter zuordnen und Netz erzeugen.
+        /// In Awake MeshRenderer und MeshFilter zuordnen und Netz erzeugen.
+        /// 
+        /// <remarks>
+        /// Die Start-Funktion wird hier nicht deklariert und kann in 
+        /// abgeleiteten Klassen implementiert werden!
+        /// </remarks>
         /// </summary>
-        protected virtual void Start()
+        protected virtual void Awake()
         {
             this.objectFilter = gameObject.GetComponent<MeshFilter>();
             this.objectRenderer = gameObject.GetComponent<MeshRenderer>();
@@ -48,6 +53,5 @@ namespace VRKL.MBU
             Create();
         }
 
-        protected virtual void Awake() { }
     }
 }
