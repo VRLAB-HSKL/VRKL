@@ -27,11 +27,11 @@ namespace VRKL.MBU
         /// </summary>
         protected override void Create()
         {
-            NumberOfVertices = 6;
-            NumberOfSubMeshes = 8;
-            Vector3[] vertices = new Vector3[6];
-            int[][] topology = new int[NumberOfSubMeshes][];
-            Material[] materials = new Material[NumberOfSubMeshes];
+            const int numberOfVertices = 6;
+            const int numberOfSubMeshes = 8;
+            Vector3[] vertices = new Vector3[numberOfVertices];
+            int[][] topology = new int[numberOfSubMeshes][];
+            Material[] materials = new Material[numberOfSubMeshes];
 
             vertices[0] = new Vector3( 0.0f,  0.0f, -1.0f);
             vertices[1] = new Vector3( 0.0f,  0.0f,  1.0f);
@@ -58,11 +58,11 @@ namespace VRKL.MBU
             Mesh simpleMesh = new Mesh()
             {
                 vertices = vertices,
-                subMeshCount = NumberOfSubMeshes
+                subMeshCount = numberOfSubMeshes
             };
             // Wir nutzen nicht aus, dass wir pro Submesh ein eigenes
             // Material verwenden.
-            for (int i = 0; i < NumberOfSubMeshes; i++)
+            for (int i = 0; i < numberOfSubMeshes; i++)
             {
                 simpleMesh.SetTriangles(topology[i], i);
                 materials[i] = meshMaterial;

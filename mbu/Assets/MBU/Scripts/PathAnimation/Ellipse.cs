@@ -7,7 +7,7 @@ using UnityEngine;
 namespace VRKL.MBU
 {
     /// <summary>
-    /// Bewegung eines Objekts entlang eines Kreise
+    /// Bewegung eines Objekts entlang eines Kreises
     /// </summary>
     public class Ellipse : PathAnimation
     {

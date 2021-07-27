@@ -24,11 +24,11 @@ namespace VRKL.MBU
         /// </summary>
         protected override void Create()
         {
-            NumberOfVertices = 12;
-            NumberOfSubMeshes = 20;
-            Vector3[] vertices = new Vector3[12];
-            int[][] topology = new int[NumberOfSubMeshes][];
-            Material[] materials = new Material[NumberOfSubMeshes];
+            const int numberOfVertices = 12;
+            const int numberOfSubMeshes = 20;
+            Vector3[] vertices = new Vector3[numberOfVertices];
+            int[][] topology = new int[numberOfSubMeshes][];
+            Material[] materials = new Material[numberOfSubMeshes];
 
             // Hilfsgrößen für die Eckpunktkoordinaten
             // Tau, der Kehrwert des goldenen Schnitts
@@ -78,11 +78,11 @@ namespace VRKL.MBU
             Mesh simpleMesh = new Mesh()
             {
                 vertices = vertices,
-                subMeshCount = NumberOfSubMeshes
+                subMeshCount = numberOfSubMeshes
             };
             // Wir nutzen nicht aus, dass wir pro Submesh ein eigenes
             // Material verwenden.
-            for (int i = 0; i < NumberOfSubMeshes; i++)
+            for (int i = 0; i < numberOfSubMeshes; i++)
             {
                 simpleMesh.SetTriangles(topology[i], i);
                 materials[i] = meshMaterial;

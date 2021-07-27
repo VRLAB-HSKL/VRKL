@@ -13,7 +13,7 @@ namespace VRKL.MBU
     /// drei Dreiecke.
     /// <remarks>
     /// Die vier Eckpunkte des Tetraeders werden wie in Blinn
-    /// und Brill/Bender, "Computergrafik", iauf der Einheitskugel platziert.
+    /// und Brill/Bender, "Computergrafik", auf der Einheitskugel platziert.
     /// </remarks>
     /// </summary>
     public class Dodekaeder : PolyMesh
@@ -26,11 +26,11 @@ namespace VRKL.MBU
         /// </summary>
         protected override void Create()
         {
-            NumberOfVertices = 20;
-            NumberOfSubMeshes = 36;
-            Vector3[] vertices = new Vector3[20];
-            int[][] topology = new int[36][];
-            Material[] materials = new Material[NumberOfSubMeshes];
+            const int numberOfVertices = 20;
+            const int numberOfSubMeshes = 36;
+            Vector3[] vertices = new Vector3[numberOfVertices];
+            int[][] topology = new int[numberOfSubMeshes][];
+            Material[] materials = new Material[numberOfSubMeshes];
 
             // Hilfsvariable für die Eckpunkte
             float A = 0.618034f;
@@ -118,11 +118,11 @@ namespace VRKL.MBU
             Mesh simpleMesh = new Mesh()
             {
                 vertices = vertices,
-                subMeshCount = NumberOfSubMeshes
+                subMeshCount = numberOfSubMeshes
             };
             // Wir nutzen nicht aus, dass wir pro Submesh ein eigenes
             // Material verwenden.
-            for (int i = 0; i < NumberOfSubMeshes; i++)
+            for (int i = 0; i < numberOfSubMeshes; i++)
             {
                 simpleMesh.SetTriangles(topology[i], i);
                 materials[i] = meshMaterial;
@@ -134,8 +134,8 @@ namespace VRKL.MBU
             simpleMesh.OptimizeIndexBuffers();
 
             // Zuweisungen für die erzeugten Komponenten
-            this.objectFilter.mesh = simpleMesh;
-            this.objectRenderer.materials = materials;
+            objectFilter.mesh = simpleMesh;
+            objectRenderer.materials = materials;
         }
     }
 }
