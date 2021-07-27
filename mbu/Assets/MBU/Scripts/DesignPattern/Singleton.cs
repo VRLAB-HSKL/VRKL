@@ -6,9 +6,9 @@ namespace VRKL.MBU
     /// Beispiel für die Implementierung eines Singleton
     /// in C#.
     /// 
+    /// Wir verwenden "eager creation".
     /// Wenn nie auf diese Klasse zugegriffen wird, dann wird
     /// die Instanz nie erzeugt.
-    /// Wir verwenden "Eager Creation".
     /// Die Klasse kann auch als <code>static</code> deklariert
     /// werden. Das ist nützlich im Fall, dass wir die
     /// Singleton-Klasse nicht von einer weitere Basisklasse

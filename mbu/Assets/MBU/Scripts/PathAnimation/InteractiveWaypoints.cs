@@ -29,9 +29,6 @@ namespace VRKL.MBU
 
         /// <summary>
         /// Instanzen der Renderer für die Zielobjekte
-        /// 
-        /// Wir können zentral, mit einem Schalter im Editor, entscheiden,
-        /// ob die Zielobjekte dargestellt werden.
         /// </summary>
         private MeshRenderer[] ren;
 
@@ -51,7 +48,7 @@ namespace VRKL.MBU
                 }
             }
             else
-                Debug.Log("Fehler - Keine GameObjects als Zielobjekte in der Szene!");
+                Debug.LogError("Fehler - Keine GameObjects als Zielobjekte in der Szene!");
         }
     }
 }
