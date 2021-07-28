@@ -9,8 +9,9 @@ eine Markdown-Datei mit einer kleinen Dokumentation des Projekts.
 | Verzeichnis | Thema |
 | ---- | --------------- |
 | Helloworld | Szene mit einfachen GameObjects, Materialien aus dem Package und einer Walk-Kamerasteuerung. |
-| CameraHelper | Kamerasteuerungen, insbesondere Fly und Walk mit der Maus. |
 | DesignPatterns | Szenen, die die Anwendung der Basisklassen wie State, Subject oder Observer verdeutlichen. |
+| Locomotion | Basisklasse, Fly und Walk mit der Maus. |
+| CameraHelper | Examine-Metapher und rotieren eines Objekts um seinen Schwerpunkt. |
 | PathAnimation | szenen, die mit Hilfe von Waypoints Objekte entlang von definierten Wegen animieren. |
 | PolyMesh | Polygonale Netze mit der Basisklasse PolyMesh. |
 | Rendering | Materialien und HLSL Shader. |

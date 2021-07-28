@@ -18,7 +18,7 @@ namespace VRKL.MBU
     /// </summary>
     [AddComponentMenu("MBU/Examine")]
      public class Examine : MonoBehaviour
-    {
+     {
         /// <summary>
         /// Welches Objekt wollen wir untersuchen?
         /// 

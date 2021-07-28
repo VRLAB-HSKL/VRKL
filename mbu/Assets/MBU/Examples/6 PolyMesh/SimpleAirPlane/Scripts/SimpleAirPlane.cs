@@ -19,6 +19,13 @@ using VRKL.MBU;
 public class SimpleAirPlane : PolyMesh
 {
     /// <summary>
+    /// Faktor für eine gleichmässige Skalierung des Modells.
+    /// </summary>
+    [Range(0.05f, 1.5f)]
+    [Tooltip("Skalierungsfaktor\\Das Modell ist 6 m lang und jeweils 1 m hoch und breit")]
+    public float Factor = 1.0f;
+
+    /// <summary>
     /// Wir speichern die Geometrie und die Topologie des Dreiecks ab
     /// und legen die Daten in eine Instanz der Klaasse Mesh.
     /// </summary>
@@ -52,6 +59,11 @@ public class SimpleAirPlane : PolyMesh
         vertices[17] = new Vector3( 0.0f, 0.0f,-3.0f);
         vertices[18] = new Vector3( 0.0f, 0.0f,-1.0f);
         vertices[19] = new Vector3( 0.0f, 3.0f, -3.0f);
+
+        for (int i=0; i<vertices.Length; i++)
+        {
+            vertices[i] = Factor * vertices[i];
+        }
 
         // Die Einträge in der Topologie beziehen sich auf 
         // die Indizes der Eckpunkte.

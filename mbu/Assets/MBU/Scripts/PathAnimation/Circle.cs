@@ -21,6 +21,8 @@ namespace VRKL.MBU
 
         /// <summary>
         /// Berechnung der Punkte für einen Kreise mit Mittelpunkt im Ursprung
+        /// 
+        /// Wir verwenden das Parameterintervall [0.0, 2.0*pi].
         /// </summary>
         protected override void ComputePath()
         {
@@ -35,6 +37,23 @@ namespace VRKL.MBU
                 waypoints[i].z = Radius * Mathf.Sin(x);
                 x += delta;
             }
+        }
+
+        /// <summary>
+        /// Berechnung der ersten Lookat-Punkts. 
+        /// Wir berechnen die Tangente am ersten Punkt des Kreises
+        /// und berechnen einen Punkt auf der Gerade durch ersten Zielpunkt
+        /// mit Richtungsvektor Tangente als ersten Lookat-Punkt.
+        /// 
+        /// Wir verwenden nicht den Geschwindigkeitsvektor für die Berechnung,
+        /// da wir aktuell davon ausgehen, dass wir beim Parameterwert a=0 starten.
+        /// Dann ist die erste Orientierung durch forward, die z-Achse,
+        /// gegeben.
+        /// </summary>
+        /// <returns>Punkt, der LookAt übergeben werden kann</returns>
+        protected override Vector3 ComputeFirstLookAt()
+        {
+            return new Vector3(0.0f, 0.0f, 1.0f);
         }
     }
 }
