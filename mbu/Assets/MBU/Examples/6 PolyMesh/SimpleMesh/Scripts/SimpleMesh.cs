@@ -6,13 +6,12 @@ using System.Collections;
 /// 
 /// Verwendung: ein leeres GameObject im Editor erzeugen
 /// und dieses Skript diesem GameObject hinzufügen.
-/// Bei der Ausführung der Anwendung wird das polygonale Netz
-/// erstellt und dargestellt.
-/// 
-/// Anschließend können wir dem GameObject ein Material zuweisen.
-/// 
 /// Das polygonale Netz wird als Instanz der Klasse PolyMesh
 /// erzeugt.
+/// Anschließend können wir dem GameObject ein Material zuweisen.
+/// 
+/// Bei der Ausführung der Anwendung wird das polygonale Netz
+/// erstellt und dargestellt.
 /// </summary>
 
 public class SimpleMesh : VRKL.MBU.PolyMesh

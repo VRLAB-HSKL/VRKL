@@ -19,7 +19,7 @@ eine Markdown-Datei mit einer kleinen Dokumentation des Projekts.
 
 
 ## Unity-Version
-Alle Anwendungen verwenden (Stand Juli 2021) die Version Unity 2020.3 LTS.
+Alle Anwendungen verwenden (Stand August 2021) die Version Unity 2020.3 LTS.
 
 
 ![Lizenzlogo](https://licensebuttons.net/l/by-nc-sa/3.0/de/88x31.png)

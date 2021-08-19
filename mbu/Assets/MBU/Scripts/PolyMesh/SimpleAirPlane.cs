@@ -3,17 +3,22 @@ using System.Collections;
 using VRKL.MBU;
 
 /// <summary>
-/// Ein einfaches polygonales Netz erzeugen
+/// Ein einfaches Modell eines Flugzeugs
+/// 
+/// Dieses Modell ist eine Unity-Vesion des 
+/// Flugzeugmodells, das in VTK für die Visualisierung
+/// der Animation von Rotationen im Computergrafik-Buch
+/// realisiert wurde. Die hier verwendeten Dreiecke verwenden
+/// ein linkshändiges Koordinatensystem
 /// 
 /// Verwendung: ein leeres GameObject im Editor erzeugen
 /// und dieses Skript diesem GameObject hinzufügen.
-/// Bei der Ausführung der Anwendung wird das polygonale Netz
-/// erstellt und dargestellt.
-/// 
-/// Anschließend können wir dem GameObject ein Material zuweisen.
-/// 
 /// Das polygonale Netz wird als Instanz der Klasse PolyMesh
 /// erzeugt.
+/// Anschließend können wir dem GameObject ein Material zuweisen.
+/// 
+/// Bei der Ausführung der Anwendung wird das polygonale Netz
+/// erstellt und dargestellt.
 /// </summary>
 
 public class SimpleAirPlane : PolyMesh
