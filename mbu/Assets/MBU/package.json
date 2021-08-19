@@ -1,10 +1,10 @@
 {
     "name": "de.hs-kl.mbu",
-    "version": 0.9,
+    "version": 0.91,
     "displayName": "MBU Package",
     "description": "MBU Package",
-    "unity": "2019.4",
-    "unityRelease": "11f1 LTS",
+    "unity": "2020.3",
+    "unityRelease": "16f1 LTS",
     "keywords": [
         "Virtual Reality Kompakt"
     ],
