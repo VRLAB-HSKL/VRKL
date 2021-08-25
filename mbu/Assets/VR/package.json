@@ -1,0 +1,16 @@
+{
+    "name": "de.hs-kl.vrkl",
+    "version": "0.1",
+    "displayName": "VRKL Package",
+    "description": "VRKL Package",
+    "unity": "2020.3",
+    "unityRelease": "16f1 LTS",
+    "keywords": [
+        "Virtual Reality Kompakt"
+    ],
+    "author": {
+      "name": "Benedict Särota",
+      "email": "benedict.saerota@hs-kl.de",
+      "url": "http://www.hs-kl.de"
+    }
+}
