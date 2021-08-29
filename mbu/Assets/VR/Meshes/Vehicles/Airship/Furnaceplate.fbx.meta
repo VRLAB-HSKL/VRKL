@@ -29,7 +29,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Ofen
-    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+    second: {fileID: 2100000, guid: d363181f94b9e534784654d0af231f47, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

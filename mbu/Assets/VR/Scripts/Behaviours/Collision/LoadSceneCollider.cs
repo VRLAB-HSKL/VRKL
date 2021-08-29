@@ -18,7 +18,7 @@ public class LoadSceneCollider : AbstractCollider
     /// Partikelsystem, damit der Benutzer mitbekommt, ob dieser das richtige Objekt hinzugefügt hat.
     /// </summary>
     [SerializeField]
-    private readonly ParticleSystem mTrueOrFalse;
+    public ParticleSystem mTrueOrFalse;
 
     /// <summary>
     /// Particle System Emmision

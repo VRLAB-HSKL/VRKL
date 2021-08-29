@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bf9968b763fcb4841bb8300239a3c5aa
+guid: 25db0cdee9e127c48b07c392f70f51d1
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -11,7 +11,7 @@ ModelImporter:
     second: //RootNode
   - first:
       21: 2100000
-    second: M_Luftklappe_MEC
+    second: No Name
   - first:
       23: 2300000
     second: //RootNode
@@ -20,13 +20,13 @@ ModelImporter:
     second: //RootNode
   - first:
       43: 4300000
-    second: Hidavig_LuftklapenSteuerung
+    second: Hidavig
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Luftklappe_MEC
-    second: {fileID: 2100000, guid: 4f6eadf817cc98b4886679441478b642, type: 2}
+      name: No Name
+    second: {fileID: 2100000, guid: 0826576b5bfdf5842a99be1ca4580222, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

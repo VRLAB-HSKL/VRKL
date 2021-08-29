@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bf9968b763fcb4841bb8300239a3c5aa
+guid: 248448c14c2f90d41b02f0827f18d636
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -11,7 +11,7 @@ ModelImporter:
     second: //RootNode
   - first:
       21: 2100000
-    second: M_Luftklappe_MEC
+    second: M_Decke
   - first:
       23: 2300000
     second: //RootNode
@@ -20,13 +20,16 @@ ModelImporter:
     second: //RootNode
   - first:
       43: 4300000
-    second: Hidavig_LuftklapenSteuerung
+    second: Decke
+  - first:
+      64: 6400000
+    second: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Luftklappe_MEC
-    second: {fileID: 2100000, guid: 4f6eadf817cc98b4886679441478b642, type: 2}
+      name: M_Decke
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -59,7 +62,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1

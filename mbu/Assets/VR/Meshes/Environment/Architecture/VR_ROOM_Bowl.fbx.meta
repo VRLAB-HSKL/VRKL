@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bf9968b763fcb4841bb8300239a3c5aa
+guid: 199345dfdda84c54b8099427a0317e6b
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -11,7 +11,10 @@ ModelImporter:
     second: //RootNode
   - first:
       21: 2100000
-    second: M_Luftklappe_MEC
+    second: "M_Stanfu\xDF_Glaskugel"
+  - first:
+      21: 2100002
+    second: M_Glaskugel
   - first:
       23: 2300000
     second: //RootNode
@@ -20,12 +23,20 @@ ModelImporter:
     second: //RootNode
   - first:
       43: 4300000
-    second: Hidavig_LuftklapenSteuerung
+    second: GlaskugelTitel
+  - first:
+      64: 6400000
+    second: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Luftklappe_MEC
+      name: M_Glaskugel
+    second: {fileID: 2100000, guid: ae97aaea94bb4b641b6bd8d08202fdb8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "M_Stanfu\xDF_Glaskugel"
     second: {fileID: 2100000, guid: 4f6eadf817cc98b4886679441478b642, type: 2}
   materials:
     materialImportMode: 1
@@ -59,7 +70,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
