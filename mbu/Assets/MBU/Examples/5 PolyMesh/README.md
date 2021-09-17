@@ -1,5 +1,5 @@
 # Polygonale Netze
-Beispiele für die Verwendung von Klassen, mi tdenen wir Objekte 
+Beispiele für die Verwendung von Klassen, mit denen wir Objekte 
 im C#-Code als polygonale Netze erzeugen.
 
 Wir verwenden die Basisklasse PolyMesh, die im Package MBU enthalten ist.

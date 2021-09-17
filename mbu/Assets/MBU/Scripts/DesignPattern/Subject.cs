@@ -11,7 +11,7 @@ namespace VRKL.MBU
     public class Subject
     {
         /// <summary>
-        /// wir benachrichtigen alle registrierten
+        /// Wir benachrichtigen alle registrierten
         /// Observer, dass sich das beobachtete Objekt verändert hat.
         /// </summary>
         public virtual void Notify()

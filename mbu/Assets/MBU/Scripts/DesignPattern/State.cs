@@ -40,7 +40,7 @@ namespace VRKL.MBU
         /// <summary>
         /// Sollen die Zustandsklassen eine Ausgabe auf der Konsole durchführen?
         /// </summary>
-        public bool DebugOutput
+        protected bool DebugOutput
         {
             get { return _output; }
             set { _output = value; }
