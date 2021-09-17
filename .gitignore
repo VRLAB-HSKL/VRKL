@@ -104,3 +104,11 @@ ExportedObj/
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+
+# Doxygen HTML ignorieren
+**/HTML/
+**/html/
+
+# Rider stuff
+**/.idea/
+
