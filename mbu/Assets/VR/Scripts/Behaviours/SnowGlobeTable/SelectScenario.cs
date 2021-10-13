@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using VR.Scripts.Behaviours.Collision;
 
 /// <summary>
 /// Dieses Skript beschreibt die Auswahl einer Schneekugel. Dabei kann der Benutzer mit zwei Pfeilen die jeweiligen vorherigen oder folgenden Schneekugeln anzeigen.
@@ -73,7 +74,7 @@ public class SelectScenario : MonoBehaviour
     void Update()
     {
         // Wird aktuell eine Szene geladen?
-        // Falls ja, lass alle anderen Schneekugeln auﬂer der
+        // Falls ja, lass alle anderen Schneekugeln au√üer der
         // ausgewaehlten Schneekugel aus der Szene verschwinden.
         if (IsLoading.IsLoading)
         {

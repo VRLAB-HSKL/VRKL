@@ -1,10 +1,13 @@
 using UnityEngine;
 using VRKL.VR.Behaviour;
 
-public class DummyButtonBehaviour : AbstractButtonBehaviour
+namespace VR.Scripts.Behaviours.Button
 {
-    public override void HandleButtonEvent()
+    public class DummyButtonBehaviour : AbstractButtonBehaviour
     {
-        Debug.Log("DummyButton hit!");
+        protected override void HandleButtonEvent()
+        {
+            Debug.Log(gameObject + " hit!");
+        }
     }
 }

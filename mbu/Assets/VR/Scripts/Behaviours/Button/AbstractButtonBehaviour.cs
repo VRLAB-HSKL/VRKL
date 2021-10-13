@@ -1,8 +1,7 @@
 using HTC.UnityPlugin.ColliderEvent;
 using UnityEngine;
 
-
-namespace VRKL.VR.Behaviour
+namespace VR.Scripts.Behaviours.Button
 {
     public abstract class AbstractButtonBehaviour :
         MonoBehaviour,
@@ -13,72 +12,70 @@ namespace VRKL.VR.Behaviour
         #region Public members
 
         /// <summary>
-        /// Controls wether button activation is dependent on pushing the trigger button
+        /// Controls whether button activation is dependent on pushing the trigger button
         /// or simple collision with the object
         /// </summary>
-        public bool UseTriggerButton = false;
-
-        /// <summary>
-        /// Button used to trigger button
-        /// </summary>
-        [SerializeField]
-        protected ColliderButtonEventData.InputButton m_activeButton = ColliderButtonEventData.InputButton.Trigger;
+        public bool useTriggerButton ;
 
         /// <summary>
         /// Controls how much the actual object being pressed will be displaced while pressing
         /// </summary>
-        public Vector3 ButtonDownDisplacement = new Vector3(0f, -0.02f, 0f);
+        public Vector3 buttonDownDisplacement = new Vector3(0f, -0.02f, 0f);
 
         /// <summary>
         /// Button object being pressed
         /// </summary>
-        public Transform ButtonObject;
+        public Transform buttonObject;
 
         /// <summary>
-        /// Signals wether the associated handler function is triggered once (false)
+        /// Button used to trigger button
+        /// </summary>
+        protected readonly ColliderButtonEventData.InputButton mActiveButton = ColliderButtonEventData.InputButton.Trigger;
+        
+        
+        /// <summary>
+        /// Signals whether the associated handler function is triggered once (false)
         /// or as long as the button is being pressed (true)
         /// </summary>
-        public bool HoldButton = false;
+        public bool holdButton;
 
         #endregion Public members 
 
         #region Private members
 
-        private bool ButtonTriggered = false;
+        private bool _buttonTriggered ;
 
         #endregion Private members
 
         #region Public functions
 
         /// <summary>
-        /// Handles the buttonpress when the object is entered
+        /// Handles the button press when the object is entered
         /// </summary>
         /// <param name="eventData"></param>
         public void OnColliderEventPressEnter(ColliderButtonEventData eventData)
         {
-            if (UseTriggerButton)
+            if (useTriggerButton)
             {
-                if (eventData.button == m_activeButton)
-                {
-                    ButtonObject.localPosition += ButtonDownDisplacement;
-                    ButtonTriggered = true;
-                }
+                if (eventData.button != mActiveButton) return;
+                buttonObject.localPosition += buttonDownDisplacement;
+                _buttonTriggered = true;
             }
             else
             {
-                ButtonObject.localPosition += ButtonDownDisplacement;
-                ButtonTriggered = true;
+                buttonObject.localPosition += buttonDownDisplacement;
+                _buttonTriggered = true;
             }
         }
 
         /// <summary>
-        /// Handles the buttonpress when the object is exited
+        /// Handles the button press when the object is exited
         /// </summary>
         /// <remarks>
         /// Behaviour when the Button is pressed:
         /// <ul>
         /// 
-        /// <li>Resets the Buttonposition </li>
+        /// <li>Resets the Button position </li>
         /// <li>Disables the UpWard-Movement</li>
         /// </ul> 
         /// </remarks>
@@ -86,8 +83,8 @@ namespace VRKL.VR.Behaviour
         /// <returns>void</returns>
         public void OnColliderEventPressExit(ColliderButtonEventData eventData)
         {
-            ButtonObject.localPosition -= ButtonDownDisplacement;
-            ButtonTriggered = false;
+            buttonObject.localPosition -= buttonDownDisplacement;
+            _buttonTriggered = false;
         }
 
 
@@ -98,18 +95,18 @@ namespace VRKL.VR.Behaviour
         /// </summary>
         public void Update()
         {
-            if (ButtonTriggered)
+            if (_buttonTriggered)
             {
                 HandleButtonEvent();
-                if (!HoldButton)
+                if (!holdButton)
                 {
-                    ButtonTriggered = false;
+                    _buttonTriggered = false;
                 }
             }
 
         }
 
-        public abstract void HandleButtonEvent();
+        protected abstract void HandleButtonEvent();
 
         #endregion Public functions
     }
