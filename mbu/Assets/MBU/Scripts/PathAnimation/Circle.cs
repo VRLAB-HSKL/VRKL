@@ -2,17 +2,17 @@
 using UnityEngine;
 
 /// <summary>
-/// Namespace für allgemeine Unity-Assets
+/// Namespace fÃ¼r allgemeine Unity-Assets
 /// </summary>
 namespace VRKL.MBU
 {
     /// <summary>
-    /// Bewegung eines Objekts entlang eines Kreise
+    /// Bewegung eines Objekts entlang eines Kreises
     /// </summary>
     public class Circle : PathAnimation
     {
         /// <summary>
-        /// Radius des Kreises
+        /// Radius
         /// </summary>
         [Range(3.0f, 12.0f)]
         [Tooltip("Radius")]
@@ -20,7 +20,7 @@ namespace VRKL.MBU
 
 
         /// <summary>
-        /// Berechnung der Punkte für einen Kreise mit Mittelpunkt im Ursprung
+        /// Berechnung der Punkte fÃ¼r einen Kreis mit Mittelpunkt im Ursprung
         /// 
         /// Wir verwenden das Parameterintervall [0.0, 2.0*pi].
         /// </summary>
@@ -45,12 +45,12 @@ namespace VRKL.MBU
         /// und berechnen einen Punkt auf der Gerade durch ersten Zielpunkt
         /// mit Richtungsvektor Tangente als ersten Lookat-Punkt.
         /// 
-        /// Wir verwenden nicht den Geschwindigkeitsvektor für die Berechnung,
+        /// Wir verwenden nicht den Geschwindigkeitsvektor fï¿½r die Berechnung,
         /// da wir aktuell davon ausgehen, dass wir beim Parameterwert a=0 starten.
         /// Dann ist die erste Orientierung durch forward, die z-Achse,
         /// gegeben.
         /// </summary>
-        /// <returns>Punkt, der LookAt übergeben werden kann</returns>
+        /// <returns>Punkt, der LookAt ï¿½bergeben werden kann</returns>
         protected override Vector3 ComputeFirstLookAt()
         {
             return new Vector3(0.0f, 0.0f, 1.0f);

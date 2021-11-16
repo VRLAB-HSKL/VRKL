@@ -1,13 +1,13 @@
-//========= 2020 - Copyright Manfred Brill. All rights reserved. ===========
+//========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 
 /// <summary>
-/// Namespace für allgemeine Unity-Assets
+/// Namespace für MBU
 /// </summary>
 namespace VRKL.MBU
 {
     /// <summary>
-    /// Bewegung eines Objekts entlang eines Kreises
+    /// Bewegung eines Objekts entlang eines Kreises       
     /// </summary>
     public class Ellipse : PathAnimation
     {
