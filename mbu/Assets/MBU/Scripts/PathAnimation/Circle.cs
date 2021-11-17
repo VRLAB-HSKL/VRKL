@@ -7,7 +7,8 @@ using UnityEngine;
 namespace VRKL.MBU
 {
     /// <summary>
-    /// Bewegung eines Objekts entlang eines Kreises
+    /// Parameterdarstellung für einen nach Bogenmaß parametrisierten Kreis
+    /// in der xz-Ebene.
     /// </summary>
     public class Circle : PathAnimation
     {
@@ -17,25 +18,35 @@ namespace VRKL.MBU
         [Range(3.0f, 12.0f)]
         [Tooltip("Radius")]
         public float Radius = 6.0f;
-
-
         /// <summary>
-        /// Berechnung der Punkte für einen Kreis mit Mittelpunkt im Ursprung
-        /// 
-        /// Wir verwenden das Parameterintervall [0.0, 2.0*pi].
-        /// </summary>
+         /// Variable, die die y-Koordinate des GameObjects abfragt.
+         ///
+         /// Wir verändern diese y-Höhe nicht, der Kreis liegt parallel zur
+         /// x-z-Ebene.
+         /// </summary>
+        [Range(0.0f, 15.0f)]
+        [Tooltip("Höhe über der xz-Ebene")]
+        public float Height = 1.0f;
+        /// <summary>
+         /// Berechnung der Punkte für einen Kreis mit Mittelpunkt im Ursprung
+         /// 
+         /// Wir verwenden das Parameterintervall [0.0, 2.0*pi * r].
+         /// Damit stellen wir sicher, dass der Kreis nach Bogenmaß parametrisiert ist.
+         /// </summary>
         protected override void ComputePath()
         {
             waypoints = new Vector3[NumberOfPoints];
-            float x = 0.0f;
-            float delta = (2.0f * Mathf.PI) / (float)NumberOfPoints;
+            velocities = new float[NumberOfPoints];
+            var t = 0.0f;
+            var delta = (2.0f * Mathf.PI * Radius) / (float)NumberOfPoints;
 
-            for (int i = 0; i < NumberOfPoints; i++)
+            for (var i = 0; i < NumberOfPoints; i++)
             {
-                waypoints[i].x = Radius * Mathf.Cos(x);
-                waypoints[i].y = 0.0f;
-                waypoints[i].z = Radius * Mathf.Sin(x);
-                x += delta;
+                waypoints[i].x = Radius * Mathf.Cos(t);
+                waypoints[i].y = Height;
+                waypoints[i].z = Radius * Mathf.Sin(t);
+               velocities[i] = Radius;
+                t += delta;
             }
         }
 

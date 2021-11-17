@@ -63,7 +63,7 @@ namespace VRKL.MBU
             // Objekt mit Hilfe von MoveTowards bewegen
             transform.position = this.manager.Move(
                 transform.position,
-                speed * Time.deltaTime);
+                speed * Time.fixedDeltaTime);
         }
     }
 }

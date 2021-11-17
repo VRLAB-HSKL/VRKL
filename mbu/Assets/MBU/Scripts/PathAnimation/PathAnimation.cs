@@ -15,7 +15,7 @@ namespace VRKL.MBU
 		///Wir nähern die Kurve mit Hilfe von Waypoints an.
 		/// </summary)
 		[Range(8, 1024)]
-        [Tooltip("Anzahl der Waypoints")]
+        [Tooltip("Anzahl der Wegpunkte")]
         public int NumberOfPoints = 64;
         /// <summary>
         /// Ist das Objekt näher beim aktuellen Waypoint als distance,
@@ -25,24 +25,23 @@ namespace VRKL.MBU
         [Tooltip("Minimaler Abstand zu einem Waypoint")]
         public float distance = 1.0f;
         /// <summary>
-        /// Geschwindigkeit der Bewegung
-        /// </summary>
-        [Range(0.1f, 100.0f)]
-        [Tooltip("Geschwindigkeit der Bewegung")]
-        public float speed = 5.0f;
-
-        /// <summary>
-        /// Instanz der Klasse WaypointManager
-        /// 
-        /// Die Berechnung von Positionen und die Verwaltung
-        /// der Zielpunkte erfolgt in dieser C#-Klasse.
-        /// Sie ist *nicht* von MonoBehaviour abgeleitet!
-        /// </summary>
-        protected WaypointManager manager = null;
-        /// <summary>
+         /// Instanz der Klasse WaypointManager
+         /// 
+         /// Die Berechnung von Positionen und die Verwaltung
+         /// der Zielpunkte erfolgt in dieser C#-Klasse.
+         /// Sie ist *nicht* von MonoBehaviour abgeleitet!
+         /// </summary>
+       protected WaypointManager manager = null;
+       /// <summary>
         /// Array mit Instanzen von Vector3 für die Waypoints
         /// </summary>
-        protected Vector3[] waypoints;
+       protected Vector3[] waypoints;
+        /// <summary>
+        /// Bahngeschwindigkeiten an den einzelnen Wegpunkten
+        ///
+        /// Wird in den Instanzen mit Hilfe der Parametrisierung berechnet.
+        /// </summary>
+       protected float[] velocities;
 
         /// <summary>
         /// Die Zielpunkte berechnen und damit eine neue Instanz von WaypointManager erzeugen.
@@ -65,14 +64,14 @@ namespace VRKL.MBU
 
 
         /// <summary>
-        /// Wir verwenden FixedUpdate, da wir mit Time.deltaTime arbeiten.
+        /// Wir verwenden FixedUpdate, da wir mit Time.fixedDeltaTime arbeiten.
         /// </summary>
         protected virtual void FixedUpdate()
         {
             // Objekt mit Hilfe von MoveTowards bewegen
             transform.position = this.manager.Move(
                 transform.position,
-                speed * Time.deltaTime);
+                velocities[this.manager.CurrentIndex] * Time.fixedDeltaTime);
             transform.LookAt(manager.GetFollowupWaypoint());
         }
 
