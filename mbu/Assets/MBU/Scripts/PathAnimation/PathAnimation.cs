@@ -15,7 +15,7 @@ namespace VRKL.MBU
 		///Wir nähern die Kurve mit Hilfe von Waypoints an.
 		/// </summary)
 		[Range(8, 1024)]
-        [Tooltip("Anzahl der Wegpunkte")]
+        [Tooltip("Anzahl der Waypoints")]
         public int NumberOfPoints = 64;
         /// <summary>
         /// Ist das Objekt näher beim aktuellen Waypoint als distance,
@@ -24,24 +24,23 @@ namespace VRKL.MBU
         [Range(0.1f, 10.0f)]
         [Tooltip("Minimaler Abstand zu einem Waypoint")]
         public float distance = 1.0f;
+  
         /// <summary>
-         /// Instanz der Klasse WaypointManager
-         /// 
-         /// Die Berechnung von Positionen und die Verwaltung
-         /// der Zielpunkte erfolgt in dieser C#-Klasse.
-         /// Sie ist *nicht* von MonoBehaviour abgeleitet!
-         /// </summary>
-       protected WaypointManager manager = null;
-       /// <summary>
+        /// Instanz der Klasse WaypointManager
+        /// 
+        /// Die Berechnung von Positionen und die Verwaltung
+        /// der Zielpunkte erfolgt in dieser C#-Klasse.
+        /// Sie ist *nicht* von MonoBehaviour abgeleitet!
+        /// </summary>
+        private WaypointManager manager = null;
+        /// <summary>
         /// Array mit Instanzen von Vector3 für die Waypoints
         /// </summary>
-       protected Vector3[] waypoints;
+        protected Vector3[] waypoints;       
         /// <summary>
-        /// Bahngeschwindigkeiten an den einzelnen Wegpunkten
-        ///
-        /// Wird in den Instanzen mit Hilfe der Parametrisierung berechnet.
+        /// Array mit Instanzen von Vector3 für die Waypoints
         /// </summary>
-       protected float[] velocities;
+        protected float[] velocities;
 
         /// <summary>
         /// Die Zielpunkte berechnen und damit eine neue Instanz von WaypointManager erzeugen.
@@ -71,7 +70,7 @@ namespace VRKL.MBU
             // Objekt mit Hilfe von MoveTowards bewegen
             transform.position = this.manager.Move(
                 transform.position,
-                velocities[this.manager.CurrentIndex] * Time.fixedDeltaTime);
+                velocities[manager.Current] * Time.fixedDeltaTime);
             transform.LookAt(manager.GetFollowupWaypoint());
         }
 
