@@ -1,4 +1,6 @@
-//========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
+﻿//========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
+
+using System;
 using UnityEngine;
 
 // Namespace
@@ -8,7 +10,7 @@ namespace VRKL.MBU
     /// Parameterdarstellung für einen nach Bogenmaß parametrisierten Kreis
     /// in der xz-Ebene.
     /// </summary>
-    public class Circle : PathAnimation
+    public class CircleSlowInSlowOut : PathAnimation
     {
         /// <summary>
         /// Radius
@@ -35,15 +37,17 @@ namespace VRKL.MBU
         {
             waypoints = new Vector3[NumberOfPoints];
             velocities = new float[NumberOfPoints];
-            var t = 0.0f;
-            var delta = (2.0f * Mathf.PI) / (float)NumberOfPoints;
+            float t = 0.0f,
+                  x = 0.0f;
+            var delta = (2.0f * Mathf.PI * Radius) / (float)NumberOfPoints;
 
             for (var i = 0; i < NumberOfPoints; i++)
             {
-                waypoints[i].x = Radius * Mathf.Cos(t);
+                x = t / (2.0f * Mathf.PI * Radius);
+                waypoints[i].x = Radius * Mathf.Cos(H33(x));
                 waypoints[i].y = Height;
-                waypoints[i].z = Radius * Mathf.Sin(t);
-               velocities[i] = Radius;
+                waypoints[i].z = Radius * Mathf.Sin(H33(x));
+                velocities[i] = H33Prime(x);
                 t += delta;
             }
         }
@@ -63,6 +67,26 @@ namespace VRKL.MBU
         protected override Vector3 ComputeFirstLookAt()
         {
             return new Vector3(0.0f, 0.0f, 1.0f);
+        }
+        
+        /// <summary>
+        /// Hermite-Polynom H33.
+        /// </summary>
+        /// <param name="x">x-Wert</param>
+        /// <returns>Wert des Hermite-Polynoms</returns>
+        private static float H33(float x)
+        {
+            return x*x*(3.0f - 2.0f*x);
+        }
+        
+        /// <summary>
+        /// Ableitung des Hermite-Polynoms H33.
+        /// </summary>
+        /// <param name="x">x-Wert</param>
+        /// <returns>Wert de Ableitung des Hermite-Polynoms</returns>
+        private static float H33Prime(float x)
+        {
+            return 6.0f*x*(1-x);
         }
     }
 }

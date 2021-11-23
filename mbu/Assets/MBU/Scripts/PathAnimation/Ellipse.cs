@@ -3,9 +3,7 @@
 using System;
 using UnityEngine;
 
-/// <summary>
-/// Namespace für MBU
-/// </summary>
+// Namespace
 namespace VRKL.MBU
 {
     /// <summary>

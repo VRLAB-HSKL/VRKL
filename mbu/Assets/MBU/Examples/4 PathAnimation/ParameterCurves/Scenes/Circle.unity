@@ -312,7 +312,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &614475065
+--- !u!43 &674012004
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -558,7 +558,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061526312}
-  m_Mesh: {fileID: 614475065}
+  m_Mesh: {fileID: 674012004}
 --- !u!4 &1061526316
 Transform:
   m_ObjectHideFlags: 0
@@ -586,7 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NumberOfPoints: 1024
-  distance: 1
+  Periodic: 0
   Radius: 10
   Height: 1
 --- !u!1 &1119911138

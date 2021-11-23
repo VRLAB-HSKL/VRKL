@@ -1,9 +1,7 @@
 //========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 
-/// <summary>
-/// Namespace für MBU
-/// </summary>
+// Namespace
 namespace VRKL.MBU
 {
     /// <summary>
@@ -46,7 +44,6 @@ namespace VRKL.MBU
             velocities = new float[NumberOfPoints];
             var t = 0.0f;
             var delta = (1.0f) / ((float)NumberOfPoints - 1.0f);
-            distance = 2.0f*arcL*delta;
             for (var i = 0; i < NumberOfPoints; i++)
             {
                 waypoints[i] = P1 + t * dirVec;

@@ -1,9 +1,8 @@
 //========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
+using UnityEngine.Serialization;
 
-/// <summary>
-/// Namespace für MBU
-/// </summary>
+// Namespace
 namespace VRKL.MBU
 {
     /// <summary>
@@ -11,26 +10,26 @@ namespace VRKL.MBU
     ///
     /// Wir verwenden das Hermite-Polynom H33 für einn Ease-In-Ease-Out Effekt. 
     /// </summary>
-    public class LineEaseInEaseOut : PathAnimation
+    public class LineSlowInSlowOut : PathAnimation
     {
         /// <summary>
         /// Anfangspunkt
         /// </summary>
         [Tooltip("Anfangspunkt der Linie")]
-        public Vector3 P1 = Vector3.zero;
+        public Vector3 p1 = Vector3.zero;
         /// <summary>
         /// ZEndpunkt
         /// </summary>
         [Tooltip("Endpunkt der Linie")]
-        public Vector3 P2 = Vector3.right;
+        public Vector3 p2 = Vector3.right;
         /// <summary>
         /// Bogenlänge der Linie
         /// </summary>
-        private float arcL = 0.0f;
+        private float _arcL = 0.0f;
         /// <summary>
         ///  Richtungsvektor
         /// </summary>
-        private Vector3 dirVec = Vector3.forward;
+        private Vector3 _dirVec = Vector3.forward;
         /// <summary>
         /// Berechnung der Punkte für eine Linie zwischen P1 und P2.
         /// 
@@ -42,30 +41,29 @@ namespace VRKL.MBU
         /// </summary>
         protected override void ComputePath()
         {
-            arcL = Vector3.Distance(P1, P2);
-            dirVec = P2 - P1;
+            _arcL = Vector3.Distance(p1, p2);
+            _dirVec = p2 - p1;
             waypoints = new Vector3[NumberOfPoints];
             velocities = new float[NumberOfPoints];
             var t = 0.0f;
             var delta = (1.0f) / ((float)NumberOfPoints - 1.0f);
-            distance = 2.0f*arcL*delta;
             for (var i = 0; i < NumberOfPoints; i++)
             {
-                waypoints[i] = P1 + H33(t) * dirVec;
-                velocities[i] = H33prime(t);
+                waypoints[i] = p1 + H33(t) * _dirVec;
+                velocities[i] = H33Prime(t);
                 t += delta;
             }
         }
 
         /// <summary>
         /// Berechnung der ersten Lookat-Punkts. 
-        /// Duie Tangente der Linie stimmt mit dem normierten Richtungsvektor
+        /// Die Tangente der Linie stimmt mit dem normierten Richtungsvektor
         /// überein.
         /// </summary>
         /// <returns>Punkt, der LookAt übergeben werden kann</returns>
         protected override Vector3 ComputeFirstLookAt()
         {
-            return P2;
+            return p2;
         }
 
         /// <summary>
@@ -73,7 +71,7 @@ namespace VRKL.MBU
         /// </summary>
         /// <param name="x">x-Wert</param>
         /// <returns>Wert des Hermite-Polynoms</returns>
-        private float H33(float x)
+        private static float H33(float x)
         {
             return x*x*(3.0f - 2.0f*x);
         }
@@ -83,7 +81,7 @@ namespace VRKL.MBU
         /// </summary>
         /// <param name="x">x-Wert</param>
         /// <returns>Wert de Ableitung des Hermite-Polynoms</returns>
-        private float H33prime(float x)
+        private static float H33Prime(float x)
         {
             return 6.0f*x*(1-x);
         }

@@ -1,9 +1,7 @@
 //========= 2020 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 
-/// <summary>
-/// Namespace für allgemeine Unity-Assets
-/// </summary>
+// Namespace festlegen
 namespace VRKL.MBU
 {
     /// <summary>
@@ -14,33 +12,11 @@ namespace VRKL.MBU
         /// <summary>
 		///Wir nähern die Kurve mit Hilfe von Waypoints an.
 		/// </summary)
-		[Range(8, 1024)]
+		[Range(4, 1024)]
         [Tooltip("Anzahl der Waypoints")]
         public int NumberOfPoints = 64;
-        /// <summary>
-        /// Ist das Objekt näher beim aktuellen Waypoint als distance,
-        /// wird der nächste Waypoint verwendet.
-        /// </summary>
-        [Range(0.1f, 10.0f)]
-        [Tooltip("Minimaler Abstand zu einem Waypoint")]
-        public float distance = 1.0f;
-  
-        /// <summary>
-        /// Instanz der Klasse WaypointManager
-        /// 
-        /// Die Berechnung von Positionen und die Verwaltung
-        /// der Zielpunkte erfolgt in dieser C#-Klasse.
-        /// Sie ist *nicht* von MonoBehaviour abgeleitet!
-        /// </summary>
-        private WaypointManager manager = null;
-        /// <summary>
-        /// Array mit Instanzen von Vector3 für die Waypoints
-        /// </summary>
-        protected Vector3[] waypoints;       
-        /// <summary>
-        /// Array mit Instanzen von Vector3 für die Waypoints
-        /// </summary>
-        protected float[] velocities;
+        [Tooltip("Periodischer Verlauf")]
+        public bool Periodic = true;
 
         /// <summary>
         /// Die Zielpunkte berechnen und damit eine neue Instanz von WaypointManager erzeugen.
@@ -51,8 +27,9 @@ namespace VRKL.MBU
         protected virtual void Awake()
         {
             ComputePath();
+            var dist = ComputeDistance();
 
-            this.manager = new WaypointManager(this.waypoints, distance);
+            this.manager = new WaypointManager(waypoints, dist, Periodic);
             // Den ersten Zielpunkt setzen
             transform.position = manager.GetWaypoint();
             // Orientierung setzen
@@ -69,8 +46,9 @@ namespace VRKL.MBU
         {
             // Objekt mit Hilfe von MoveTowards bewegen
             transform.position = this.manager.Move(
-                transform.position,
-                velocities[manager.Current] * Time.fixedDeltaTime);
+                                 transform.position,
+                                 velocities[manager.Current] * Time.fixedDeltaTime
+                );
             transform.LookAt(manager.GetFollowupWaypoint());
         }
 
@@ -93,5 +71,42 @@ namespace VRKL.MBU
         {
             return new Vector3(0.0f, 0.0f, 1.0f);
         }
+
+        /// <summary>
+        /// Berechne den minimalen Abstand für das Durchlaufen der Wegpunkte.
+        ///
+        /// Wir berechnen die Feinheit des Polygonzugs und verwenden 50% davon
+        /// als minimalen Abstand im Waypoint-Manager.
+        /// </summary>
+        /// <returns></returns>
+        protected float ComputeDistance()
+        {
+            var dist = 100.0f;
+            float next;
+            for (var i = 0; i < waypoints.Length - 1; i++)
+            {
+                next = Vector3.Distance(waypoints[i + 1],waypoints[i]);
+                if (dist > next)
+                    dist = next;
+            }
+            return dist/2.0f;
+        }
+        
+        /// <summary>
+        /// Instanz der Klasse WaypointManager
+        /// 
+        /// Die Berechnung von Positionen und die Verwaltung
+        /// der Zielpunkte erfolgt in dieser C#-Klasse.
+        /// Sie ist *nicht* von MonoBehaviour abgeleitet!
+        /// </summary>
+        private WaypointManager manager = null;
+        /// <summary>
+        /// Array mit Instanzen von Vector3 für die Waypoints
+        /// </summary>
+        protected Vector3[] waypoints;       
+        /// <summary>
+        /// Array mit Instanzen von Vector3 für die Waypoints
+        /// </summary>
+        protected float[] velocities;
     }
 }
