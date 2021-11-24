@@ -1,6 +1,5 @@
 //========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
-using UnityEngine.Serialization;
 
 // Namespace
 namespace VRKL.MBU
@@ -10,7 +9,7 @@ namespace VRKL.MBU
     ///
     /// Wir verwenden das Hermite-Polynom H33 für einn Ease-In-Ease-Out Effekt. 
     /// </summary>
-    public class LineSlowInSlowOut : PathAnimation
+    public class LineSlowInSlowOut : SlowInSlowOut
     {
         /// <summary>
         /// Anfangspunkt
@@ -64,26 +63,6 @@ namespace VRKL.MBU
         protected override Vector3 ComputeFirstLookAt()
         {
             return p2;
-        }
-
-        /// <summary>
-        /// Hermite-Polynom H33.
-        /// </summary>
-        /// <param name="x">x-Wert</param>
-        /// <returns>Wert des Hermite-Polynoms</returns>
-        private static float H33(float x)
-        {
-            return x*x*(3.0f - 2.0f*x);
-        }
-        
-        /// <summary>
-        /// Ableitung des Hermite-Polynoms H33.
-        /// </summary>
-        /// <param name="x">x-Wert</param>
-        /// <returns>Wert de Ableitung des Hermite-Polynoms</returns>
-        private static float H33Prime(float x)
-        {
-            return 6.0f*x*(1-x);
         }
     }
 }
