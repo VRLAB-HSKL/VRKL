@@ -30,7 +30,7 @@ namespace VRKL.MBU
         /// </summary>
         protected override void Create()
          {
-             const int numberOfVertices = 20;
+             const int numberOfVertices = 31;
             const int numberOfSubMeshes = 25;
             Vector3[] vertices = new Vector3[numberOfVertices];
             int[][] topology = new int[numberOfSubMeshes][];
@@ -59,11 +59,25 @@ namespace VRKL.MBU
             vertices[14] = new Vector3(-1.0f, 0.0f, 0.0f);
             vertices[15] = new Vector3(-5.0f, 0.0f, 0.0f);
             vertices[16] = new Vector3(-5.0f, 0.0f, 1.0f);
-            // Leitwerk
-            vertices[17] = new Vector3(0.0f, 0.0f, -3.0f);
-            vertices[18] = new Vector3(0.0f, 0.0f, -1.0f);
-            vertices[19] = new Vector3(0.0f, 3.0f, -3.0f);
-
+            // Leitwerk rechts
+            vertices[17] = new Vector3(0.05f, 0.0f, -3.0f);
+            vertices[18] = new Vector3(0.05f, 0.0f, -1.0f);
+            vertices[19] = new Vector3(0.05f, 3.0f, -3.0f);
+            // Flügel rechts Unterseite
+            vertices[20] = new Vector3(1.0f, -0.05f, 2.0f);
+            vertices[21] = new Vector3(1.0f, -0.05f, 0.0f);
+            vertices[22] = new Vector3(5.0f, -0.05f, 0.0f);
+            vertices[23] = new Vector3(5.0f, -0.05f, 1.0f);
+            // Flügel links Unterseite
+            vertices[24] = new Vector3(-1.0f, -0.05f, 2.0f);
+            vertices[25] = new Vector3(-1.0f, -0.05f, 0.0f);
+            vertices[26] = new Vector3(-5.0f, -0.05f, 0.0f);
+            vertices[27] = new Vector3(-5.0f, -0.05f, 1.0f);
+            // Leitwerk links
+            vertices[28] = new Vector3(-0.05f, 0.0f, -3.0f);
+            vertices[29] = new Vector3(-0.05f, 0.0f, -1.0f);
+            vertices[30] = new Vector3(-0.05f, 3.0f, -3.0f);
+            
             for (var i = 0; i < numberOfVertices; i++)
             {
                 vertices[i] *= ScalingFactor;
@@ -95,20 +109,19 @@ namespace VRKL.MBU
             // Flügel links
             topology[16] = new int[3] {14, 15, 16};
             topology[17] = new int[3] {13, 14, 16};
-            // Leitwerk
+            // Leitwerk von rechts
             topology[18] = new int[3] {17, 19, 18};
             // Flügel und Leitwerk auch im umgedrehten Reihenfolge,
             // so erhalten wir doppelseitige Anzeige.
             // To Do: weitere Eckpunkte, um z-Buffer fighting zu verhindern
-            // Flügel rechts
-            topology[19] = new int[3] {10, 11, 12};
-            topology[20] = new int[3] {9, 10, 12};
-            topology[21] = new int[3] {14, 16, 15};
-
+            // Flügel rechts Unterseite
+            topology[19] = new int[3] {21, 22, 23};
+            topology[20] = new int[3] {20, 21, 23};
             // Flügel links
-            topology[22] = new int[3] {14, 16, 15};
-            topology[23] = new int[3] {13, 16, 14};
-            topology[24] = new int[3] {17, 18, 19};
+            topology[22] = new int[3] {25, 27, 26};
+            topology[23] = new int[3] {24, 27, 25};
+            // Leitwerk von links
+            topology[24] = new int[3] {28, 29, 30};
             
             // Polygonales Netz erzeugen, Geometrie und Topologie zuweisen
             Mesh simpleMesh = new Mesh()

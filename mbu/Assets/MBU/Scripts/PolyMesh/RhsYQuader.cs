@@ -1,26 +1,24 @@
-ï»¿//========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
+//========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 
 // Namespace
 namespace VRKL.MBU
 {
     /// <summary>
-    /// Klasse fÃ¼r die Erzeugung eines Hexaeders mit SeitenlÃ¤nge 1 wÃ¤hrend der Laufzeit einer Anwendung.
-    /// <remarks>
-    /// Die Eckpunkte des Hexaeders werden wie in Blinn
-    /// und Brill/Bender, "Computergrafik", in den EinheitswÃ¼rfel platziert.
-    /// Sie finden diese Eckpunkte als LÃ¶sung der Aufgabe 1 in der Fallstudie
-    /// "Platonische und archimedische KÃ¶rper".
-    /// Der planare Graph fÃ¼r die verwendete Topologie finden wie in Abbildung 4.76.
-    /// </remarks>
+    /// Klasse für die Erzeugung eines Quaders in y-Richtung eines rechtshändigen Koordinatensystems.
     /// </summary>
-    public class Hexaeder : PolyMesh
+    public class RhsYQuader : PolyMesh
     {
         /// <summary>
-        /// Wir erzeugen fÃ¼r jedes Face des Hexaeders ein SubMesh.
-        /// Auch das Material muss anschlieÃŸend fÃ¼r jedes SubMesh erzeugt
-        /// und zugewiesen werden. Das kÃ¶nnte verwendet werden um
-        /// fÃ¼r jedes Face ein eigenes Material zu verwenden.
+        /// Wir erzeugen für jedes Face des Quaders ein SubMesh.
+        /// Auch das Material muss anschließend für jedes SubMesh erzeugt
+        /// und zugewiesen werden. Das könnte verwendet werden um
+        /// für jedes Face ein eigenes Material zu verwenden.
+        ///
+        /// Der Quader wurde von der Klasse Hexaeder abgeleitet und
+        /// die x-Koordinaten wurden verändert. Der Quader startet
+        /// bei x=0 und endet bei x=1. Die y- und z-Koordinaten
+        /// wurden verkleinert, da wir eine Achse visualisieren möchten.
         /// </summary>
         protected override void Create()
         {
@@ -30,19 +28,19 @@ namespace VRKL.MBU
             int[][] topology = new int[numberOfSubMeshes][];
             Material[] materials = new Material[numberOfSubMeshes];
 
-            vertices[0] = new Vector3( 0.5f,  0.5f, -0.5f );
-            vertices[1] = new Vector3( 0.5f,  0.5f,  0.5f );
-            vertices[2] = new Vector3(-0.5f,  0.5f,  0.5f );
-            vertices[3] = new Vector3( -0.5f, 0.5f, -0.5f ) ;
-            vertices[4] = new Vector3( 0.5f, -0.5f, -0.5f ) ;
-            vertices[5] = new Vector3( 0.5f, -0.5f,  0.5f);
-            vertices[6] = new Vector3(-0.5f, -0.5f,  0.5f);
-            vertices[7] = new Vector3(-0.5f, -0.5f, -0.5f);
+            vertices[0] = new Vector3( 0.05f,  0.05f, 0.0f );
+            vertices[1] = new Vector3( 0.05f,  0.05f,   1.0f );
+            vertices[2] = new Vector3(-0.05f,  0.05f,  1.0f );
+            vertices[3] = new Vector3( -0.05f, 0.05f,  0.0f ) ;
+            vertices[4] = new Vector3( 0.05f, -0.05f,  0.0f ) ;
+            vertices[5] = new Vector3( 0.05f, -0.05f,  1.0f);
+            vertices[6] = new Vector3(-0.05f, -0.05f,  1.0f);
+            vertices[7] = new Vector3(-0.05f, -0.05f,  0.0f);
 
             for (var i = 0; i < numberOfVertices; i++)
                 vertices[i] *= ScalingFactor;
             
-            // Die EintrÃ¤ge in der Topologie beziehen sich auf 
+            // Die Einträge in der Topologie beziehen sich auf 
             // die Indizes der Eckpunkte.
             topology[0] = new int[3] { 0, 2, 1 };
             topology[1] = new int[3] { 2, 0, 3 };
@@ -58,7 +56,7 @@ namespace VRKL.MBU
             topology[11] = new int[3] { 7, 2, 3 };
 
             // Polygonales Netz erzeugen, Geometrie und Topologie zuweisen
-            // Es wÃ¤re mÃ¶glich weniger als vier SubMeshes zu erzeugen,
+            // Es wäre möglich weniger als vier SubMeshes zu erzeugen,
             // solange wir keine Dreiecke in einem Submesh haben, die eine
             // gemeinsame Kante aufweisen!
             Mesh simpleMesh = new Mesh()
@@ -79,7 +77,7 @@ namespace VRKL.MBU
             simpleMesh.RecalculateBounds();
             simpleMesh.OptimizeIndexBuffers();
 
-            // Zuweisungen fÃ¼r die erzeugten Komponenten
+            // Zuweisungen für die erzeugten Komponenten
             this.objectFilter.mesh = simpleMesh;
             this.objectRenderer.materials = materials;
         }
