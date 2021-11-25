@@ -6,6 +6,11 @@ namespace VRKL.MBU
 {
     /// <summary>
     /// Klasse für die Erzeugung eines Quaders in y-Richtung eines rechtshändigen Koordinatensystems.
+    /// <remarks>
+    /// Da wir das rechtshändige Koordinaten in Unity (verwendet ein LHS) verwenden und die Pfad-Animation
+    /// mit Hilfe von MoveToward realisiert wird entspricht die visualiserte z-Richtung, die Binormale,
+    /// der up-Richtung in Unity - also der y-Achse in Unity.
+    /// </remarks>
     /// </summary>
     public class RhsZQuader : PolyMesh
     {

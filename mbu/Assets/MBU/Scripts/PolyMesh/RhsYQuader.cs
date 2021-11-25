@@ -6,6 +6,11 @@ namespace VRKL.MBU
 {
     /// <summary>
     /// Klasse für die Erzeugung eines Quaders in y-Richtung eines rechtshändigen Koordinatensystems.
+    /// <remarks>
+    /// Da wir das rechtshändige Koordinaten in Unity (verwendet ein LHS) verwenden und die Pfad-Animation
+    /// mit Hilfe von MoveToward realisiert wird entspricht die visualiserte y-Richtung, die Normale,
+    /// der left-Richtung in Unity - also der negativen x-Achse in Unity.
+    /// </remarks>
     /// </summary>
     public class RhsYQuader : PolyMesh
     {
@@ -28,14 +33,14 @@ namespace VRKL.MBU
             int[][] topology = new int[numberOfSubMeshes][];
             Material[] materials = new Material[numberOfSubMeshes];
 
-            vertices[0] = new Vector3( 0.05f,  0.05f, 0.0f );
-            vertices[1] = new Vector3( 0.05f,  0.05f,   1.0f );
-            vertices[2] = new Vector3(-0.05f,  0.05f,  1.0f );
-            vertices[3] = new Vector3( -0.05f, 0.05f,  0.0f ) ;
-            vertices[4] = new Vector3( 0.05f, -0.05f,  0.0f ) ;
-            vertices[5] = new Vector3( 0.05f, -0.05f,  1.0f);
-            vertices[6] = new Vector3(-0.05f, -0.05f,  1.0f);
-            vertices[7] = new Vector3(-0.05f, -0.05f,  0.0f);
+            vertices[0] = new Vector3( 0.0f,  0.05f, -0.05f );
+            vertices[1] = new Vector3( 0.0f,  0.05f,  0.05f );
+            vertices[2] = new Vector3(-1.0f,  0.05f,  0.05f );
+            vertices[3] = new Vector3( -1.0f, 0.05f, -0.05f ) ;
+            vertices[4] = new Vector3( 0.0f, -0.05f, -0.05f ) ;
+            vertices[5] = new Vector3( 0.0f, -0.05f,  0.05f);
+            vertices[6] = new Vector3(-1.0f, -0.05f,  0.05f);
+            vertices[7] = new Vector3(-1.0f, -0.05f, -0.05f);
 
             for (var i = 0; i < numberOfVertices; i++)
                 vertices[i] *= ScalingFactor;

@@ -9,7 +9,7 @@ namespace VRKL.MBU
         /// <summary>
         /// Hermite-Polynom H33.
         /// </summary>
-        /// <param name="x">x-Wert</param>
+        /// <param name="x">x-Wert im Intervall [0, 1]</param>
         /// <returns>Wert des Hermite-Polynoms</returns>
         protected float H33(float x)
         {
@@ -19,7 +19,7 @@ namespace VRKL.MBU
         /// <summary>
         /// Ableitung des Hermite-Polynoms H33.
         /// </summary>
-        /// <param name="x">x-Wert</param>
+        /// <param name="x">x-Wert im Intervall [0, 1]</param>
         /// <returns>Wert de Ableitung des Hermite-Polynoms</returns>
         protected float H33Prime(float x)
         {

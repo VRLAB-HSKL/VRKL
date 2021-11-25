@@ -69,7 +69,7 @@ namespace VRKL.MBU
         /// <returns>Punkt, der LookAt übergeben werden kann</returns>
         protected virtual Vector3 ComputeFirstLookAt()
         {
-            return new Vector3(0.0f, 0.0f, 1.0f);
+            return Vector3.forward;
         }
 
         /// <summary>

@@ -28,12 +28,16 @@ namespace VRKL.MBU
         /// <summary>
         ///  Richtungsvektor
         /// </summary>
-        private Vector3 _dirVec = Vector3.forward;
+        private Vector3 _dirVec = Vector3.zero;
         /// <summary>
         /// Berechnung der Punkte für eine Linie zwischen P1 und P2.
         /// 
         /// Wir verwenden das Parameterintervall [0.0, L], dabei
         /// ist L der Abstand zwischen den beiden Punkten.
+        /// Der Richtungsvektor für diese Parametrisierung ist
+        /// der normierte Vektor _dirVec. Das kompensieren wir im Code
+        /// und denken direkt in t aus dem Intervall [0, 1] und normieren
+        /// den Vektor nicht.
         /// 
         /// Damit können wir garantieren, dass die Linie nach
         /// Bogenmaß parametrisiert ist.
