@@ -126,11 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2fb3e706d77eea499002f676b07a71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseTriggerButton: 1
-  m_activeButton: 0
-  ButtonDownDisplacement: {x: 0, y: -0.02, z: 0}
-  ButtonObject: {fileID: 1700838233594184576}
-  HoldButton: 0
+  useTriggerButton: 0
+  buttonDownDisplacement: {x: 0, y: -0.02, z: 0}
+  buttonObject: {fileID: 1700838233594184576}
+  holdButton: 0
 --- !u!1 &1700838234597379181
 GameObject:
   m_ObjectHideFlags: 0
