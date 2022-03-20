@@ -46,7 +46,7 @@ namespace VR
         }
 
         // Called just before player camera is rendered
-        public void Render()
+        public void OnPreRender()
         {
             screen.enabled = false;
             CreateViewTexture();
