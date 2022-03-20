@@ -23,7 +23,7 @@ namespace VR
         {
             playerCam = Camera.main;
             portalCam = GetComponentInChildren<Camera>();
-            portalCam.enabled = false;
+            //portalCam.enabled = false;
         }
 
         void CreateViewTexture()

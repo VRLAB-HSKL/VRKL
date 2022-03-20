@@ -5,14 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/MBU/Examples/1 HelloWorld/Scenes/helloScene.unity
-    guid: c7692156f3a757b43a3a313e30d0adc7
+    path: Assets/VR/Scenes/Transitions/0_TransitionRoom.unity
+    guid: 587148a31cf356f41b26b5e5b970da86
+  - enabled: 1
+    path: Assets/VR/Scenes/Transitions/TargetScene.unity
+    guid: 1521d970e6fb49f4e86cf698efc0e445
   m_configObjects:
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 51803c52a91aeaf42823ba404d527a1e,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 44a2e7c859f65444abd115b29c11bdc2,
       type: 2}
-    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 76343df1bffaac844a06fdeeb4b7d799,
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 96320d80e2b14b64782764cd7ad844c8,
       type: 2}

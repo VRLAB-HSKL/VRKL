@@ -22,7 +22,7 @@ namespace VR.Scripts.Behaviours.Button
 
         public void PlayTransition()
         {
-            SceneManager.LoadScene(targetSceneIndex);
+            SceneManager.LoadSceneAsync(targetSceneIndex);
         }
 
     }
