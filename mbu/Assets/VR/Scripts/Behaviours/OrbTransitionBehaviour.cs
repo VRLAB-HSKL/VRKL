@@ -16,6 +16,7 @@ namespace VR.Scripts.Behaviours.Button
         {
             if (collision.gameObject == Orb)
             {
+                Debug.Log("collision hit!");
                 PlayTransition();
             }
         }

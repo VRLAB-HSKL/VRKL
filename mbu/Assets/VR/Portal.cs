@@ -46,24 +46,24 @@ namespace VR
         }
 
         // Called just before player camera is rendered
-        public void OnPreRender()
-        {
-            screen.enabled = false;
-            CreateViewTexture();
-            
-            // Make portal cam position and rotation the same relative to this portal as player cam relative to
-            // other portal
-            var m = transform.localToWorldMatrix *
-                    otherPortal.transform.worldToLocalMatrix *
-                    playerCam.transform.localToWorldMatrix;
-            
-            portalCam.transform.SetPositionAndRotation(m.GetColumn(3), m.rotation);
-            
-            // Render the camera
-            portalCam.Render();
-
-            screen.enabled = true;
-        }
+        // public void OnPreRender()
+        // {
+        //     screen.enabled = false;
+        //     CreateViewTexture();
+        //     
+        //     // Make portal cam position and rotation the same relative to this portal as player cam relative to
+        //     // other portal
+        //     var m = transform.localToWorldMatrix *
+        //             otherPortal.transform.worldToLocalMatrix *
+        //             playerCam.transform.localToWorldMatrix;
+        //     
+        //     portalCam.transform.SetPositionAndRotation(m.GetColumn(3), m.rotation);
+        //     
+        //     // Render the camera
+        //     portalCam.Render();
+        //
+        //     screen.enabled = true;
+        // }
     }
     
     

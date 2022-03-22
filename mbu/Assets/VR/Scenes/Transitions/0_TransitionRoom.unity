@@ -520,8 +520,9 @@ GameObject:
   - component: {fileID: 222587856}
   - component: {fileID: 222587858}
   - component: {fileID: 222587857}
+  - component: {fileID: 222587859}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: Portal02Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -592,6 +593,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &222587859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222587855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e560a332834484945abeeaeb6e5206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  otherPortal: {fileID: 859214387}
+  screen: {fileID: 1443374721}
 --- !u!1001 &226778845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1835,7 +1850,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 693743989}
-  - component: {fileID: 693743990}
   m_Layer: 0
   m_Name: PortalRoom02
   m_TagString: Untagged
@@ -1860,20 +1874,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &693743990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693743988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07e560a332834484945abeeaeb6e5206, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  otherPortal: {fileID: 2015557747}
-  screen: {fileID: 1443374721}
 --- !u!1 &701063295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,8 +2242,9 @@ GameObject:
   - component: {fileID: 859214384}
   - component: {fileID: 859214386}
   - component: {fileID: 859214385}
+  - component: {fileID: 859214387}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: Portal01Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2314,6 +2315,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &859214387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859214383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e560a332834484945abeeaeb6e5206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  otherPortal: {fileID: 222587859}
+  screen: {fileID: 701063297}
 --- !u!1 &873372673
 GameObject:
   m_ObjectHideFlags: 0
@@ -4702,7 +4717,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2015557746}
-  - component: {fileID: 2015557747}
   m_Layer: 0
   m_Name: PortalRoom01
   m_TagString: Untagged
@@ -4726,20 +4740,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2015557747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015557745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07e560a332834484945abeeaeb6e5206, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  otherPortal: {fileID: 693743990}
-  screen: {fileID: 701063297}
 --- !u!1 &2018378594
 GameObject:
   m_ObjectHideFlags: 0
