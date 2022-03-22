@@ -27,6 +27,7 @@
 # redundante Informationen enthalten, was vermieden werden soll.
 **/Assets/MiddleVR/*
 **/Assets/SteamVR/*
+**/Assets/VIUSettings/*
 **/Assets/GoogleVR/*
 **/Assets/SteamVR_Input/**/*
 **/Assets/HTC.UnityPlugin/
