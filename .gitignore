@@ -42,6 +42,8 @@
 **/Assets/GoogleVR.meta
 **/Assets/SteamVR.meta
 **/Assets/HTC.UnityPlugin.meta
+**/Assets/**/XR.meta
+**/Assets/**/VIUSettings.meta
 
 # Prerequisites
 *.d
