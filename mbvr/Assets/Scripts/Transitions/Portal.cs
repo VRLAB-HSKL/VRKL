@@ -19,6 +19,7 @@ public class Portal : MonoBehaviour
     private Vector3 initPlayerPos;
     private Quaternion initPlayerRot;
 
+    private Vector3 initPos;
     private Vector3 initScreenPos;
     private Vector3 initPortalCamPos;
     private Vector3 initOtherPortalCamPos;
@@ -29,6 +30,8 @@ public class Portal : MonoBehaviour
         portalCam = GetComponentInChildren<Camera>();
         //portalCam.enabled = false;
 
+        initPos = transform.position;
+        
         initScreenPos = screen.transform.position;
         
         initPlayerPos = playerCam.transform.position;
@@ -60,7 +63,7 @@ public class Portal : MonoBehaviour
     }
 
     // Called just before player camera is rendered
-    public void OnPreRender()
+    public void Render()
     {
         screen.enabled = false;
         CreateViewTexture();
@@ -70,32 +73,42 @@ public class Portal : MonoBehaviour
         var m = transform.localToWorldMatrix *
                 otherPortal.transform.worldToLocalMatrix *
                 playerCam.transform.localToWorldMatrix;
-              
+        
+        var col = m.GetColumn(3);
+        if (float.IsNaN(col[0]) || float.IsNaN(col[1]) || float.IsNaN(col[2]) || float.IsNaN(col[3]))
+        {   
+            Debug.Log("col: " + col);
+            
+            Debug.Log(
+                "playerMat[4x4]:\n" + transform.localToWorldMatrix + "\n" +
+                "otherPortalMat[4x4]:\n" + otherPortal.transform.worldToLocalMatrix + "\n" +
+                "playerCamMat[4x4]:\n" + playerCam.transform.worldToLocalMatrix + "\n" +
+                "resultMat[4x4]:\n" + m
+            );    
+        }
+        
         portalCam.transform.SetPositionAndRotation(m.GetColumn(3), m.rotation);
+
+        // var pos = initPos + otherPortal.transform.position + playerCam.transform.position;
+        // portalCam.transform.position = new Vector3(pos.x, pos.y, pos.z);
+            
         
-        //     
-        // //Render the camera
-        // portalCam.Render();
-        
-        // Debug.Log(
-        //     "playerMat[4x4]:\n" + transform.localToWorldMatrix + "\n" +
-        //     "otherPortalMat[4x4]:\n" + otherPortal.transform.worldToLocalMatrix + "\n" +
-        //     "playerCamMat[4x4]:\n" + playerCam.transform.worldToLocalMatrix + "\n" +
-        //     "resultMat[4x4]:\n" + m
-        // );
-        
+        //Render the camera
+        portalCam.Render();
         
         screen.enabled = true;
     }
 
-    // private void Update()
-    // {
-    //     //var cam = otherPortal.GetComponent(typeof(Camera));
-    //     
-    //     var pos = initOtherPortalCamPos + playerCam.transform.position;
-    //     var transform1 = otherPortal.transform;
-    //     transform1.position = new Vector3(pos.x, transform1.position.y, pos.z);
-    //     //transform1.position = 
-    // }
+    private void Update()
+    {
+        //OnRender();
+        
+        //var cam = otherPortal.GetComponent(typeof(Camera));
+        
+        // var pos = initOtherPortalCamPos + playerCam.transform.position;
+        // var transform1 = otherPortal.transform;
+        // transform1.position = new Vector3(pos.x, transform1.position.y, pos.z);
+        //transform1.position = 
+    }
     
 }
