@@ -17,7 +17,7 @@ namespace VRKL.MBU
     public abstract class Observer : MonoBehaviour
     {
         /// <summary>
-        /// Wir führen ein Update für den Observer durch.
+        /// Wir führen ein Update für das Subject durch.
         /// </summary>
         public abstract void Refresh();
     }
