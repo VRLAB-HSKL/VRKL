@@ -1,21 +1,21 @@
-//========= 2020 - 2022 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 
 namespace VRKL.MBU
 {
     /// <summary>
-    /// Klasse, die einen float-Wert verwaltet.
-    /// Es gibt Funktionen für die Veränderung des Werts, und es wird
-    /// ein zulässiges Intervall definiert, das mit Hilfe von Clamp eingehalten wird.
+    /// Klasse, die einen Vektor mit drei  float-Komponenten verwaltet.
+    /// Es gibt Funktionen für die Veränderung der Koordinaten, und es wird
+    /// für jede Komponenten ein zulässiges Intervall definiert,
+    /// das mit Hilfe von Clamp eingehalten wird.
     ///
     /// Man könnte ein Subject daraus machen, darauf wurde erstmal verzichtet.
     /// </summary>
-    public class ScalarProvider
+    public class VectorProvider
     {
-        /// <summary>
+     /// <summary>
         /// Set und Get für den skalaren Wert
         /// </summary>
-        public float value
+        public Vector3 value
         {
             get => _value;
             set => _value = this.value;
@@ -25,7 +25,7 @@ namespace VRKL.MBU
         /// Set und Get für das Delta zum
         /// Verändern des Werts
         /// </summary>
-        public float delta
+        public Vector3 delta
         {
             get => _delta;
             set => _delta = this.delta;
@@ -34,7 +34,7 @@ namespace VRKL.MBU
         /// <summary>
         /// Set und Get für das Minimum des Werts
         /// </summary>
-        public float minimum
+        public Vector3 minimum
         {
             get => _min;
             set => _min = this.minimum;
@@ -43,7 +43,7 @@ namespace VRKL.MBU
         /// <summary>
         /// Set und Get für das Maximum des Werts
         /// </summary>
-        public float maximum
+        public Vector3 maximum
         {
             get => _max;
             set => _max = this.maximum;
@@ -54,7 +54,10 @@ namespace VRKL.MBU
         /// </summary>
         public void Increase()
         {
-            _value = Mathf.Clamp(_value + _delta, _min, _max);
+            Vector3 sum = _value + delta;
+            _value.x = Mathf.Clamp(sum.x, _min.x, _max.x);
+            _value.y = Mathf.Clamp(sum.y, _min.y, _max.y);
+            _value.z = Mathf.Clamp(sum.z, _min.z, _max.z);
         }
         
         /// <summary>
@@ -62,34 +65,37 @@ namespace VRKL.MBU
         /// </summary>
         public void Decrease()
         {
-            _value = Mathf.Clamp(_value - _delta, _min, _max);
+            Vector3 diff = _value - delta;
+            _value.x = Mathf.Clamp(diff.x, _min.x, _max.x);
+            _value.y = Mathf.Clamp(diff.y, _min.y, _max.y);
+            _value.z = Mathf.Clamp(diff.z, _min.z, _max.z);
         }
 
         /// <summary>
        /// Wert und Delta setzen.
        /// <remarks>
-       /// Minimum wird auf 0 gesetzt, Maximum auf 10.0.
+       /// Minimum und Maximum wird auf -infty und infty gesetzt.
        /// </remarks>
-       /// <param name="theValue">Anfangswert</param>
-       /// <param name="theDelta">Wert für die Veränderung </param>
+       /// <param name="theValue">Anfangswerte</param>
+       /// <param name="theDelta">Werte für die Veränderung </param>
        /// </summary>
-       public ScalarProvider(float theValue, float theDelta)
+       public VectorProvider(Vector3 theValue, Vector3 theDelta)
        {
            _value = theValue;
            _delta = theDelta;
-           _min = 0.0f;
-           _max = 10.0f;
+           _min = Vector3.negativeInfinity;;
+           _max = Vector3.positiveInfinity;
        }
   
         /// <summary>
         /// Wert,  Delta, Minimum und Maximum setzen.
-        /// <param name="theValue">Anfangswert</param>
-        /// <param name="theDelta">Wert für die Veränderung </param>
-        /// <param name="theMin">Minimaler Wert</param>
-        /// <param name="theDelta">Maximaler Wert </param>
+        /// <param name="theValue">Anfangsweret</param>
+        /// <param name="theDelta">Weret für die Veränderung </param>
+        /// <param name="theMin">Minimalr Werte</param>
+        /// <param name="theDelta">Maximale Werte </param>
         /// </summary>
-        public ScalarProvider(float theValue, float theDelta,
-                                       float theMin, float theMax)
+        public VectorProvider(Vector3 theValue, Vector3 theDelta,
+                                      Vector3 theMin, Vector3 theMax)
         {
             _value = theValue;
             _delta = theDelta;
@@ -98,30 +104,31 @@ namespace VRKL.MBU
         }
 
         /// <summary>
-       /// Der skalare Float-Wert, den diese Klasse liefert.
+       /// Der Vektort, den diese Klasse liefert.
        /// </summary>
-       private float _value;
+       private Vector3 _value;
        
        /// <summary>
-       /// Der skalare Float-Wert, den wir für die Veränderung
+       /// DerVektorr, den wir für die Veränderung
        /// des skalaren Werts einsetzen.
        /// </summary>
-       private float _delta;
+       private Vector3 _delta;
 
        /// <summary>
-       /// Minimaler Wert, der angenommen werden kann.
+       /// Minimale Werte, die angenommen werden können.
        /// In Increase und Decrease wird ein Clamp durchgeführt.
        /// Damit ist garantiert, dass der Wert immer im zulässigen
        /// Intervall liegt.
        /// </summary>
-       private float _min;
+       private Vector3 _min;
   
        /// <summary>
-       /// Maximaler Wert, der angenommen werden kann.
+       /// Maximalr Werte, die angenommen werden können.
        /// In Increase und Decrease wird ein Clamp durchgeführt.
        /// Damit ist garantiert, dass der Wert immer im zulässigen
        /// Intervall liegt.
        /// </summary>
-       private float _max;       
+       private Vector3 _max;       
+
     }
 }

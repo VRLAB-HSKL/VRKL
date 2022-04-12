@@ -46,7 +46,7 @@ namespace VRKL.MBU
         /// <returns>
         /// Orientierungen als Instanz von Vector3.
         /// </returns>
-        protected override void MovementOrientation()
+        protected override void UpdateOrientation()
         {
             var delta = new Vector3(0.0f, 0.0f, 0.0f)
             {

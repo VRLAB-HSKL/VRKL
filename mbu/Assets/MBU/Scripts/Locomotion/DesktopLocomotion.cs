@@ -58,7 +58,7 @@ namespace VRKL.MBU
         /// </summary>
         [Tooltip("Geschwindigkeit")]
         [Range(0.1f, 20.0f)]
-        public float TheSpeed = 5.0f; 
+        public float initialSpeed = 5.0f; 
         
         /// <summary>
         /// Maximal mögliche Geschwindigkeit
@@ -73,20 +73,21 @@ namespace VRKL.MBU
         [Tooltip("Delta für die Veränderung der Bahngeschwindigkeit")]
         [Range(0.001f, 2.0f)]
         public float vDelta = 0.2f;
+        
         /// <summary>
         /// Taste  für das Abbremsen der Fortbewegung.
-        /// Default ist "D"
+        /// Default ist "d"
         /// </summary>
         [Tooltip("Taste für das Abbremsen")] 
         public String DecKey= "d";
 
         /// <summary>
         /// Taste  für das Beschleunigen der Fortbewegung.
-        /// Default ist "A"
+        /// Default ist "a"
         /// </summary>
         [Tooltip("Taste für das Abbremsen")] 
-        public string AccKey = "a";
-        
+        public String AccKey = "a";
+
         /// <summary>
         /// Berechnung der Geschwindigkeit der Fortbewegung
         /// </summary>
@@ -95,37 +96,22 @@ namespace VRKL.MBU
         /// mit 3.6f in m/s um.
         /// </remarks>
         /// <returns></returns>
-        protected override void MovementSpeed()
+        protected override void UpdateSpeed()
         {
             if (Input.GetKeyUp(AccKey))
-                _speed.Increase();
+                Velocity.Increase();
             if (Input.GetKeyUp(DecKey))
-                _speed.Decrease();
-            Speed = ReverseFactor * _speed.value/3.6f;
+                Velocity.Decrease();
+            Speed = ReverseFactor * Velocity.value/3.6f;
         }
-        
-        /// <summary>
-        /// Initialisieren
-        /// </summary>
-        protected virtual void Awake()
-        {
-            // Bewegungsrichtung, Orientierung und Bahngeschwindigkeit initialisieren
-            MovementDirection();
-            InitializeOrientation();
-            InitializeVelocity();
-        }
-
         /// <summary>
         /// Update aufrufen und die Bewegung ausführen.
         /// </summary>
         protected virtual void Update()
         {
-            MovementDirection();
-            MovementSpeed();
-            // Orientierung auch verändern wenn die Bewegung nicht ausgeführt wird!
-            MovementOrientation();
-            transform.eulerAngles = Orientation;
-
+            UpdateSpeed();
+            UpdateOrientation();
+            
             if (Input.GetButtonDown(ReverseButton))
             {
                 ReverseFactor *= -1.0f;
@@ -140,12 +126,10 @@ namespace VRKL.MBU
         /// Funktion in den abgeleiteten Klassen und rufen
         /// diese Funktionin Locomotion::Awake auf.
         /// </summary>
-        protected override void InitializeVelocity()
+        protected override void InitializeSpeed()
         {
-            _speed = new ScalarProvider(TheSpeed, vDelta, 0.0f, vMax);
-            Speed = _speed.value;
+            Velocity= new ScalarProvider(initialSpeed, vDelta, 0.0f, vMax);
+            Speed = Velocity.value;
         }
-
-        private ScalarProvider _speed;
     }
 }

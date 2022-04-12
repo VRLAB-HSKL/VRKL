@@ -17,7 +17,7 @@ namespace VRKL.MBU
         /// </summary>
         [Tooltip("Axis für die Manipulation der Laufrichtung\nSinnvolle Werte: Mouse X, Horizontal")]
         public string WalkAxis = "Mouse X";
-
+        
         /// <summary>
         /// Multiplikator für die Mausbewegung
         /// </summary>
@@ -36,13 +36,23 @@ namespace VRKL.MBU
         /// <returns>
         /// Bewegungsrichtung als Instanz von Vector3.
         /// </returns>
-        protected override void MovementOrientation()
+        protected override void UpdateOrientation()
         {
             var delta = new Vector3(0.0f, 0.0f, 0.0f)
             {
                 y = MouseSensitivity * Input.GetAxis(WalkAxis)
             };
             Orientation = transform.eulerAngles + delta;
+        }
+        
+        /// <summary>
+        /// Geschwindigkeit initialiseren. Wir überschreiben diese
+        /// Funktion in den abgeleiteten Klassen und rufen
+        /// diese Funktionin Locomotion::Awake auf.
+        /// </summary>
+        protected override void InitializeOrientation()
+        {
+            Orientation = transform.eulerAngles;
         }
     }
 }

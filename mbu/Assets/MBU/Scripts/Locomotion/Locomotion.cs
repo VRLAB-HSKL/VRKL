@@ -20,15 +20,25 @@ namespace VRKL.MBU
         /// wir forward des GameObjects, an dem die Komponente
         /// hängt.
         /// </remark>
-        protected virtual void MovementDirection()
+        protected virtual void InitializeDirection()
         {
             Direction = transform.forward;
         }
 
         /// <summary>
+        /// Orientierung initialiseren. Wir überschreiben diese
+        /// Funktion in den abgeleiteten Klassen und rufen
+        /// diese Funktion in Locomotion::Awake  auf.
+        /// </summary>
+        protected virtual void InitializeOrientation()
+        {
+            Orientation = new Vector3(0.0f, 0.0f, 0.0f);
+        }
+        
+        /// <summary>
         /// Berechnung der Geschwindigkeit der Fortbewegung
         /// </summary>
-        protected abstract void MovementSpeed();
+        protected abstract void UpdateSpeed();
 
         /// <summary>
         /// Orientierung für die Bewegung als Eulerwinkel.
@@ -36,24 +46,14 @@ namespace VRKL.MBU
         /// <remark>
         /// Orientierungen als Instanz von Vector3.
         /// </remark>
-        protected abstract void MovementOrientation();
-
-        /// <summary>
-        /// Orientierung initialiseren. Wir überschreiben diese
-        /// Funktion in den abgeleiteten Klassen und rufen
-        /// diese Funktionin Locomotion::Awake auf.
-        /// </summary>
-        protected virtual void InitializeOrientation()
-        {
-            Orientation = new Vector3(0.0f, 0.0f, 0.0f);
-        }
+        protected abstract void UpdateOrientation();
 
         /// <summary>
         /// Geschwindigkeit initialiseren. Wir überschreiben diese
         /// Funktion in den abgeleiteten Klassen und rufen
         /// diese Funktionin Locomotion::Awake auf.
         /// </summary>
-        protected abstract void InitializeVelocity();
+        protected abstract void InitializeSpeed();
 
         /// <summary>
         /// Multiplikator, um die Bewegungsrichtung um 180 Grad drehen zu können.
@@ -66,13 +66,23 @@ namespace VRKL.MBU
         protected virtual void Awake()
         {
             // Bewegungsrichtung, Orientierung und Bahngeschwindigkeit initialisieren
-            MovementDirection();
+            InitializeDirection();
             InitializeOrientation();
-            InitializeVelocity();
+            InitializeSpeed();
         }
         
+        /// <summary>
+        /// Die Bewegung durchführen.
+        ///
+        /// Wir bewegen uns in Richtung des Vektors Direction,
+        /// er typischer Weise auf forward des GameObjects gesetzt wird.
+        ///
+        /// Wir orientieren das Objekt mit Hilfe der Eulerwinkel in Orientation
+        /// und führen anschließend eine Translation in Richtung Direction durch.
+        /// </summary>
         protected virtual void Move()
         {
+            transform.eulerAngles = Orientation;
             transform.Translate(Speed * Time.deltaTime * Direction);
         }
 
@@ -85,11 +95,6 @@ namespace VRKL.MBU
         protected float Speed;
 
         /// <summary>
-        /// Normierter Richtungsvektor für die Fortbewegung.
-        /// </summary>
-        protected Vector3 Direction;
-
-        /// <summary>
         /// Vektor mit den Eulerwinkeln für die Kamera
         /// </summary>
         protected Vector3 Orientation;
@@ -98,5 +103,10 @@ namespace VRKL.MBU
         /// Klasse für die Verwaltung der Bahngeschwindigkeit.
         /// </summary>
         protected ScalarProvider Velocity;
+
+        /// <summary>
+        /// Normierter Richtungsvektor für die Fortbewegung.
+        /// </summary>
+        private Vector3 Direction;
     }
 }
