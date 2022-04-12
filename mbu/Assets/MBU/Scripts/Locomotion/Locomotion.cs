@@ -1,5 +1,9 @@
-﻿//========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
+﻿//========= 2020 - 2022 - Copyright Manfred Brill. All rights reserved. ===========
+
+using System.IO;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace VRKL.MBU
 {
@@ -29,6 +33,7 @@ namespace VRKL.MBU
     [RequireComponent(typeof(Camera))]
     public abstract class Locomotion : MonoBehaviour
     {
+        [Header("Device Interface")]
         /// <summary>
         /// Button, der die Fortbewegung auslöst.
         /// <remark>
@@ -38,7 +43,7 @@ namespace VRKL.MBU
         /// </remark>
         /// </summary>
         [Tooltip("Button das Auslösen der Bewegung\nSinnvolle Werte: Fire1, Fire2, Fire3, Submit, Jump")]
-        public string TheTriggerButton = "Fire1";
+        public string TriggerButton = "Fire1";
 
         /// <summary>
         /// Button, der die Bewegungsrichtung um 180 Grad dreht ("Rückwärtsgang").
@@ -48,8 +53,7 @@ namespace VRKL.MBU
         /// Keyboard-Tasten hier als Ersatz verwendet werden.
         /// </remark>
         /// </summary>
-        [Tooltip("Button das Auslösen der Bewegung\nSinnvolle Werte: Fire1, Fire2, Fire3, Submit, Jump")]
-        public string TheReverseButton = "Submit";
+        public string ReverseButton = "Submit";
         
         /// <summary>
         /// Multiplikator, um die Bewegungsrichtung um 180 Grad drehen zu können.
@@ -61,8 +65,10 @@ namespace VRKL.MBU
         /// </summary>
         protected virtual void Awake()
         {
-            Speed = 1.0f;
-            Direction = transform.forward;
+            // Bewegungsrichtung, Orientierung und Bahngeschwindigkeit initialisieren
+            MovementDirection();
+            InitializeOrientation();
+            InitializeVelocity();
         }
 
         /// <summary>
@@ -70,21 +76,18 @@ namespace VRKL.MBU
         /// </summary>
         protected virtual void Update()
         {
-            // Überprüfen, ob der Button für die Drehung der Richtung um 180 Grad ausgelöst wurde
-
-
             MovementDirection();
             MovementSpeed();
             // Orientierung auch verändern wenn die Bewegung nicht ausgeführt wird!
             MovementOrientation();
             transform.eulerAngles = Orientation;
 
-            if (Input.GetButtonDown(TheReverseButton))
+            if (Input.GetButtonDown(ReverseButton))
             {
                 ReverseFactor *= -1.0f;
             }
 
-            if (Input.GetButton(TheTriggerButton))
+            if (Input.GetButton(TriggerButton))
             {
                 transform.Translate(Speed * Time.deltaTime * Direction);
             }
@@ -107,12 +110,18 @@ namespace VRKL.MBU
         protected Vector3 Orientation;
 
         /// <summary>
-        /// Berechnung der Richtung der Fortbewegung
+        /// Festlegen der Bewegungsrichtung.
         /// </summary>
         /// <remark>
-        /// Bewegungsrichtung als normalisierte Vector3-Instanz
+        /// Bewegungsrichtung als normalisierte Vector3-Instanz.
+        /// Wenn diese Funktion nicht überschrieben wird verwenden
+        /// wir forward des GameObjects, an dem die Komponente
+        /// hängt.
         /// </remark>
-        protected abstract void MovementDirection();
+        protected virtual void MovementDirection()
+        {
+            Direction = transform.forward;
+        }
         /// <summary>
         /// Berechnung der Geschwindigkeit der Fortbewegung
         /// </summary>
@@ -125,5 +134,26 @@ namespace VRKL.MBU
         /// </remark>
         protected abstract void MovementOrientation();
 
+        /// <summary>
+        /// Orientierung initialiseren. Wir überschreiben diese
+        /// Funktion in den abgeleiteten Klassen und rufen
+        /// diese Funktionin Locomotion::Awake auf.
+        /// </summary>
+        protected virtual void InitializeOrientation()
+        {
+            Orientation = new Vector3(0.0f, 0.0f, 0.0f);
+        }
+        
+        /// <summary>
+        /// Geschwindigkeit initialiseren. Wir überschreiben diese
+        /// Funktion in den abgeleiteten Klassen und rufen
+        /// diese Funktionin Locomotion::Awake auf.
+        /// </summary>
+        protected abstract void InitializeVelocity();
+        
+        /// <summary>
+        /// Klasse für die Verwaltung der Bahngeschwindigkeit.
+        /// </summary>
+        protected ScalarProvider Velocity;
     }
 }
