@@ -572,7 +572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
       propertyPath: m_LocalPosition.z
@@ -650,13 +650,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerButton: Fire1
   ReverseButton: Submit
-  WalkAxis: Mouse X
-  MouseSensitivity: 0.5
   TheSpeed: 5
   vMax: 10
   vDelta: 0.2
   DecKey: d
   AccKey: a
+  WalkAxis: Mouse X
+  MouseSensitivity: 0.5
 --- !u!1 &1794718885
 GameObject:
   m_ObjectHideFlags: 0
