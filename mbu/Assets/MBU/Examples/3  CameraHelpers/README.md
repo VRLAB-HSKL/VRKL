@@ -8,11 +8,11 @@ Unity-Kamera eingesetzt werden können.
 | ---- | --------------- |
 | Examine | Die Klasse Examine realisiert für ein GameObject die Examine-Metapher. |
 | RotateObject | Mit dieser Klasse können wir ein Objekt rotieren und untersuchen. |
-| ----- | ------- |
+|  |  |
 
 
 ## Unity-Version
-Alle Anwendungen verwenden (Stand Juli 2021) die Version Unity 2020.3 LTS.
+Alle Anwendungen verwenden (Stand April 2022) die Version Unity 2020.3.31f LTS.
 
 
 ![Lizenzlogo](https://licensebuttons.net/l/by-nc-sa/3.0/de/88x31.png)

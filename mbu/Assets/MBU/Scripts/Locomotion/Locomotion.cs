@@ -6,20 +6,22 @@ namespace VRKL.MBU
     /// <summary>
     /// Abstrakte Basisklasse für die Fortbewegung auf dem Desktop
     /// und in VR.
+    /// </summary>
+    /// <remarks>
     /// Davon abgeleitet gibt es die ebenfalls virtuellen Klassen
     /// MBU.Locomotion  und MBVR.ImmersiveLocomotion.
-    /// </summary>
+    /// </remarks>
     public abstract class Locomotion : MonoBehaviour
     {
         /// <summary>
         /// Festlegen der Bewegungsrichtung.
         /// </summary>
-        /// <remark>
+        /// <remarks>
         /// Bewegungsrichtung als normalisierte Vector3-Instanz.
         /// Wenn diese Funktion nicht überschrieben wird verwenden
         /// wir forward des GameObjects, an dem die Komponente
         /// hängt.
-        /// </remark>
+        /// </remarks>
         protected virtual void InitializeDirection()
         {
             Direction = transform.forward;
@@ -43,9 +45,9 @@ namespace VRKL.MBU
         /// <summary>
         /// Orientierung für die Bewegung als Eulerwinkel.
         /// </summary>
-        /// <remark>
+        /// <remarks>
         /// Orientierungen als Instanz von Vector3.
-        /// </remark>
+        /// </remarks>
         protected abstract void UpdateOrientation();
 
         /// <summary>
@@ -88,9 +90,9 @@ namespace VRKL.MBU
 
         /// <summary>
         /// Betrag der Geschwindigkeit für die Bewegung
-        /// <remark>
+        /// <remarks>
         /// Einheit dieser Variable ist m/s.
-        /// </remark>
+        /// </remarks>
         /// </summary>
         protected float Speed;
 
