@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3780629, g: 0.38766846, b: 0.36896834, a: 1}
+  m_IndirectSpecularColor: {r: 0.13059404, g: 0.13893804, b: 0.12791368, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -650,7 +650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerButton: Fire1
   ReverseButton: Submit
-  TheSpeed: 5
+  initialSpeed: 5
   vMax: 10
   vDelta: 0.2
   DecKey: d

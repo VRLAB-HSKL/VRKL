@@ -47,3 +47,10 @@ namespace VRKL.MBVR
         private const string STOP_BUTTON = "Fire3";
     }
 }
+
+/*! \mainpage
+* Eine mit doxygen erstellte HTML-Dokumentation des Unity-Packages MBVR.
+*
+* Beispiele für die Verwendung der Klassen und Assets finden Sie im Verzeichnis
+* Examples.
+ */

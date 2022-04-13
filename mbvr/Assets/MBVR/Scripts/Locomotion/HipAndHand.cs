@@ -2,33 +2,31 @@
 using UnityEngine;
 using HTC.UnityPlugin.Vive;
 
-/// <summary>
-/// Abstrakte Basisklasse für kontinuierliche Fortbewegung in immersiven Anwendungen,
-/// abgeleitet von ContinousMovement.
-/// 
-/// Abgeleitete Klassen berechnen die bewegungsrichtung aus der Differenz der Position
-/// von zwei GameObjects.
-/// 
-/// Eine Anwendung dafür sind insbesondere sogenannte "leaning models".
-/// </summary>
-public class HipAndHand : DifferentialDirection
+namespace VRKL.MBVR
 {
     /// <summary>
-    /// Wir nehmen ein GameObject fest, den Kopf, rechnen
-    /// daraus die Hüfte und verwenden ein
+    /// Abstrakte Basisklasse für kontinuierliche Fortbewegung in immersiven Anwendungen,
+    /// abgeleitet von ContinousMovement.
+    /// 
+    /// Abgeleitete Klassen berechnen die bewegungsrichtung aus der Differenz der Position
+    /// von zwei GameObjects.
+    /// 
+    /// Eine Anwendung dafür sind insbesondere sogenannte "leaning models".
     /// </summary>
-    protected override void ComputeMovingDirection()
+    public class HipAndHand : LeaningModel
     {
-        Vector3 startingPoint = startObject.transform.position;
-        Vector3 endPoint = endObject.transform.position;
-
-        movingDirection = endPoint - startingPoint;
-        // Testhalber hier die Variable v für die Geschwindigkeit aus der Länge
-        // des Verbindungsvektors nehmen, mit einem Clamp
-        v = Mathf.Clamp(movingDirection.magnitude, 0.0f, vMax);
-        Debug.Log("Bahngeschwindigkeit in ComputingMovingDirection" + v);
-
-        movingDirection.Normalize();
+        /// <summary>
+        /// Update der Orientierung des GameObjects,
+        /// das die Bewegungsrichtung definiert..
+        /// </summary>
+        /// <remarks>
+        /// Für die Verarbeitung der Orientierung verwenden wir
+        /// die Eulerwinkel der x- und y-Achse.
+        /// </remarks>
+        protected override void UpdateOrientation()
+        {
+            //Orientation.y = orientationObject.transform.eulerAngles.y;
+        }
     }
 }
 
