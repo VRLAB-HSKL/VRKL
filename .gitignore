@@ -15,7 +15,7 @@
 **/Library/*
 **/obj/*
 **/ProjectSettings/*
-**/Logs/*
+**/Logs/**/*
 
 # Doxygen Output ignorieren
 **/Assets/MBU/HTML/
@@ -30,6 +30,7 @@
 **/Assets/VIUSettings/*
 **/Assets/GoogleVR/*
 **/Assets/SteamVR_Input/**/*
+**/Assets/SteamVR_Resources/**/*
 **/Assets/HTC.UnityPlugin/
 **/Assets/HTC.UnityPlugin/ViveInputUtility/*
 **/Assets/Plugins
@@ -41,6 +42,8 @@
 **/Assets/MiddleVR.meta
 **/Assets/GoogleVR.meta
 **/Assets/SteamVR.meta
+**/Assets/SteamVR_Input.meta
+**/Assets/SteamVR_Resources.meta
 **/Assets/HTC.UnityPlugin.meta
 **/Assets/**/XR.meta
 **/Assets/**/VIUSettings.meta
