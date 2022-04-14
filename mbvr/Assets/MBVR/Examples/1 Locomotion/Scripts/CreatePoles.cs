@@ -24,7 +24,7 @@ public class CreatePoles : MonoBehaviour
     /// </summary>
     [Range(1.0f, 5.0f)]
     [Tooltip("Abstand der Säulen")]
-    public float deltaZ = 2.0f;
+    public float deltaZ = 4.0f;
     /// <summary>
     /// Länge des Parcours.
     /// 
