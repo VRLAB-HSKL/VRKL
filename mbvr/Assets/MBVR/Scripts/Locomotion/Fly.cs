@@ -20,10 +20,7 @@ namespace VRKL.MBVR
     /// Die Geschwindigkeit wird mit Buttons auf einem Controller
     /// verändert.
     /// </remarks>
-    /// \todo Statt Trigger zu halten könnten wir auch den State ändern zwischen
-    /// bewegen und nicht bewegen, mit Hilfe von 2x auslösen des Triggers,
-    /// wie das in der VIU auch bei grab angeboten wird.
-    public class Fly : SingleOrientation
+    public class Fly : SingleObjectDirection
     {
         /// <summary>
         /// Update der Orientierung des GameObjects,
@@ -38,6 +35,9 @@ namespace VRKL.MBVR
         {
             Orientation.x = orientationObject.transform.eulerAngles.x;
             Orientation.y = orientationObject.transform.eulerAngles.y;
+            
+            Debug.Log(Orientation.x);
+            Debug.Log(Orientation.y);
         }
     }
 }

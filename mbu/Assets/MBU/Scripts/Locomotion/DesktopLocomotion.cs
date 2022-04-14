@@ -31,15 +31,15 @@ namespace VRKL.MBU
     public abstract class DesktopLocomotion : Locomotion
     {
         [Header("Device Interface")]
+        [Tooltip("Button das Auslösen der Bewegung\nSinnvolle Werte: Fire1, Fire2, Fire3, Submit, Jump")]
         /// <summary>
-        /// Button, der die Fortbewegung auslöst.
-        /// <remark>
+        /// Button für das Triggern der Bewegung
+        /// </summary>
+        /// <remarks>
         /// Wir verwenden die logischen Buttons des Input-Managers von Unity.
         /// In den Preferences des input-Managers kann nachgesehen werden welche
         /// Keyboard-Tasten hier als Ersatz verwendet werden.
-        /// </remark>
-        /// </summary>
-        [Tooltip("Button das Auslösen der Bewegung\nSinnvolle Werte: Fire1, Fire2, Fire3, Submit, Jump")]
+        /// </remarks>
         public string TriggerButton = "Fire1";
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace VRKL.MBU
                 Velocity.Increase();
             if (Input.GetKeyUp(DecKey))
                 Velocity.Decrease();
-            Speed = ReverseFactor * Velocity.value/3.6f;
+            Speed = m_ReverseFactor * Velocity.value/3.6f;
         }
         /// <summary>
         /// Update aufrufen und die Bewegung ausführen.
@@ -114,7 +114,7 @@ namespace VRKL.MBU
             
             if (Input.GetButtonDown(ReverseButton))
             {
-                ReverseFactor *= -1.0f;
+                m_ReverseFactor *= -1;
             }
 
             if (Input.GetButton(TriggerButton))
@@ -131,5 +131,11 @@ namespace VRKL.MBU
             Velocity= new ScalarProvider(initialSpeed, vDelta, 0.0f, vMax);
             Speed = Velocity.value;
         }
+        
+        /// <summary>
+        /// Multiplikator, um die Bewegungsrichtungin den Desktop-Varianten
+        /// um 180 Grad drehen zu können.
+        /// </summary>
+        private int m_ReverseFactor = 1;
     }
 }

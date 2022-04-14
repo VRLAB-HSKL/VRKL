@@ -4,11 +4,11 @@ using UnityEngine;
 namespace VRKL.MBVR
 {
     /// <summary>
-    /// Abstrakte Basisklasse für die Realisierung von Learning Models und
-    /// anderen Locomotion-Verfahren, die die Differenz zweier Objekte
+    /// Abstrakte Basisklasse für die Realisierung von Locomotion-Verfahren,
+    /// die die Differenz zweier Objekte
     /// für die Definition der Bewegungsrichtung verwenden.
     /// </summary>
-    public abstract class LeaningModel : VRLocomotion
+    public abstract class TwoObjectsDirection : VRLocomotion
     {
         [Header("Definition der Bewegungsrichtung durch zwei GameObjects")]
         /// <summary>

@@ -16,7 +16,7 @@ namespace VRKL.MBVR
     /// Die Geschwindigkeit wird mit Buttons auf einem Controller
     /// verändert.
     /// </remarks>
-    public class Walk : SingleOrientation
+    public class Walk : SingleObjectDirection
     {
         /// <summary>
         /// Update der Orientierung des GameObjects,

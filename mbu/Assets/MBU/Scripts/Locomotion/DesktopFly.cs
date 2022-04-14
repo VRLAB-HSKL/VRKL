@@ -1,5 +1,4 @@
 ﻿//========= 2020 - 2022 - Copyright Manfred Brill. All rights reserved. ===========
-using System;
 using UnityEngine;
 
 namespace VRKL.MBU
@@ -12,11 +11,11 @@ namespace VRKL.MBU
     public class DesktopFly : DesktopLocomotion
     {
         [Header("Bewegungsrichtung")]
+        [Tooltip("Axis für die Manipulation der Flugrichtung in y\nSinnvolle Werte: Mouse Y, Vertical")]
         /// <summary>
         /// Axis für das Input-System von Unity, mit der wir die
         /// Orientierung für die Flugrichtung in y manipulieren.
         /// </summary>
-        [Tooltip("Axis für die Manipulation der Flugrichtung in y\nSinnvolle Werte: Mouse Y, Vertical")]
         public string FlyAxisY = "Mouse Y";
         
         /// <summary>
@@ -32,8 +31,6 @@ namespace VRKL.MBU
         [Tooltip("Multiplikator für die Mausbewegung")]
         [Range(0.1f, 10.0f)]
         public float MouseSensitivity = 0.5f;
-        
- 
 
         /// <summary>
         /// Orientierung der Bewegung auf der Basis der Mausbewegung.

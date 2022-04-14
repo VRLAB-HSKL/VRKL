@@ -24,8 +24,7 @@ namespace VRKL.MBVR
     /// wir diese Klasse hinzufügen einen CameraRig der Vive Input Utility
     /// enthält.
     /// </remarks>
-    /// \todo Evaluieren, ob wir einen Rückwärtsgang benötigen in VR-Anwendungen
-    [RequireComponent(typeof(Camera))]
+    //[RequireComponent(typeof(ViveCameraRig))]
     public abstract class VRLocomotion : VRKL.MBU.Locomotion
     {
         [Header("Trigger Devices")]
@@ -139,13 +138,10 @@ namespace VRKL.MBVR
         /// <remarks>
         /// Wir rechnen die km/h aus dem Interface durch Division
         /// mit 3.6f in m/s um.
-        ///
-        /// ReverseFactor wird aktuell nicht verwendet in der VR-Version
-        /// und ist konstant 1.0f.
         /// </remarks>
         protected override void UpdateSpeed()
         {
-            Speed = ReverseFactor * Velocity.value/3.6f;
+            Speed = Velocity.value/3.6f;
         }
         
         /// <summary>

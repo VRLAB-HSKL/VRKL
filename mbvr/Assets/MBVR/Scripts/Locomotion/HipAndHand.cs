@@ -13,7 +13,7 @@ namespace VRKL.MBVR
     /// 
     /// Eine Anwendung dafür sind insbesondere sogenannte "leaning models".
     /// </summary>
-    public class HipAndHand : LeaningModel
+    public class HipAndHand : TwoObjectsDirection
     {
         /// <summary>
         /// Update der Orientierung des GameObjects,

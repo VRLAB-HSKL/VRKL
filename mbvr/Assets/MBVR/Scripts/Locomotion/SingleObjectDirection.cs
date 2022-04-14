@@ -4,10 +4,10 @@ using UnityEngine;
 namespace VRKL.MBVR
 {
     /// <summary>
-    /// Abstrakte Basisklasse für immersive Locomotion-Verfahren die ein Objekt
-    /// für die Definition der Bewegungsrichtung einsetzen.
+    /// Abstrakte Basisklasse für immersive Locomotion-Verfahren,
+    /// die ein Objekt  für die Definition der Bewegungsrichtung einsetzen.
     /// </summary>
-    public abstract class SingleOrientation : VRLocomotion
+    public abstract class SingleObjectDirection : VRLocomotion
     {
         [Header("Definition der Bewegungsrichtung")]
         /// <summary>

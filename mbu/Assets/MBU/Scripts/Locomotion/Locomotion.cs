@@ -58,11 +58,6 @@ namespace VRKL.MBU
         protected abstract void InitializeSpeed();
 
         /// <summary>
-        /// Multiplikator, um die Bewegungsrichtung um 180 Grad drehen zu können.
-        /// </summary>
-        protected float ReverseFactor = 1.0f;
-
-        /// <summary>
         /// Initialisieren
         /// </summary>
         protected virtual void Awake()
@@ -72,7 +67,7 @@ namespace VRKL.MBU
             InitializeOrientation();
             InitializeSpeed();
         }
-        
+
         /// <summary>
         /// Die Bewegung durchführen.
         ///
