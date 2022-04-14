@@ -123,11 +123,19 @@ namespace VRKL.MBVR
         /// <summary>
         /// Update aufrufen und die Bewegung ausführen.
         /// </summary>
+        /// <remarks>
+        ///Wir verwenden den forward-Vektor des
+        /// Orientierungsobjekts als Bewegungsrichtung.
+        ///
+        /// Deshalb verwenden wir hier nicht die Funktion
+        /// UpdateOrientation, sondern setzen die Bewegungsrichtung
+        /// direkt.
+        /// </remarks>
         protected virtual void Update()
         {
+            UpdateDirection();
             UpdateSpeed();
-            UpdateOrientation();
-
+            
             if (ViveInput.GetPress(moveHand, moveButton))
                 Move();
         }

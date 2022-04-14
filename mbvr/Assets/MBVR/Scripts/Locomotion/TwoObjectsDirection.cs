@@ -1,4 +1,4 @@
-﻿//========= 2021 2022 - Copyright Manfred Brill. All rights reserved. ===========
+﻿//========= 2021 - 2022 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 
 namespace VRKL.MBVR
@@ -8,6 +8,9 @@ namespace VRKL.MBVR
     /// die die Differenz zweier Objekte
     /// für die Definition der Bewegungsrichtung verwenden.
     /// </summary>
+    /// <remarks>
+    ///Der Differenzvektor wird normalisiert.
+    /// </remarks>
     public abstract class TwoObjectsDirection : VRLocomotion
     {
         [Header("Definition der Bewegungsrichtung durch zwei GameObjects")]
@@ -20,27 +23,17 @@ namespace VRKL.MBVR
         /// <summary>
         /// GameObject, das den Endpunkt der Bewegungsrichtung definiert
         /// </summary>
-        [Tooltip("GameObject, das den Startpunkt der Bewegungsrichtung definiert")]
+        [Tooltip("GameObject, das den Endpunkt der Bewegungsrichtung definiert")]
         public GameObject endObject;
 
         /// <summary>
-        /// Berechnung der Orientierung aus den zwei GameObjects
+        /// Bewegungsrichtung als Differenz der forward-Vektoren
+        /// der beiden definierenden Objekte setzen.
         /// </summary>
-        /// <remarks>
-        /// In den konkreten Implementierungen implementieren wir
-        /// die Funktion UpdateOrientation.
-        ///
-        /// Die Definition der Bewegungsrichtung ist dort durch zwei Euler-Winkel
-        /// gegeben, die wir hier berechnen.
-        /// </remarks>
-        protected void ComputeMovingDirection()
+        protected override void InitializeDirection()
         {
-            var startingPoint = startObject.transform.position;
-            var endPoint = endObject.transform.position;
-
-            var movingDirection = endPoint - startingPoint;
-            movingDirection.Normalize();
-
+            Direction = endObject.transform.position-startObject.transform.position;
+            Direction.Normalize();
         }
     }
 }

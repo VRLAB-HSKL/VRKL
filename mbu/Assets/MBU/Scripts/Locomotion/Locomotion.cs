@@ -38,6 +38,14 @@ namespace VRKL.MBU
         }
         
         /// <summary>
+        /// Update  der Bewegungsrichtung.
+        /// </summary>
+        protected virtual void UpdateDirection()
+        {
+            Direction = transform.forward;
+        }
+        
+        /// <summary>
         /// Berechnung der Geschwindigkeit der Fortbewegung
         /// </summary>
         protected abstract void UpdateSpeed();
@@ -104,6 +112,11 @@ namespace VRKL.MBU
         /// <summary>
         /// Normierter Richtungsvektor für die Fortbewegung.
         /// </summary>
-        private Vector3 Direction;
+        /// <remarks>
+        /// In den VR-Varianten wird die Richtung direkt
+        /// aus dem forward-Vektor des Orientierungsobjekts
+        /// gesetzt.
+        /// </remarks>
+        protected Vector3 Direction;
     }
 }

@@ -592,7 +592,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1113048130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 240ff481738299f4d8e26d5ce6f2b9d0, type: 3}
+  m_Script: {fileID: 11500000, guid: d25fb363204fe674f8eb9255620c3801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveHand: 0
@@ -602,7 +602,8 @@ MonoBehaviour:
   vDelta: 0.2
   decButton: 1
   accButton: 2
-  orientationObject: {fileID: 1481863630}
+  startObject: {fileID: 2022182869}
+  endObject: {fileID: 1481863630}
 --- !u!1 &1398111303
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,3 +931,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb3370c18187bb444b240cfb08dcc02f, type: 3}
+--- !u!1 &2022182869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 188906, guid: cb3370c18187bb444b240cfb08dcc02f, type: 3}
+  m_PrefabInstance: {fileID: 2022182868}
+  m_PrefabAsset: {fileID: 0}

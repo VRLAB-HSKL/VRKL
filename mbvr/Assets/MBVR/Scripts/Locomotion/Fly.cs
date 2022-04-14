@@ -23,21 +23,29 @@ namespace VRKL.MBVR
     public class Fly : SingleObjectDirection
     {
         /// <summary>
+        /// Bewegungsrichtung auf den forward-Vektor des Orientierungsobjekts setzen.
+        /// </summary>
+        protected override void UpdateDirection()
+        {
+            Direction = orientationObject.transform.forward;
+        }
+        
+        /// <summary>
         /// Update der Orientierung des GameObjects,
         /// das die Bewegungsrichtung definiert..
         /// </summary>
         /// <remarks>
         /// Für die Verarbeitung der Orientierung verwenden wir
         /// die Eulerwinke der x- und y-Achse.
+        ///
+        /// Wird aktuell nicht verwendet, da wir die Bewegungsrichtung
+        /// direkt aus dem forward-Vektor des Orientierungsobjekts
+        /// ablesen.
         /// </remarks>
-        /// \todo Prüfen, ob wir in x nicht den negativen Eulerwinkel übertragen müssen.
         protected override void UpdateOrientation()
         {
             Orientation.x = orientationObject.transform.eulerAngles.x;
             Orientation.y = orientationObject.transform.eulerAngles.y;
-            
-            Debug.Log(Orientation.x);
-            Debug.Log(Orientation.y);
         }
     }
 }

@@ -5,7 +5,8 @@ namespace VRKL.MBVR
 {
     /// <summary>
     /// Abstrakte Basisklasse für immersive Locomotion-Verfahren,
-    /// die ein Objekt  für die Definition der Bewegungsrichtung einsetzen.
+    /// die ein Objekt
+    /// für die Definition der Bewegungsrichtung einsetzen.
     /// </summary>
     public abstract class SingleObjectDirection : VRLocomotion
     {
@@ -21,6 +22,15 @@ namespace VRKL.MBVR
 
         [Tooltip("GameObject, das die Bewegungsrichtung definiert")]
         public GameObject orientationObject;
+        
+        
+        /// <summary>
+        /// Bewegungsrichtung auf den forward-Vektor des Orientierungsobjekts setzen.
+        /// </summary>
+        protected override void InitializeDirection()
+        {
+            Direction = orientationObject.transform.forward;
+        }
     }
 }
 
