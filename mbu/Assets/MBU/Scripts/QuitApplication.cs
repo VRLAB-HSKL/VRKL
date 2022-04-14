@@ -1,9 +1,6 @@
-﻿//========= 2020 - Copyright Manfred Brill. All rights reserved. ===========
+﻿//========= 2020 - 2022 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 
-/// <summary>
-/// Namespace für allgemeine Unity-Assets
-/// </summary>
 namespace VRKL.MBU
 {
     /// <summary>
@@ -40,3 +37,10 @@ namespace VRKL.MBU
         }
     }
 }
+
+/*! \mainpage
+* Eine mit doxygen erstellte HTML-Dokumentation des Unity-Packages MBU.
+*
+* Beispiele für die Verwendung der Klassen und Assets finden Sie im Verzeichnis
+* Examples.
+ */

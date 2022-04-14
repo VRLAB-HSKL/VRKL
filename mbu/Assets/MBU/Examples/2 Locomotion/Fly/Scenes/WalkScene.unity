@@ -560,7 +560,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
       propertyPath: m_Name
-      value: MouseFly
+      value: MouseWalk
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
       propertyPath: m_RootOrder
@@ -628,6 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
+    - {fileID: 419844470834709342, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
 --- !u!1 &1777627067 stripped
 GameObject:
@@ -635,7 +636,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1777627066}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1777627074
+--- !u!114 &1777627068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -644,18 +645,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1777627067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ed92a596b4da14438ad9f579e095d20, type: 3}
+  m_Script: {fileID: 11500000, guid: ea4c446a0b333e943bb75b9b1689365f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TriggerButton: Fire1
   ReverseButton: Submit
-  TheSpeed: 5
+  initialSpeed: 5
   vMax: 10
   vDelta: 0.2
   DecKey: d
   AccKey: a
-  FlyAxisY: Mouse Y
-  FlyAxisXZ: Mouse X
+  WalkAxis: Mouse X
   MouseSensitivity: 0.5
 --- !u!1 &1794718885
 GameObject:

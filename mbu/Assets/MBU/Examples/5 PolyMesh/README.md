@@ -11,11 +11,11 @@ Wir verwenden die Basisklasse PolyMesh, die im Package MBU enthalten ist.
 | PrefabMeshes | Polygonale Netze, die als Prefab im Package enthalten sind.|
 | SimpleAirPlane | Verwendung des einfachen Flugzeugmodells.|
 | SimpleMesh | Einfaches Objekt als polygonales Netz.|
-| ----- | ------- |
+|  |  |
 
 
 ## Unity-Version
-Alle Anwendungen verwenden (Stand August 2021) die Version Unity 2020.3 LTS.
+Alle Anwendungen verwenden (Stand April 2022) die Version Unity 2020.3 LTS.
 
 
 ![Lizenzlogo](https://licensebuttons.net/l/by-nc-sa/3.0/de/88x31.png)

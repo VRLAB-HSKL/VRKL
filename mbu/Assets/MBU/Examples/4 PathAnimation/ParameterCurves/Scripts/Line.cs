@@ -20,16 +20,13 @@ namespace VRKL.MBU
         [Tooltip("Endpunkt der Linie")]
         public Vector3 p2 = Vector3.forward;
         /// <summary>
-        /// Bogenlänge der Linie
-        /// </summary>
-        private float arcL = 0.0f;
-        /// <summary>
         ///  Richtungsvektor
         /// </summary>
         private Vector3 _dirVec = Vector3.zero;
         /// <summary>
         /// Berechnung der Punkte für eine Linie zwischen P1 und P2.
-        /// 
+        /// </summary>
+        /// <remarks>
         /// Wir verwenden das Parameterintervall [0.0, L], dabei
         /// ist L der Abstand zwischen den beiden Punkten.
         /// Der Richtungsvektor für diese Parametrisierung ist
@@ -39,7 +36,7 @@ namespace VRKL.MBU
         /// 
         /// Damit können wir garantieren, dass die Linie nach
         /// Bogenmaß parametrisiert ist.
-        /// </summary>
+        /// </remarks>
         protected override void ComputePath()
         {
             _dirVec = p2 - p1;

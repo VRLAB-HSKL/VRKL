@@ -1,129 +1,122 @@
-﻿//========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
+//========= 2020 - 2022 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 
 namespace VRKL.MBU
 {
     /// <summary>
-    /// Abstrakte Basisklasse für die Fortbewegung (Locomotion)
-    /// in einer Unity-Szene. Ziel sind hier Desktop- oder Android-
-    /// Anwendungen, keine XR-Anwendung!
-    /// 
-    /// Für die Locomotion verwenden wir immer zwei Variablen:
-    /// - einen Richtungsvektor (mit euklidischer Länge 1)
-    /// - einen Skalar.
-    /// 
-    /// Diese beiden Variablen definieren die Veränderung der Position
-    /// der Kamera.
-    /// 
-    /// Häufig werden auch die Euler-Winkel der beeinflussten Kamera verändert.
-    /// 
-    /// Wie diese Variablen verändert werden wird in den Klassen
-    /// realisiert, die von dieser Basisklasse abgeleitet werden.
-    /// 
-    /// <remark>
-    /// Mit RequireComponent wird sicher gestellt, dass diese Klasse und
-    /// die, die davon abgeleitet werden,
-    /// nur GameObjects hinzugefügt werden können, die eine Camera-Komponente besitzen.
-    /// </remark>
+    /// Abstrakte Basisklasse f�r die Fortbewegung auf dem Desktop
+    /// und in VR.
     /// </summary>
-    [RequireComponent(typeof(Camera))]
+    /// <remarks>
+    /// Davon abgeleitet gibt es die ebenfalls virtuellen Klassen
+    /// MBU.Locomotion  und MBVR.ImmersiveLocomotion.
+    /// </remarks>
     public abstract class Locomotion : MonoBehaviour
     {
         /// <summary>
-        /// Button, der die Fortbewegung auslöst.
-        /// <remark>
-        /// Wir verwenden die logischen Buttons des Input-Managers von Unity.
-        /// In den Preferences des input-Managers kann nachgesehen werden welche
-        /// Keyboard-Tasten hier als Ersatz verwendet werden.
-        /// </remark>
+        /// Festlegen der Bewegungsrichtung.
         /// </summary>
-        [Tooltip("Button das Auslösen der Bewegung\nSinnvolle Werte: Fire1, Fire2, Fire3, Submit, Jump")]
-        public string TheTriggerButton = "Fire1";
+        /// <remarks>
+        /// Bewegungsrichtung als normalisierte Vector3-Instanz.
+        /// Wenn diese Funktion nicht �berschrieben wird verwenden
+        /// wir forward des GameObjects, an dem die Komponente
+        /// h�ngt.
+        /// </remarks>
+        protected virtual void InitializeDirection()
+        {
+            Direction = transform.forward;
+        }
 
         /// <summary>
-        /// Button, der die Bewegungsrichtung um 180 Grad dreht ("Rückwärtsgang").
-        /// <remark>
-        /// Wir verwenden die logischen Buttons des Input-Managers von Unity.
-        /// In den Preferences des input-Managers kann nachgesehen werden welche
-        /// Keyboard-Tasten hier als Ersatz verwendet werden.
-        /// </remark>
+        /// Orientierung initialiseren. Wir �berschreiben diese
+        /// Funktion in den abgeleiteten Klassen und rufen
+        /// diese Funktion in Locomotion::Awake  auf.
         /// </summary>
-        [Tooltip("Button das Auslösen der Bewegung\nSinnvolle Werte: Fire1, Fire2, Fire3, Submit, Jump")]
-        public string TheReverseButton = "Submit";
+        protected virtual void InitializeOrientation()
+        {
+            Orientation = new Vector3(0.0f, 0.0f, 0.0f);
+        }
         
         /// <summary>
-        /// Multiplikator, um die Bewegungsrichtung um 180 Grad drehen zu können.
+        /// Update  der Bewegungsrichtung.
         /// </summary>
-        protected float ReverseFactor = 1.0f;
+        protected virtual void UpdateDirection()
+        {
+            Direction = transform.forward;
+        }
+        
+        /// <summary>
+        /// Berechnung der Geschwindigkeit der Fortbewegung
+        /// </summary>
+        protected abstract void UpdateSpeed();
+
+        /// <summary>
+        /// Orientierung f�r die Bewegung als Eulerwinkel.
+        /// </summary>
+        /// <remarks>
+        /// Orientierungen als Instanz von Vector3.
+        /// </remarks>
+        protected abstract void UpdateOrientation();
+
+        /// <summary>
+        /// Geschwindigkeit initialiseren. Wir �berschreiben diese
+        /// Funktion in den abgeleiteten Klassen und rufen
+        /// diese Funktionin Locomotion::Awake auf.
+        /// </summary>
+        protected abstract void InitializeSpeed();
 
         /// <summary>
         /// Initialisieren
         /// </summary>
         protected virtual void Awake()
         {
-            Speed = 1.0f;
-            Direction = transform.forward;
+            // Bewegungsrichtung, Orientierung und Bahngeschwindigkeit initialisieren
+            InitializeDirection();
+            InitializeOrientation();
+            InitializeSpeed();
         }
 
         /// <summary>
-        /// Bewegung durchführen
+        /// Die Bewegung durchf�hren.
+        ///
+        /// Wir bewegen uns in Richtung des Vektors Direction,
+        /// er typischer Weise auf forward des GameObjects gesetzt wird.
+        ///
+        /// Wir orientieren das Objekt mit Hilfe der Eulerwinkel in Orientation
+        /// und f�hren anschlie�end eine Translation in Richtung Direction durch.
         /// </summary>
-        protected virtual void Update()
+        protected virtual void Move()
         {
-            // Überprüfen, ob der Button für die Drehung der Richtung um 180 Grad ausgelöst wurde
-
-
-            MovementDirection();
-            MovementSpeed();
-            // Orientierung auch verändern wenn die Bewegung nicht ausgeführt wird!
-            MovementOrientation();
             transform.eulerAngles = Orientation;
-
-            if (Input.GetButtonDown(TheReverseButton))
-            {
-                ReverseFactor *= -1.0f;
-            }
-
-            if (Input.GetButton(TheTriggerButton))
-            {
-                transform.Translate(Speed * Time.deltaTime * Direction);
-            }
+            transform.Translate(Speed * Time.deltaTime * Direction);
         }
 
         /// <summary>
-        /// Betrag derGeschwindigkeit für die Bewegung
-        /// <remark>
+        /// Betrag der Geschwindigkeit f�r die Bewegung
+        /// <remarks>
         /// Einheit dieser Variable ist m/s.
-        /// </remark>
+        /// </remarks>
         /// </summary>
         protected float Speed;
+
         /// <summary>
-        /// Normierter Richtungsvektor für die Fortbewegung.
-        /// </summary>
-        protected Vector3 Direction;
-        /// <summary>
-        /// Vektor mit den Eulerwinkeln für die Kamera
+        /// Vektor mit den Eulerwinkeln f�r die Kamera
         /// </summary>
         protected Vector3 Orientation;
 
         /// <summary>
-        /// Berechnung der Richtung der Fortbewegung
+        /// Klasse f�r die Verwaltung der Bahngeschwindigkeit.
         /// </summary>
-        /// <remark>
-        /// Bewegungsrichtung als normalisierte Vector3-Instanz
-        /// </remark>
-        protected abstract void MovementDirection();
-        /// <summary>
-        /// Berechnung der Geschwindigkeit der Fortbewegung
-        /// </summary>
-        protected abstract void MovementSpeed();
-        /// <summary>
-        /// Orientierung für die Bewegung als Eulerwinkel.
-        /// </summary>
-        /// <remark>
-        /// Orientierungen als Instanz von Vector3.
-        /// </remark>
-        protected abstract void MovementOrientation();
+        protected ScalarProvider Velocity;
 
+        /// <summary>
+        /// Normierter Richtungsvektor f�r die Fortbewegung.
+        /// </summary>
+        /// <remarks>
+        /// In den VR-Varianten wird die Richtung direkt
+        /// aus dem forward-Vektor des Orientierungsobjekts
+        /// gesetzt.
+        /// </remarks>
+        protected Vector3 Direction;
     }
 }
