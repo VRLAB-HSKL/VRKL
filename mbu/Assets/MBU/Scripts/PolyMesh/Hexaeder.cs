@@ -1,25 +1,23 @@
-﻿//========= 2020 - Copyright Manfred Brill. All rights reserved. ===========
+﻿//========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 
-/// <summary>
-/// Namespace für allgemeine Unity-Assets
-/// </summary>
+// Namespace
 namespace VRKL.MBU
 {
     /// <summary>
-    /// Klasse für die Erzeugung eines Hexaeders während der Laufzeit einer Anwendung.
+    /// Klasse für die Erzeugung eines Hexaeders mit Seitenlänge 1 während der Laufzeit einer Anwendung.
     /// <remarks>
     /// Die Eckpunkte des Hexaeders werden wie in Blinn
     /// und Brill/Bender, "Computergrafik", in den Einheitswürfel platziert.
     /// Sie finden diese Eckpunkte als Lösung der Aufgabe 1 in der Fallstudie
     /// "Platonische und archimedische Körper".
-    /// Der planare Graph für die verwendete Topologie finden wir in Abbildung 4.76.
+    /// Der planare Graph für die verwendete Topologie finden wie in Abbildung 4.76.
     /// </remarks>
     /// </summary>
     public class Hexaeder : PolyMesh
     {
         /// <summary>
-        /// Wir erzeugen für jedes Face des Tetraeders ein SubMesh.
+        /// Wir erzeugen für jedes Face des Hexaeders ein SubMesh.
         /// Auch das Material muss anschließend für jedes SubMesh erzeugt
         /// und zugewiesen werden. Das könnte verwendet werden um
         /// für jedes Face ein eigenes Material zu verwenden.
@@ -32,15 +30,18 @@ namespace VRKL.MBU
             int[][] topology = new int[numberOfSubMeshes][];
             Material[] materials = new Material[numberOfSubMeshes];
 
-            vertices[0] = new Vector3( 1.0f,  1.0f, -1.0f );
-            vertices[1] = new Vector3( 1.0f,  1.0f,  1.0f );
-            vertices[2] = new Vector3(-1.0f,  1.0f,  1.0f );
-            vertices[3] = new Vector3( -1.0f, 1.0f, -1.0f ) ;
-            vertices[4] = new Vector3( 1.0f, -1.0f, -1.0f ) ;
-            vertices[5] = new Vector3( 1.0f, -1.0f,  1.0f);
-            vertices[6] = new Vector3(-1.0f, -1.0f,  1.0f);
-            vertices[7] = new Vector3(-1.0f, -1.0f, -1.0f);
+            vertices[0] = new Vector3( 0.5f,  0.5f, -0.5f );
+            vertices[1] = new Vector3( 0.5f,  0.5f,  0.5f );
+            vertices[2] = new Vector3(-0.5f,  0.5f,  0.5f );
+            vertices[3] = new Vector3( -0.5f, 0.5f, -0.5f ) ;
+            vertices[4] = new Vector3( 0.5f, -0.5f, -0.5f ) ;
+            vertices[5] = new Vector3( 0.5f, -0.5f,  0.5f);
+            vertices[6] = new Vector3(-0.5f, -0.5f,  0.5f);
+            vertices[7] = new Vector3(-0.5f, -0.5f, -0.5f);
 
+            for (var i = 0; i < numberOfVertices; i++)
+                vertices[i] *= ScalingFactor;
+            
             // Die Einträge in der Topologie beziehen sich auf 
             // die Indizes der Eckpunkte.
             topology[0] = new int[3] { 0, 2, 1 };
@@ -67,7 +68,7 @@ namespace VRKL.MBU
             };
             // Wir nutzen nicht aus, dass wir pro Submesh ein eigenes
             // Material verwenden.
-            for (int i = 0; i < numberOfSubMeshes; i++)
+            for (var i = 0; i < numberOfSubMeshes; i++)
             {
                 simpleMesh.SetTriangles(topology[i], i);
                 materials[i] = meshMaterial;

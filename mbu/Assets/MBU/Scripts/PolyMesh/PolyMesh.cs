@@ -20,7 +20,11 @@ namespace VRKL.MBU
         /// </summary>
         [Tooltip("Material für die grafische Ausgabe des polygonalen Netzes")]
         public Material meshMaterial;
-
+        /// <summary>
+        /// Faktor für eine gleichmässige Skalierung des Modells.
+        /// </summary>
+        [Range(0.05f, 1.5f)] [Tooltip("Skalierungsfaktor für gleichmässige Skalierung")]
+        public float ScalingFactor = 1.0f;
         /// <summary>
         /// Wir benötigen eine Instanz der Klasse MeshFilter.
         /// </summary>
@@ -52,6 +56,5 @@ namespace VRKL.MBU
             // Polygonales Netz erzeugen
             Create();
         }
-
     }
 }

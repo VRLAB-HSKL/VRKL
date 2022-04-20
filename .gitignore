@@ -10,12 +10,17 @@
 
 # mbu Package ignorieren, wir fügen das mit Hilfe eines GitHub-Release als binary hinzu
 **/mbu.unitypackage
+**/mbvr.unitypackage
 
 # Andere Unity Verzeichnisse
 **/Library/*
 **/obj/*
 **/ProjectSettings/*
-**/Logs/*
+**/Logs/**/*
+
+# Doxygen Output ignorieren
+**/Assets/*/HTML/
+**/Assets/*/HTML.meta
 
 # Assets wie MiddleVR, Steam, VRTK oder GitHub
 # Aktuell gehen wir davon aus, dass wir dies rekonstruieren können.
@@ -23,8 +28,10 @@
 # redundante Informationen enthalten, was vermieden werden soll.
 **/Assets/MiddleVR/*
 **/Assets/SteamVR/*
+**/Assets/VIUSettings/*
 **/Assets/GoogleVR/*
 **/Assets/SteamVR_Input/**/*
+**/Assets/SteamVR_Resources/**/*
 **/Assets/HTC.UnityPlugin/
 **/Assets/HTC.UnityPlugin/ViveInputUtility/*
 **/Assets/Plugins
@@ -36,7 +43,11 @@
 **/Assets/MiddleVR.meta
 **/Assets/GoogleVR.meta
 **/Assets/SteamVR.meta
+**/Assets/SteamVR_Input.meta
+**/Assets/SteamVR_Resources.meta
 **/Assets/HTC.UnityPlugin.meta
+**/Assets/**/XR.meta
+**/Assets/**/VIUSettings.meta
 
 # Prerequisites
 *.d
@@ -105,10 +116,6 @@ ExportedObj/
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
 
-# Doxygen HTML ignorieren
-**/HTML/
-**/html/
-
-# Rider stuff
+# Rider Files
 **/.idea/
-
+>>>>>>> develop

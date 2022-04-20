@@ -1,9 +1,7 @@
-﻿//========= 2020 - Copyright Manfred Brill. All rights reserved. ===========
+﻿//========= 2021 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 
-/// <summary>
-/// Namespace für allgemeine Unity-Assets
-/// </summary>
+// Namespace
 namespace VRKL.MBU
 {
 
@@ -40,6 +38,9 @@ namespace VRKL.MBU
             vertices[4] = new Vector3( 0.0f, -1.0f,  0.0f);
             vertices[5] = new Vector3( 0.0f,  1.0f,  0.0f);
 
+            for (var i = 0; i < numberOfVertices; i++)
+                vertices[i] *= ScalingFactor;
+            
             // Die Einträge in der Topologie beziehen sich auf 
             // die Indizes der Eckpunkte.
             topology[0] = new int[3] { 2, 0, 5 };
@@ -62,7 +63,7 @@ namespace VRKL.MBU
             };
             // Wir nutzen nicht aus, dass wir pro Submesh ein eigenes
             // Material verwenden.
-            for (int i = 0; i < numberOfSubMeshes; i++)
+            for (var i = 0; i < numberOfSubMeshes; i++)
             {
                 simpleMesh.SetTriangles(topology[i], i);
                 materials[i] = meshMaterial;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43967906, g: 0.48808253, b: 0.5683076, a: 1}
+  m_IndirectSpecularColor: {r: 0.13059404, g: 0.13893804, b: 0.12791368, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 275774123}
   - component: {fileID: 275774122}
+  - component: {fileID: 275774124}
   m_Layer: 0
   m_Name: Lichtquelle
   m_TagString: Untagged
@@ -209,13 +210,25 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275774121}
-  m_LocalRotation: {x: 0.6963354, y: -0.25822863, z: 0.017473912, w: 0.6694249}
-  m_LocalPosition: {x: -1.296, y: 5.361, z: -0.613}
+  m_LocalRotation: {x: 0.2641036, y: -0.13398924, z: -0.84638345, w: 0.44264135}
+  m_LocalPosition: {x: 1.967, y: 5.361, z: -1.725}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 70.273, y: -107.79101, z: -84.965004}
+  m_LocalEulerAnglesHint: {x: 0.401, y: -34.451, z: -124.907}
+--- !u!114 &275774124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275774121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ee4523c7d16a34c9c9be7a03ddaac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &306226558
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
       propertyPath: m_LocalPosition.z
@@ -615,6 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
+    - {fileID: 419844470834709342, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
 --- !u!1 &1777627067 stripped
 GameObject:
@@ -634,10 +648,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed92a596b4da14438ad9f579e095d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TheTriggerButton: Fire1
-  TheSpeed: 5
-  FlyAxisXZ: Mouse X
+  TriggerButton: Fire1
+  ReverseButton: Submit
+  initialSpeed: 5
+  vMax: 10
+  vDelta: 0.2
+  DecKey: d
+  AccKey: a
   FlyAxisY: Mouse Y
+  FlyAxisXZ: Mouse X
   MouseSensitivity: 0.5
 --- !u!1 &1794718885
 GameObject:

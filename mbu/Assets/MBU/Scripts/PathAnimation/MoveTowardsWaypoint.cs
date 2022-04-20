@@ -1,9 +1,7 @@
 //========= 2020 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 
-/// <summary>
-/// Namespace für allgemeine Unity-Assets
-/// </summary>
+// Namespace
 namespace VRKL.MBU
 {
     /// <summary>
@@ -63,7 +61,7 @@ namespace VRKL.MBU
             // Objekt mit Hilfe von MoveTowards bewegen
             transform.position = this.manager.Move(
                 transform.position,
-                speed * Time.deltaTime);
+                speed * Time.fixedDeltaTime);
         }
     }
 }

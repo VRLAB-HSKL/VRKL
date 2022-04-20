@@ -1,0 +1,15 @@
+# gitignore for MBVR
+
+# Doxygen Output ignorieren
+**/Assets/MBVR/HTML/
+**/Assets/MBVR/HTML.meta
+
+
+**/Assets/MBU/*
+
+# Unity Meta-Files
+**/Assets/MBVR.meta
+
+
+
+
