@@ -1,124 +1,109 @@
-ï»¿//========= 2020 -  2022 - Copyright Manfred Brill. All rights reserved. ===========
+//========= 2020 -  2022 - Copyright Manfred Brill. All rights reserved. ===========
 using UnityEngine;
 using HTC.UnityPlugin.Vive;
 
 namespace VRKL.MBVR
 {
     /// <summary>
-    /// Abstrakte Basisklasse fÃ¼r dien kontinuierliche Fortbewegung
+    /// Abstrakte Basisklasse für dien kontinuierliche Fortbewegung
     /// in immersiven Anwendungen auf der Basis von VIU.
     /// </summary>
     /// <remarks>
     /// Diese Klasse ist von VRKL.MBU.Locomotion abgeleitet.
-    /// Dort sind bereits abstrakte Funktionen fÃ¼r die Fortbewegung
+    /// Dort sind bereits abstrakte Funktionen für die Fortbewegung
     /// vorgesehen, die wir in den abgeleiteten Klassen einsetzen.
     /// In der Basisklasse ist eine Variable ReverseButton vorgesehen,
-    /// die aber in der VR-Version nicht verÃ¤ndert wird. Das kann man noch tun,
-    /// dann kÃ¶nnen wir einen RÃ¼ckwÃ¤rtsgang realisieren. Ob der wirklich
+    /// die aber in der VR-Version nicht verändert wird. Das kann man noch tun,
+    /// dann können wir einen Rückwärtsgang realisieren. Ob der wirklich
     /// gebraucht wird sehen wir dann noch.
     ///
-    /// In dieser Klasse kommen GerÃ¤te und Einstellungen fÃ¼r den
+    /// In dieser Klasse kommen Geräte und Einstellungen für den
     /// Inspektor dazu.
     ///
     /// Mit RequireComponent wird sicher gestellt, dass das GameObject, dem
-    /// wir diese Klasse hinzufÃ¼gen einen CameraRig der Vive Input Utility
-    /// enthÃ¤lt.
+    /// wir diese Klasse hinzufügen einen CameraRig der Vive Input Utility
+    /// enthält.
     /// </remarks>
-    public abstract class VRLocomotion : VRKL.MBU.Locomotion
+    public abstract class TouchpadVRocomotion : VRKL.MBU.Locomotion
     {
-        [Header("Trigger Devices")]
+       [Header("Devices")]
         /// <summary>
-        /// Welchen Controller verwenden wir fÃ¼r das Triggern der Fortbewegung?
+        /// Welchen Controller verwenden wir für das Triggernund Steuern  der Fortbewegung?
         /// </summary>
         /// <remarks>
         /// Als Default verwenden wir den Controller in der rechten Hand,
         /// also "RightHand" im "ViveCameraRig".
         /// </remarks>
-        [Tooltip("Rechter oder linker Controller fÃ¼r den Trigger?")]
+        [Tooltip("Rechter oder linker Controller für die Steuerung?")]
         public HandRole moveHand = HandRole.RightHand;
 
         /// <summary>
-        /// Der verwendete Button, der die Bewegung auslÃ¶st, kann im Editor mit Hilfe
+        /// Der verwendete Button, der die Bewegung auslöst, kann im Editor mit Hilfe
         /// eines Pull-Downs eingestellt werden.
         /// </summary>
         /// <remarks>
-        /// Default ist "Trigger"
+        /// Default ist "PadTouch" - wir reagieren darauf, dass das Touchpad berührt wird.
         /// </remarks>
         [Tooltip("Welchen Button verwenden wir als Trigger der Fortbewegung?")]
-        public ControllerButton moveButton = ControllerButton.Trigger;
+        public ControllerButton moveButton = ControllerButton.PadTouch;
 
         [Header("Anfangsgeschwindigkeit")]
         /// <summary>
-        /// Geschwindigkeit fÃ¼r die Bewegung der Kamera in km/h
+        /// Geschwindigkeit für die Bewegung der Kamera in km/h
         /// </summary>
         [Tooltip("Geschwindigkeit")]
         [Range(0.1f, 20.0f)]
         public float initialSpeed = 5.0f; 
         
         /// <summary>
-        /// Maximal mÃ¶gliche Geschwindigkeit
+        /// Maximal mögliche Geschwindigkeit
         /// </summary>
-        [Tooltip("Maximal mÃ¶gliche Bahngeschwindigkeit")]
+        [Tooltip("Maximal mögliche Bahngeschwindigkeit")]
         [Range(0.001f, 20.0f)]
         public float vMax = 10.0f;
 
         /// <summary>
-        /// Delta fÃ¼r das VerÃ¤ndern der Geschwindigkeit
+        /// Delta für das Verändern der Geschwindigkeit
         /// </summary>
-        [Tooltip("Delta fÃ¼r die VerÃ¤nderung der Bahngeschwindigkeit")]
+        [Tooltip("Delta für die Veränderung der Bahngeschwindigkeit")]
         [Range(0.001f, 2.0f)]
         public float vDelta = 0.2f;
-        /// <summary>
-        /// Button auf dem Controller fÃ¼r das Abbremsen der Fortbewegung.
-        /// </summary>
-        /// <remarks>
-        /// Default ist "Pad"
-        /// </remarks>
-        [Tooltip("Button fÃ¼r das Verkleinern der Bahngeschwindigkeit")] 
-        public ControllerButton decButton = ControllerButton.Pad;
-
-        /// <summary>
-        /// Button auf dem Controller fÃ¼r das Beschleunigen der Fortbewegung.
-        /// </summary>
-        /// <remarks>
-        /// Default ist "Grip"
-        /// </remarks>
-        [Tooltip("Button fÃ¼r das VergrÃ¶ÃŸern der Bahngeschwindigkeit")]
-        public ControllerButton accButton = ControllerButton.Grip;
-        
 
         ///<summary>
         /// Richtung, Geschwindigkeit aus der Basisklasse initialisieren und weitere
-        /// Initialisierungen durchfÃ¼hren, die spezifisch fÃ¼r VR sind.
+        /// Initialisierungen durchführen, die spezifisch für VR sind.
         /// </summary>
         /// <remarks>
-        /// Die Callbacks fÃ¼r Beschleunigung und Abbremsen in der VIUregistrieren.
+        /// Die Callbacks für Beschleunigung und Abbremsen in der VIUregistrieren.
         /// </remarks>
-        protected void OnEnable()
-        {            
-            ViveInput.AddListenerEx(moveHand, decButton, 
+        protected override void Awake()
+        {
+            base.Awake();
+            
+            ViveInput.AddListenerEx(moveHand, 
+                                                 moveButton, 
                                                  ButtonEventType.Down,  
                                                  Velocity.Decrease);
-            ViveInput.AddListenerEx(moveHand, accButton, 
+            ViveInput.AddListenerEx(moveHand, moveButton, 
                                                  ButtonEventType.Down,
                                                  Velocity.Increase);
         }
 
         /// <summary>
-        /// Die Callbacks in der VIU wieder abhÃ¤ngen.
+        /// Die Callbacks in der VIU wieder abhängen.
         /// </summary>
-        protected void OnDisable()
+        protected void OnDestroy()
         {
-             ViveInput.RemoveListenerEx(moveHand, decButton, 
+             ViveInput.RemoveListenerEx(moveHand, moveButton, 
                                                          ButtonEventType.Down,  
                                                          Velocity.Decrease);
-            ViveInput.RemoveListenerEx(moveHand, accButton, 
+            ViveInput.RemoveListenerEx(moveHand, moveButton, 
                                                         ButtonEventType.Down, 
                                                         Velocity.Increase);
         }
         
         /// <summary>
-        /// Update aufrufen und die Bewegung ausfÃ¼hren.
+        /// Update aufrufen und die Bewegung ausführen.
         /// </summary>
         /// <remarks>
         ///Wir verwenden den forward-Vektor des
@@ -150,7 +135,7 @@ namespace VRKL.MBVR
         }
         
         /// <summary>
-        /// Geschwindigkeit initialiseren. Wir Ã¼berschreiben diese
+        /// Geschwindigkeit initialiseren. Wir überschreiben diese
         /// Funktion in den abgeleiteten Klassen und rufen
         /// diese Funktion in Locomotion::Awake auf.
         /// </summary>

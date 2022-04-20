@@ -1,5 +1,4 @@
 ﻿//========= 2021 - 2022 Copyright Manfred Brill. All rights reserved. ===========
-
 using UnityEngine;
 
 namespace VRKL.MBVR
@@ -45,7 +44,7 @@ namespace VRKL.MBVR
         /// </remarks>
         protected override void UpdateOrientation()
         {
-            Orientation.y = orientationObject.transform.eulerAngles.y;
+            throw new System.NotImplementedException();
         }
     }
 }

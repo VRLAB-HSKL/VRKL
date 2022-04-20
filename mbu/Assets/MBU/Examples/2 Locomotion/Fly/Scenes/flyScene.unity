@@ -628,6 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
+    - {fileID: 419844470834709342, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2c68534c077e20c42ac55675aef37484, type: 3}
 --- !u!1 &1777627067 stripped
 GameObject:
@@ -649,7 +650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerButton: Fire1
   ReverseButton: Submit
-  TheSpeed: 5
+  initialSpeed: 5
   vMax: 10
   vDelta: 0.2
   DecKey: d

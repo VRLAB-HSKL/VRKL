@@ -19,10 +19,13 @@ namespace VRKL.MBVR
     /// ist, dass wir nicht nur physikalisch vorhandene Tasten, sondern
     /// auch Joystick-Buttons verwenden können falls sie vorhanden sind.
     /// 
-    /// Default ist "Fire3", was im Normalfall auf der Tastatur
-    /// der linken Shift-Taste entspricht. Wir müssen etwas anderes als
+    /// Default ist "Fire2", was im Normalfall auf der Tastatur
+    /// der linken Alt-Taste entspricht. Wir müssen etwas anderes als
     /// den ESC-Button verwenden, da dieser im VIU-Simulator bereits
     /// für das Pausieren der Anwendung eingesetzt wird.
+    ///
+    /// "Fire3" scheidet inzwischen aus, da wir die Shift-Taste im Simulator
+    /// für das Touchpad benötigen!
     /// </remarks>
     /// </summary>
     public class QuitVIUSimulator : MonoBehaviour
@@ -44,7 +47,7 @@ namespace VRKL.MBVR
         /// <summary>
         /// Button für das Beenden des Simulators
         /// </summary>
-        private const string STOP_BUTTON = "Fire3";
+        private const string STOP_BUTTON = "Fire2";
     }
 }
 
