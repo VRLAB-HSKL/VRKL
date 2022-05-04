@@ -13,7 +13,7 @@ using log4net;
 /// </summary>
 /// 
 [RequireComponent(typeof(Rigidbody))]
-public class MoveTowards : MonoBehaviour
+public class MoveTowardsWithLogs : MonoBehaviour
 {
     /// <summary>
     /// Position und Orientierung des verfolgten Objekts
@@ -35,7 +35,7 @@ public class MoveTowards : MonoBehaviour
     /// Instanz eines Loggers
     /// </summary>
     private static readonly ILog Log = 
-        LogManager.GetLogger(typeof(MoveTowards));
+        LogManager.GetLogger(typeof(MoveTowardsWithLogs));
 
     private void Start()
     {

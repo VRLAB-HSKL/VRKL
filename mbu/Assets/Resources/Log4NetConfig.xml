@@ -42,13 +42,13 @@
   </appender>
 
   <!--- Konfiguration für einzelne Klassen -->
-  <logger name="PlayerControl">
+  <logger name="PlayerControlWithLogs">
     <appender-ref ref="AssetsAppender"/>
     <level value="INFO"/>
   </logger>
 
 
-  <logger name="MoveTowards">
+  <logger name="MoveTowardsWithLogs">
     <appender-ref ref="UnityConsoleAppender"/>
     <level value="INFO"/>
 	<!-- Achten Sie darauf, dass der Pfad in der Konfiguration des Appenders korrekt ist! -->
