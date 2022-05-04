@@ -1,5 +1,4 @@
 ﻿//========= 2020 - Copyright Manfred Brill. All rights reserved. ===========
-
 using System.Collections.Generic;
 
 namespace VRKL.MBU
