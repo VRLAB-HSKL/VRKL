@@ -14,6 +14,8 @@ Die Basisklasse *Observer* ist von MonoBehaviour abgeleitet und kann damit einem
 als Component hinzugefügt werden. In der Basisklasse gibt es die Funktion *Refresh*, 
 die von den konkreten Views überschriebenen werden muss.
 
+Es gibt insgesamt fünf Szenen. In vier davon finden wir einen Observer, in einer Szene finden wir ein Beipiel für zwei Observer.
+
 ## Eine Uhr als Subject
 Die Demo enthält die Klasse *Clock*, die von *Subject* abgeleitet ist. Die Klasse
 kann die Uhrzeit in Stunden, Minuten und Sekunden speichern. Wie bei Gamma hat die Klasse
@@ -23,6 +25,8 @@ die Werte abspeichert und *Notify* aufruft.
 Innerhalb der Notify-Funktion wird für jeden registrierten Observer die Funktion *Refresh*
 aufgerufen. In dieser Funktion muss eine Implementierung von Observer dafür sorgen, dass die Views
 aktuell ist.
+
+Das Subject in der Klasse Clock ist als Singleton-Pattern implementiert. Das Ticken der Uhr realisieren wir mit Hilfe eines leeren GameObjects, an dem die Klasse ClockTicker hängt. Dort wird Clock.Tick() aufgerufen. In dieser Funktion passiert auch das Notify für die Observer. 
 
 ## Vier Views einer Uhr
 In der Demo gibt es vier verschiedene Observer, die jeweils in einer Szene zu finden sind:

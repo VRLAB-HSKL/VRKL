@@ -44,7 +44,7 @@ namespace VRKL.MBU
         /// </summary>
         protected virtual void FixedUpdate()
         {
-            // Objekt mit Hilfe von MoveTowards bewegen
+            // Objekt mit Hilfe von MoveTowardsWithLogs bewegen
             transform.position = this.manager.Move(
                                  transform.position,
                                  velocities[manager.Current] * Time.fixedDeltaTime

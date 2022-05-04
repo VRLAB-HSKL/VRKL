@@ -1,4 +1,4 @@
-﻿//========= 2020 - Copyright Manfred Brill. All rights reserved. ===========
+﻿//========= 2020 - 2022 - Copyright Manfred Brill. All rights reserved. ===========
 
 namespace VRKL.MBU
 {

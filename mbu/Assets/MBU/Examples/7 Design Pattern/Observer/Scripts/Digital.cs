@@ -9,7 +9,7 @@ public class Digital : Observer
     /// <summary>
     /// Das beobachtete Objekt
     /// </summary>
-    protected Clock Model;
+    private Clock Model;
 
     /// <summary>
     /// Text-Feld für die Ausgabe der Digitaluhr
@@ -23,17 +23,10 @@ public class Digital : Observer
     /// </summary>
     private void Awake()
     {
-        Model = (Clock)(new Clock());
+        Model = Clock.Instance;
         Model.Attach(this);
     }
-
-    /// <summary>
-    /// Wir lassen die Uhr ticken
-    /// </summary>
-    private void FixedUpdate()
-    {
-        Model.Tick();
-    }
+    
 
     /// <summary>
     /// Wir verbinden die Variable txt mit einer Text-Component des GameObjects.
@@ -49,9 +42,7 @@ public class Digital : Observer
     /// <returns></returns>
     public override void Refresh()
     {
-        string timeOutput;
-
-        timeOutput = Model.Hour + " : " + Model.Minute + " : " + Model.Second;
+        var timeOutput = Model.Hour + " : " + Model.Minute + " : " + Model.Second;
         m_txt.text = timeOutput;
     }
 }

@@ -11,7 +11,7 @@ public class DigitalSimple : Observer
     /// <summary>
     /// Das beobachtete Objekt
     /// </summary>
-    protected Clock Model;
+    private Clock Model;
 
     /// <summary>
     /// Text-Feld für die Ausgabe der Digitaluhr
@@ -25,16 +25,8 @@ public class DigitalSimple : Observer
     /// </summary>
     private void Awake()
     {
-        Model = new Clock();
+        Model = Clock.Instance;
         Model.Attach(this);
-    }
-
-    /// <summary>
-    /// Wir lassen die Uhr ticken ...
-    /// </summary>
-    private void FixedUpdate()
-    {
-        Model.Tick();
     }
 
     /// <summary>

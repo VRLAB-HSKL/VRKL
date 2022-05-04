@@ -11,7 +11,7 @@ public class Analog : Observer
     /// <summary>
     /// Das beobachtete Objekt
     /// </summary>
-    protected Clock Model;
+    private Clock Model;
 
     /// <summary>
     /// Die Rotationsmatrix für den Stundenzeiger
@@ -32,16 +32,8 @@ public class Analog : Observer
     /// </summary>
     private void Awake()
     {
-        Model = new Clock();
+        Model = Clock.Instance;
         Model.Attach(this);
-    }
-
-    /// <summary>
-    /// Wir lassen die Uhr ticken
-    /// </summary>
-    private void FixedUpdate()
-    {
-        Model.Tick();
     }
 
     /// <summary>
