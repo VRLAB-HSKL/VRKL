@@ -8,8 +8,8 @@ namespace VRKL.MBU
     /// und in VR.
     /// </summary>
     /// <remarks>
-    /// Davon abgeleitet gibt es die ebenfalls virtuellen Klassen
-    /// MBU.Locomotion  und MBVR.ImmersiveLocomotion.
+    /// Davon abgeleitet gibt es die ebenfalls virtuelle Klasse
+    /// MBVR.VRLocomotion.
     /// </remarks>
     public abstract class Locomotion : MonoBehaviour
     {
@@ -78,17 +78,40 @@ namespace VRKL.MBU
 
         /// <summary>
         /// Die Bewegung durchführen.
-        ///
+        /// </summary>
+        /// <remarks>
+        /// Die Bewegung wird durchgeführt, wenn eine in dieser Klasse
+        /// deklarierte logische Variable true ist.
+        /// 
         /// Wir bewegen uns in Richtung des Vektors Direction,
         /// er typischer Weise auf forward des GameObjects gesetzt wird.
         ///
         /// Wir orientieren das Objekt mit Hilfe der Eulerwinkel in Orientation
         /// und führen anschließend eine Translation in Richtung Direction durch.
-        /// </summary>
+        /// <remarks>
         protected virtual void Move()
         {
-            transform.eulerAngles = Orientation;
-            transform.Translate(Speed * Time.deltaTime * Direction);
+            if (_moving)
+            {
+                transform.eulerAngles = Orientation;
+                transform.Translate(Speed * Time.deltaTime * Direction);
+            }
+        }
+
+        /// <summary>
+        /// Bewegung ist durch einen Trigger ausgelöst worden.
+        /// <remarks>
+        /// Ob die Bewegung mit Hilfe eines gedrückten Buttons erfolgt
+        /// oder durch zwei Button-Clicks ausgelöst und beendet wird müssen die
+        /// davon abgeleiteten Klassen entscheiden!
+        /// </remarks>
+        /// </summary>
+        private bool _moving;
+
+        protected bool Moving
+        {
+            get => _moving;
+            set => _moving = value;
         }
 
         /// <summary>

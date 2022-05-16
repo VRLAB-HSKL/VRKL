@@ -118,7 +118,11 @@ namespace VRKL.MBU
             }
 
             if (Input.GetButton(TriggerButton))
-                Move();
+                Moving = true;
+            else
+                Moving = false;
+
+            Move();
         }
         
         /// <summary>

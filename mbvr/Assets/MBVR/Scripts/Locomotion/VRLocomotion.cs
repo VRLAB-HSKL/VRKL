@@ -13,20 +13,21 @@ namespace VRKL.MBVR
     /// Dort sind bereits abstrakte Funktionen für die Fortbewegung
     /// vorgesehen, die wir in den abgeleiteten Klassen einsetzen.
     /// In der Basisklasse ist eine Variable ReverseButton vorgesehen,
-    /// die aber in der VR-Version nicht verändert wird. Das kann man noch tun,
+    /// die aber in der VR-Version nicht verwendet wird. Das kann man noch tun,
     /// dann können wir einen Rückwärtsgang realisieren. Ob der wirklich
-    /// gebraucht wird sehen wir dann noch.
+    /// gebraucht wird in VR sehen wir dann noch.
     ///
     /// In dieser Klasse kommen Geräte und Einstellungen für den
     /// Inspektor dazu.
     ///
     /// Mit RequireComponent wird sicher gestellt, dass das GameObject, dem
     /// wir diese Klasse hinzufügen einen CameraRig der Vive Input Utility
-    /// enthält.
+    /// enthält. Wir könnten auch nach dem Tag "MainCamera" suchen.
     /// </remarks>
+    [RequireComponent(typeof(Camera))]
     public abstract class VRLocomotion : VRKL.MBU.Locomotion
     {
-        [Header("Trigger Devices")]
+        [Header("Trigger Device")]
         /// <summary>
         /// Welchen Controller verwenden wir für das Triggern der Fortbewegung?
         /// </summary>
@@ -95,7 +96,7 @@ namespace VRKL.MBVR
         /// Die Callbacks für Beschleunigung und Abbremsen in der VIUregistrieren.
         /// </remarks>
         protected void OnEnable()
-        {            
+        {
             ViveInput.AddListenerEx(moveHand, decButton, 
                                                  ButtonEventType.Down,  
                                                  Velocity.Decrease);
@@ -132,9 +133,8 @@ namespace VRKL.MBVR
         {
             UpdateDirection();
             UpdateSpeed();
-            
-            if (ViveInput.GetPress(moveHand, moveButton))
-                Move();
+            Trigger();
+            Move();
         }
 
         /// <summary>
@@ -159,6 +159,22 @@ namespace VRKL.MBVR
             Velocity = new VRKL.MBU.ScalarProvider(initialSpeed, vDelta, 
                                                                       0.0f, vMax);
             Speed = Velocity.value;
+        }
+
+        /// <summary>
+        ///Die von VRLocomotion abgeleiteten Klassen entscheiden wie die Bewegung
+        /// getriggert wird. Mit einem gehaltenen Button, zwischen zwei Button-
+        /// Clicks oder mit Hilfe anderer Dinge wie Bewegungen und Gesten.
+        /// </summary>
+        /// <remarks>
+        /// Als Default-Behaviour implementieren wir das bisher verwendete
+        /// Verhalten - die Bewegung findet so lange statt, wie ein ebenfalls
+        /// in dieser Klasse deklariertes Trigger-Device und ein Button darauf
+        /// gedrückt ist.
+        /// </remarks>
+        protected virtual void Trigger()
+        {
+            Moving = ViveInput.GetPress(moveHand, moveButton);
         }
     }
 }
