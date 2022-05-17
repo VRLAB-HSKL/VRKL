@@ -8,7 +8,7 @@ namespace VRKL.MBVR
     /// die ein Objekt
     /// für die Definition der Bewegungsrichtung einsetzen.
     /// </summary>
-    public abstract class SingleObjectDirection : VRLocomotion
+    public abstract class SingleObjectDirection : JoystickLocomotion
     {
         [Header("Definition der Bewegungsrichtung")]
         /// <summary>

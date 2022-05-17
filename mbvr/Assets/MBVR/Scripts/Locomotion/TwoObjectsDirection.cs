@@ -11,19 +11,19 @@ namespace VRKL.MBVR
     /// <remarks>
     ///Der Differenzvektor wird normalisiert.
     /// </remarks>
-    public abstract class TwoObjectsDirection : VRLocomotion
+    public abstract class TwoObjectsDirection : JoystickLocomotion
     {
-        [Header("Definition der Bewegungsrichtung durch zwei GameObjects")]
+        [Header("Definition der Bewegungsrichtungs")]
         /// <summary>
         /// GameObject, das den Startpunkt der Bewegungsrichtung definiert
         /// </summary>
-        [Tooltip("GameObject, das den Startpunkt der Bewegungsrichtung definiert")]
+        [Tooltip("Startpunkt der Bewegungsrichtung")]
         public GameObject startObject;
 
         /// <summary>
         /// GameObject, das den Endpunkt der Bewegungsrichtung definiert
         /// </summary>
-        [Tooltip("GameObject, das den Endpunkt der Bewegungsrichtung definiert")]
+        [Tooltip(" Endpunkt der Bewegungsrichtung")]
         public GameObject endObject;
 
         /// <summary>

@@ -126,10 +126,13 @@ namespace VRKL.MBU
         }
         
         /// <summary>
-        /// Geschwindigkeit initialiseren. Wir überschreiben diese
+        /// Geschwindigkeit initialiseren. 
+        /// </summary>
+        /// <remarks>
+        /// Wir überschreiben diese
         /// Funktion in den abgeleiteten Klassen und rufen
         /// diese Funktionin Locomotion::Awake auf.
-        /// </summary>
+        /// </remarks>
         protected override void InitializeSpeed()
         {
             Velocity= new ScalarProvider(initialSpeed, vDelta, 0.0f, vMax);

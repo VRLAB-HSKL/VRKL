@@ -19,13 +19,8 @@ namespace VRKL.MBVR
     ///
     /// In dieser Klasse kommen Geräte und Einstellungen für den
     /// Inspektor dazu.
-    ///
-    /// Mit RequireComponent wird sicher gestellt, dass das GameObject, dem
-    /// wir diese Klasse hinzufügen einen CameraRig der Vive Input Utility
-    /// enthält. Wir könnten auch nach dem Tag "MainCamera" suchen.
     /// </remarks>
-    [RequireComponent(typeof(Camera))]
-    public abstract class VRLocomotion : VRKL.MBU.Locomotion
+    public abstract class JoystickLocomotion : VRKL.MBU.Locomotion
     {
         [Header("Trigger Device")]
         /// <summary>
@@ -138,6 +133,19 @@ namespace VRKL.MBVR
         }
 
         /// <summary>
+        /// Die Bewegung durchführen.
+        /// </summary>
+        /// <remarks>
+        /// Die Bewegung wird durchgeführt, wenn eine in dieser Klasse
+        /// deklarierte logische Variable true ist.
+        /// <remarks>
+        protected override void Move()
+        {
+            if (Moving)
+                transform.Translate(Speed * Time.deltaTime * Direction);
+        }
+        
+        /// <summary>
         /// Berechnung der Geschwindigkeit der Fortbewegung
         /// </summary>
         /// <remarks>
@@ -162,7 +170,7 @@ namespace VRKL.MBVR
         }
 
         /// <summary>
-        ///Die von VRLocomotion abgeleiteten Klassen entscheiden wie die Bewegung
+        ///Die von JoystickLocomotion abgeleiteten Klassen entscheiden wie die Bewegung
         /// getriggert wird. Mit einem gehaltenen Button, zwischen zwei Button-
         /// Clicks oder mit Hilfe anderer Dinge wie Bewegungen und Gesten.
         /// </summary>
