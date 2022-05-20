@@ -1,4 +1,4 @@
-using UnityEngine.UI;
+using TMPro;
 using VRKL.MBU;
 
 /// <summary>
@@ -16,7 +16,7 @@ public class DigitalSimple : Observer
     /// <summary>
     /// Text-Feld für die Ausgabe der Digitaluhr
     /// </summary>
-    private Text m_txt;
+    public TextMeshPro m_txt;
 
     /// <summary>
     /// <summary>
@@ -28,15 +28,7 @@ public class DigitalSimple : Observer
         Model = Clock.Instance;
         Model.Attach(this);
     }
-
-    /// <summary>
-    /// Wir verbinden die Variable txt mit einer Text-Component des GameObjects.
-    /// </summary>
-    private void Start()
-    {
-        m_txt = gameObject.GetComponent<Text>();
-    }
-
+    
     /// <summary>
     /// wir bauen den Text den wir ausgeben zusammen.
     /// </summary>

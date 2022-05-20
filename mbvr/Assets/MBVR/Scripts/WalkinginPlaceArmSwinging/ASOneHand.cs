@@ -11,15 +11,17 @@ namespace VRKL.MBVR
     /// </remarks>
     public class ASOneHand : InPlaceLocomotion
     {
-        [Header("GameObject für die Bewegung des Arms")]
+
         /// <summary>
         /// Welchen Arm verwenden wir für das Triggern der Fortbewegung?
         /// </summary>
+        [Header("GameObject für die Bewegung des Arms")]
         [Tooltip("Welcher Tracker bewegt sich?")]
         public GameObject triggerObject;
 
         [Header("Schwellwert für das Triggern der Locomotion")]     
-        [Tooltip("Schwellwert für das Auslösen der Bewegung")] [Range(0.01f, 1.0f)]
+        [Tooltip("Schwellwert für das Auslösen der Bewegung")] 
+        [Range(0.01f, 1.0f)]
         public float Threshold = 0.05f;
 
         /// <summary>

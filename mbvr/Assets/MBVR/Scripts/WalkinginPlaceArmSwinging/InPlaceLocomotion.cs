@@ -108,8 +108,6 @@ namespace VRKL.MBVR
             Velocity = new VRKL.MBU.ScalarProvider(initialSpeed, vDelta, 
                                                                       0.0f, vMax);
             Speed = initialSpeed/3.6f;
-            Debug.Log("Speed initialisiert");
-            Debug.Log(Speed);
         }
 
         /// <summary>

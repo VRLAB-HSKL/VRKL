@@ -1,4 +1,4 @@
-using UnityEngine.UI;
+using TMPro;
 using VRKL.MBU;
 
 /// <summary>
@@ -14,26 +14,16 @@ public class Digital : Observer
     /// <summary>
     /// Text-Feld für die Ausgabe der Digitaluhr
     /// </summary>
-    private Text m_txt;
+    public TextMeshPro m_txt;
 
-    /// <summary>
     /// <summary>
     /// In Awake stellen die Verbindung zur Subject-Klasse her.
     /// </summary>
-    /// </summary>
+
     private void Awake()
     {
         Model = Clock.Instance;
         Model.Attach(this);
-    }
-    
-
-    /// <summary>
-    /// Wir verbinden die Variable txt mit einer Text-Component des GameObjects.
-    /// </summary>
-    private void Start()
-    {
-        m_txt = gameObject.GetComponent<Text>();
     }
 
     /// <summary>
@@ -46,5 +36,3 @@ public class Digital : Observer
         m_txt.text = timeOutput;
     }
 }
-
-
