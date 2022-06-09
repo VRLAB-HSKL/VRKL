@@ -118,14 +118,21 @@ namespace VRKL.MBU
             }
 
             if (Input.GetButton(TriggerButton))
-                Move();
+                Moving = true;
+            else
+                Moving = false;
+
+            Move();
         }
         
         /// <summary>
-        /// Geschwindigkeit initialiseren. Wir überschreiben diese
+        /// Geschwindigkeit initialiseren. 
+        /// </summary>
+        /// <remarks>
+        /// Wir überschreiben diese
         /// Funktion in den abgeleiteten Klassen und rufen
         /// diese Funktionin Locomotion::Awake auf.
-        /// </summary>
+        /// </remarks>
         protected override void InitializeSpeed()
         {
             Velocity= new ScalarProvider(initialSpeed, vDelta, 0.0f, vMax);

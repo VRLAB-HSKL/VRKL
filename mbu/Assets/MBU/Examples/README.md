@@ -1,4 +1,4 @@
-# VRKL - Beispiele
+# Beispiele
 In diesem Verzeichnis befinden sich nach Themen geordnete Beispiele für
 die Verwendung der Assets im Package. In jedem der Unterverzeichnisse
 gibt es wiederum ein README mit einer Übersicht, jedes Beispiel enthält
@@ -15,11 +15,11 @@ eine Markdown-Datei mit einer kleinen Dokumentation des Projekts.
 | PathAnimation | szenen, die mit Hilfe von Waypoints Objekte entlang von definierten Wegen animieren. |
 | PolyMesh | Polygonale Netze mit der Basisklasse PolyMesh. |
 | Rendering | Materialien und HLSL Shader. |
-| ----- | ------- |
+|                |                                                              |
 
 
 ## Unity-Version
-Alle Anwendungen verwenden (Stand April 2022) die Version Unity 2020.3 .31fLTS.
+Alle Anwendungen verwenden (Stand April 2022) die Version Unity 2020.3 .33fLTS.
 
 
 ![Lizenzlogo](https://licensebuttons.net/l/by-nc-sa/3.0/de/88x31.png)

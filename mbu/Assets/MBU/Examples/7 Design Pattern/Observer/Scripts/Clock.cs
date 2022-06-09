@@ -6,8 +6,16 @@ using VRKL.MBU;
 /// </summary>
 public class Clock : Subject
 {
-
-    public Clock() : base()
+    /// <summary>
+    /// Singleton-Pattern
+    /// <remarks>
+    /// Wir verwenden die Instanz mit
+    /// <code>Clock c = Clock.Instance;</code>.
+    /// </remarks>
+    /// </summary>
+    public static readonly Clock Instance = new Clock();
+    
+    private Clock() : base()
     {
         DateTime time = DateTime.Now;
         Hour = time.Hour;
@@ -34,8 +42,8 @@ public class Clock : Subject
     /// </summary>
     public int Hour
     {
-        get { return _hour; }
-        set { _hour = value; }
+        get => _hour;
+        set => _hour = value;
     }
 
     private int _hour { get; set; }
@@ -44,8 +52,8 @@ public class Clock : Subject
     /// </summary>
     public int Minute
     {
-        get { return _minute; }
-        set { _minute = value; }
+        get => _minute;
+        set => _minute = value;
     }
     private int _minute { get; set; }
 
@@ -54,8 +62,8 @@ public class Clock : Subject
     /// </summary>
     public int Second
     {
-        get { return _second; }
-        set { _second = value; }
+        get => _second;
+        set => _second = value;
     }
     private int _second { get; set; }
 }
