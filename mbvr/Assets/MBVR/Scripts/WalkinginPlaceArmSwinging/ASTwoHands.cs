@@ -3,35 +3,35 @@ using UnityEngine;
 namespace VRKL.MBVR
 {
     /// <summary>
-    /// Arm-Swinging mit beiden Armen, um eine Locomotion auszulösen.
+    /// Arm-Swinging mit beiden Armen, um eine Locomotion auszulï¿½sen.
     /// </summary>
     /// <remarks>
     /// Wir beobachten die y-Koordinaten beider Arme  und entscheiden damit,
-    /// ob wir uns fortbewegen möchten. Keine weiteren Strategien.
+    /// ob wir uns fortbewegen mï¿½chten. Keine weiteren Strategien.
     /// </remarks>
     public class ASTwoHands : InPlaceLocomotion
     {
-        [Header("GameObjects für die Bewegung der Arme")]
+        [Header("GameObjects fÃ¼r die Bewegung der Arme")]
         /// <summary>
-        /// GameObject, mit dem wir die Bewegung des rechten Arms überwachen
+        /// GameObject, mit dem wir die Bewegung des rechten Arms ï¿½berwachen
         /// </summary>
         [Tooltip("Rechter Arm")]
         public GameObject triggerRight;
         /// <summary>
-        /// GameObject, mit dem wir die Bewegung des linken Arms überwachen
+        /// GameObject, mit dem wir die Bewegung des linken Arms ï¿½berwachen
         /// </summary>
         [Tooltip("Linker Arm")]
         public GameObject triggerLeft;
         
-        [Header("Schwellwert für das Triggern der Locomotion")]     
-        [Tooltip("Schwellwert für das Auslösen der Bewegung")] [Range(0.01f, 1.0f)]
+        [Header("Schwellwert fï¿½r das Triggern der Locomotion")]     
+        [Tooltip("Schwellwert fï¿½r das Auslï¿½sen der Bewegung")] [Range(0.01f, 1.0f)]
         public float Threshold = 0.05f;
 
         /// <summary>
-        /// Walk wird so lange durchgeführt wie das Trigger-Objekt  bewegt wird.
+        /// Walk wird so lange durchgefï¿½hrt wie das Trigger-Objekt  bewegt wird.
         /// Das entscheiden wir auf Grund der Geschwindigkeit dieser
-        /// Veränderung, die wir
-        /// mit Hilfe von numerischem Differenzieren schätzen.
+        /// Verï¿½nderung, die wir
+        /// mit Hilfe von numerischem Differenzieren schï¿½tzen.
         /// </summary>
         protected override void Trigger()
         {
@@ -52,7 +52,7 @@ namespace VRKL.MBVR
         }
 
         /// <summary>
-        /// Speicher für den letzten Wert
+        /// Speicher fï¿½r den letzten Wert
         /// </summary>
         private float lastValueRight = 1.6f,
                           lastValueLeft = 1.6f;
