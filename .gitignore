@@ -16,6 +16,7 @@
 **/Library/*
 **/obj/*
 **/ProjectSettings/*
+**/UserSettings/*
 **/Logs/**/*
 
 # Doxygen Output ignorieren
