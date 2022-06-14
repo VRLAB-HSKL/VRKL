@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-// Wir loggen mit log4net
 using log4net;
 
 /// <summary>
@@ -13,7 +12,7 @@ using log4net;
 /// </summary>
 /// 
 [RequireComponent(typeof(Rigidbody))]
-public class MoveTowardsWithLogs : MonoBehaviour
+public class FollowerWithLogs : MonoBehaviour
 {
     /// <summary>
     /// Position und Orientierung des verfolgten Objekts
@@ -26,22 +25,30 @@ public class MoveTowardsWithLogs : MonoBehaviour
     [Tooltip("Geschwindigkeit")]
     public float speed = 10.0F;
     /// <summary>
-    /// Soll der Vektor zwischen Ziel und dem aktuellen Objekt angezeigt werden?
+    /// Soll der Strahl zwischen Ziel und dem aktuellen Objekt angezeigt werden?
     /// </summary>
-    [Tooltip("Anzeige des Vektors, der für die Verfolgung berechnet wird")] 
+    [Tooltip("Anzeige des Vektors, der für die Verfolgung berechnet wird im Play.Modus")] 
 	public bool showRay = false;
 
     /// <summary>
     /// Instanz eines Loggers
     /// </summary>
-    private static readonly ILog Log = 
-        LogManager.GetLogger(typeof(MoveTowardsWithLogs));
+    /// <remarks>
+    ///Wir verwenden den Namespace für ILog und LogManager,
+    /// um Verwechslungen zu vermeiden.
+    /// </remarks>
+    private static readonly log4net.ILog Log = 
+        log4net.LogManager.GetLogger(typeof(FollowerWithLogs));
 
+    
+    /// <summary>
+    /// Start-Funktion mit Protokollausgaben
+    /// </summary>
     private void Start()
     {
-        Log.Debug(">>> Start");
+        Log.Debug(">> " + gameObject.name + ".Start");
         Log.Info("Info-Ausgabe in Start");
-        Log.Debug("<<< Start");
+        Log.Debug("<< " + gameObject.name + ".Start");
     }
 
     /// <summary>
@@ -52,12 +59,12 @@ public class MoveTowardsWithLogs : MonoBehaviour
     /// </summary>
     private void FixedUpdate ()
     {
-        Log.Debug(">>> FixedUpdate");
+        Log.Debug(">>>" + gameObject.name + ".FixedUpdate");
         // Schrittweite
         float stepSize = speed * Time.deltaTime;
 
-        Vector3 source = transform.position;
-		Vector3 target = playerTransform.position;
+        var source = transform.position;
+		var target = playerTransform.position;
 
         // Neue Position berechnen
 		transform.position = Vector3.MoveTowards(source, target, stepSize);
@@ -65,6 +72,6 @@ public class MoveTowardsWithLogs : MonoBehaviour
         if (showRay)
 			Debug.DrawRay(transform.position, 100.0f * transform.forward, Color.red);
         Log.Info("Neue Position des Objekts: " + transform.position.ToString());
-        Log.Debug("<<< FixedUpdate");
+        Log.Debug("<<" + gameObject.name + ".FixedUpdate");
     }
 }

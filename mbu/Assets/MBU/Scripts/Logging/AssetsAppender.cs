@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using log4net.Appender;
 using log4net.Core;
-using UnityEngine.AI;
 
 /// <summary>
 /// Log4Net-Appende, der Ausgaben in eine Datei
@@ -21,6 +20,15 @@ using UnityEngine.AI;
 public class AssetsAppender : AppenderSkeleton
 {
     /// <summary>
+    /// Überschreiben der Append-Funktion
+    /// </summary>
+    /// <param name="loggingEvent">Daten des Events aus log4net</param>
+    protected override void Append(LoggingEvent loggingEvent)
+    {
+        file.WriteLine(RenderLoggingEvent(loggingEvent));
+    }
+    
+    /// <summary>
     /// Instanz von StreamWriter mit Pfad und Dateinamen.
     /// </summary>
     /// <remarks>
@@ -34,15 +42,6 @@ public class AssetsAppender : AppenderSkeleton
     private System.IO.StreamWriter file = 
         new System.IO.StreamWriter(
             $"{Application.streamingAssetsPath}/LogOutput.txt", 
-            true
+            false
             );
-
-    /// <summary>
-    /// Überschreiben der Append-Funktion
-    /// </summary>
-    /// <param name="loggingEvent">Daten des Events aus log4net</param>
-    protected override void Append(LoggingEvent loggingEvent)
-    {
-        file.WriteLine(RenderLoggingEvent(loggingEvent));
-    }
 }

@@ -58,7 +58,7 @@ namespace VRKL.MBU
         /// </summary>
         private void FixedUpdate()
         {
-            // Objekt mit Hilfe von MoveTowardsWithLogs bewegen
+            // Objekt mit Hilfe von FollowerWithLogs bewegen
             transform.position = this.manager.Move(
                 transform.position,
                 speed * Time.fixedDeltaTime);
