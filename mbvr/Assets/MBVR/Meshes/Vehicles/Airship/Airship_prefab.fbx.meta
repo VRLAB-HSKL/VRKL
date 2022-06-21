@@ -1,0 +1,320 @@
+fileFormatVersion: 2
+guid: 7216b708cf03f194bb44ffd0baaacf56
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      21: 2100000
+    second: M_Hidavig
+  - first:
+      21: 2100002
+    second: M_Hidavig_Ruder_Befestigung
+  - first:
+      21: 2100004
+    second: M_Korb
+  - first:
+      21: 2100006
+    second: M_Steuerpult
+  - first:
+      21: 2100008
+    second: M_Armaturenbrett
+  - first:
+      21: 2100010
+    second: M_Wand
+  - first:
+      21: 2100012
+    second: "M_T\xFCr"
+  - first:
+      21: 2100014
+    second: "M_T\xFCrknopf"
+  - first:
+      21: 2100016
+    second: M_Ofen
+  - first:
+      21: 2100018
+    second: M_Rohr
+  - first:
+      21: 2100020
+    second: M_Schrauben
+  - first:
+      21: 2100022
+    second: M_Rope
+  - first:
+      21: 2100024
+    second: M_Brennerfundament
+  - first:
+      21: 2100026
+    second: M_Brenner_Gehauese
+  - first:
+      21: 2100028
+    second: M_Brenner_Unterseite
+  - first:
+      21: 2100030
+    second: M_Brenner_Oberseite
+  - first:
+      21: 2100032
+    second: M_Verbindungsstange
+  - first:
+      21: 2100034
+    second: M_Metal_Stativ_Luftklappe
+  - first:
+      21: 2100036
+    second: M_Luftklappe_MEC
+  - first:
+      21: 2100038
+    second: M_Luftklappe
+  - first:
+      21: 2100040
+    second: M_Gleiter_Holz
+  - first:
+      21: 2100042
+    second: M_Gleiter_Hinten
+  - first:
+      21: 2100044
+    second: M_Gleiter_Holz._L
+  - first:
+      21: 2100046
+    second: M_Gleiter_L
+  - first:
+      21: 2100048
+    second: M_Gleiter
+  - first:
+      23: 2300000
+    second: //RootNode
+  - first:
+      33: 3300000
+    second: //RootNode
+  - first:
+      43: 4300000
+    second: Hidavig
+  - first:
+      64: 6400000
+    second: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Armaturenbrett
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Brenner_Gehauese
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Brenner_Oberseite
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Brenner_Unterseite
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Brennerfundament
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Gleiter
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Gleiter_Hinten
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Gleiter_Holz
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Gleiter_Holz._L
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Gleiter_L
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Hidavig
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Hidavig_Ruder_Befestigung
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Korb
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Luftklappe
+    second: {fileID: 2100000, guid: 279b85ce131593e4390ae3ce0408e173, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Luftklappe_MEC
+    second: {fileID: 2100000, guid: 002868a68cd6e5b499064a2f65522dc4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Metal_Stativ_Luftklappe
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Ofen
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Rohr
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Rope
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Schrauben
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Steuerpult
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "M_T\xFCr"
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "M_T\xFCrknopf"
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Verbindungsstange
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Wand
+    second: {fileID: 2100000, guid: 159f582a7edb3e540b02fd67a7a63bb3, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
