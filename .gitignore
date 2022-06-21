@@ -36,7 +36,11 @@
 **/Assets/MiddleVR.meta
 **/Assets/GoogleVR.meta
 **/Assets/SteamVR.meta
+**/Assets/SteamVR_Input.meta
+**/Assets/SteamVR_Resources.meta
 **/Assets/HTC.UnityPlugin.meta
+
+
 
 # Prerequisites
 *.d
