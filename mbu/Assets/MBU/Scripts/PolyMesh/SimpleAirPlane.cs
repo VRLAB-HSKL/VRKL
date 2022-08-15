@@ -130,12 +130,11 @@ namespace VRKL.MBU
                 subMeshCount = numberOfSubMeshes
             };
 
-            // Wir nutzen nicht aus, dass wir pro Submesh ein eigenes
-            // Material verwenden.
+            var mat = CreateMaterial();
             for (var i = 0; i < numberOfSubMeshes; i++)
             {
                 simpleMesh.SetTriangles(topology[i], i);
-                materials[i] = meshMaterial;
+                materials[i] = mat;
             }
 
             // Unity die Normalenvektoren und die Bounding-Box berechnen lassen.

@@ -48,9 +48,7 @@ namespace VRKL.MBU
 
             for (var i = 0; i < numberOfVertices; i++)
                 vertices[i] *= ScalingFactor;
-   
-            Debug.Log(vertices);
-            
+
             // Die Einträge in der Topologie beziehen sich auf 
             // die Indizes der Eckpunkte.
             topology[0] = new int[3] { 1, 4, 0 };
@@ -84,12 +82,11 @@ namespace VRKL.MBU
                 subMeshCount = numberOfSubMeshes
             };
             
-            // Wir nutzen nicht aus, dass wir pro Submesh ein eigenes
-            // Material verwenden.
+            var mat = CreateMaterial();
             for (var i = 0; i < numberOfSubMeshes; i++)
             {
                 simpleMesh.SetTriangles(topology[i], i);
-                materials[i] = meshMaterial;
+                materials[i] = mat;
             }
 
             // Unity die Normalenvektoren und die Bounding-Box berechnen lassen.
