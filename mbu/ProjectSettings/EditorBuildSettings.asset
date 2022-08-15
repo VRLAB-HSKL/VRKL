@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/MBU/Examples/8 Logging/Scenes/logDemo.unity
     guid: d1ecdb929913e584d8e4d083cd95c37a
   m_configObjects:
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 51803c52a91aeaf42823ba404d527a1e,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7d5a553ee5a2fce40b354dbb5b61839f,
       type: 2}
     xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 8374ea6df019e1d41968c69e8108f941,
       type: 2}
