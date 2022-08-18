@@ -23,11 +23,17 @@ public class SimpleMesh : VRKL.MBU.PolyMesh
     protected override void Create()
     {
         // Wir stellen ein Dreieck dar.
-        Vector3[] vertices = new Vector3[3];
+        int numberOfVertices = 3;
+        Vector3[] vertices = new Vector3[numberOfVertices];
         vertices[0] = new Vector3(-1.0f, 0.0f, 3.0f);
         vertices[1] = new Vector3(-1.0f, 0.5f, 3.0f);
         vertices[2] = new Vector3(0.0f, 0.0f, 2.0f);
 
+        for (var i = 0; i < numberOfVertices; i++)
+        {
+            vertices[i] *= ScalingFactor;
+        }
+        
         // Die Einträge in der Topologie beziehen sich auf 
         // die Indizes der Eckpunkte.
         // Die Durchlaufrichtung der Indices ist wichtig, da sonst
@@ -41,7 +47,8 @@ public class SimpleMesh : VRKL.MBU.PolyMesh
         topology[2] = 2;
 
         Material[] materials = new Material[1];
-
+        materials[0] = CreateMaterial();
+        
         // Polygonales Netz erzeugen, Geometrie und Topologie zuweisen
         Mesh simpleMesh = new Mesh()
         {
@@ -49,11 +56,7 @@ public class SimpleMesh : VRKL.MBU.PolyMesh
             subMeshCount = 1,
             triangles = topology
         };
-
-        // Wir nutzen nicht aus, dass wir pro Submesh ein eigenes
-        // Material verwenden.
-        materials[0] = meshMaterial;
-
+        
         // Unity die Normalenvektoren und die Bounding-Box berechnen lassen.
         simpleMesh.RecalculateNormals();
         simpleMesh.RecalculateBounds();
