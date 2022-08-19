@@ -7,12 +7,15 @@ using UnityEngine;
 /// <remarks>
 /// Quelle: https://www.linkedin.com/pulse/advanced-logging-unity-log4net-charles-amat
 /// </remarks>
-public static class LoggingConfiguration
+namespace VRKL.MBU
 {
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    private static void ConfigureLogging()
-    {
-        XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo(
-            $"{Application.dataPath}/Resources/log4netConfig.xml"));        
-    }
+    public static class LoggingConfiguration 
+    { 
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)] 
+        private static void ConfigureLogging() 
+        { 
+            XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo(
+                $"{Application.dataPath}/Resources/log4netConfig.xml")); 
+        }
+}
 }

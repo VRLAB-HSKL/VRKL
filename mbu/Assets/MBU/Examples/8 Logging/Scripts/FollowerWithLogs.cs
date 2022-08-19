@@ -11,7 +11,6 @@ using log4net;
 /// Dies wird nmit Hilfe von RequireComponent sichergestellt.
 /// </summary>
 /// 
-[RequireComponent(typeof(Rigidbody))]
 public class FollowerWithLogs : MonoBehaviour
 {
     /// <summary>
@@ -59,7 +58,8 @@ public class FollowerWithLogs : MonoBehaviour
     /// </summary>
     private void FixedUpdate ()
     {
-        Log.Debug(">>>" + gameObject.name + ".FixedUpdate");
+        Log.Debug(">>" + gameObject.name + "." + nameof(FollowerWithLogs) +
+                  ".FixedUpdate");
         // Schrittweite
         float stepSize = speed * Time.deltaTime;
 
@@ -71,7 +71,9 @@ public class FollowerWithLogs : MonoBehaviour
         transform.LookAt(playerTransform);
         if (showRay)
 			Debug.DrawRay(transform.position, 100.0f * transform.forward, Color.red);
+        
         Log.Info("Neue Position des Objekts: " + transform.position.ToString());
-        Log.Debug("<<" + gameObject.name + ".FixedUpdate");
+        Log.Debug("<<" + gameObject.name + "." + nameof(FollowerWithLogs) +
+                                                         ".FixedUpdate");
     }
 }

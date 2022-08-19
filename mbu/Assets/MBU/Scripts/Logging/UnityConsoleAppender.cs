@@ -24,7 +24,7 @@ public class UnityConsoleAppender : AppenderSkeleton
     ///
     /// Alles weitere wird einfach ausgegeben..
     /// </remarks>
-    /// <param name="loggingEvent"
+    /// <param name="loggingEvent">
     /// Logging-Event mit den Inhalten,
     /// die wir ausgeben.
     //.</param>
