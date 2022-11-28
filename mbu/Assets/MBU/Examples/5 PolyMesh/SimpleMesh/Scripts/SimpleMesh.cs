@@ -23,8 +23,8 @@ public class SimpleMesh : VRKL.MBU.PolyMesh
     protected override void Create()
     {
         // Wir stellen ein Dreieck dar.
-        int numberOfVertices = 3;
-        Vector3[] vertices = new Vector3[numberOfVertices];
+        var numberOfVertices = 3;
+        var vertices = new Vector3[numberOfVertices];
         vertices[0] = new Vector3(-1.0f, 0.0f, 3.0f);
         vertices[1] = new Vector3(-1.0f, 0.5f, 3.0f);
         vertices[2] = new Vector3(0.0f, 0.0f, 2.0f);
@@ -40,17 +40,17 @@ public class SimpleMesh : VRKL.MBU.PolyMesh
         // bei Backface Culling die Dreiecke nicht dargestellt werden.
         // Unity definiert ein Frontface als ein Polygon, das 
         // im Uhrzeigersinn durchlaufen wird!
-        int[] topology = new int[3];
+        var topology = new int[3];
 
         topology[0] = 0;
         topology[1] = 1;
         topology[2] = 2;
 
-        Material[] materials = new Material[1];
+        var materials = new Material[1];
         materials[0] = CreateMaterial();
         
         // Polygonales Netz erzeugen, Geometrie und Topologie zuweisen
-        Mesh simpleMesh = new Mesh()
+        var simpleMesh = new Mesh()
         {
             vertices = vertices,
             subMeshCount = 1,

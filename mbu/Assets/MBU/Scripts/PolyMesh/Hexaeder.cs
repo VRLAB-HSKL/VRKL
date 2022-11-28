@@ -5,7 +5,7 @@ using UnityEngine;
 namespace VRKL.MBU
 {
     /// <summary>
-    /// Klasse für die Erzeugung eines Hexaeders mit Seitenlänge 1 während der Laufzeit einer Anwendung.
+    /// Hexaede mit Seitenlänge 1 alks Instanz der Klasse PolyMesh.
     /// <remarks>
     /// Die Eckpunkte des Hexaeders werden wie in Blinn
     /// und Brill/Bender, "Computergrafik", in den Einheitswürfel platziert.
