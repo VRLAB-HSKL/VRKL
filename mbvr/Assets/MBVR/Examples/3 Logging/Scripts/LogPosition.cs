@@ -15,17 +15,17 @@ public class LogPosition : MonoBehaviour
 
     private void Update()
     {
-        string info = "";
-        string seperator = ";";
+        var info = "";
+        var separator = ";";
         // Wir können mit dem Aufzählungstyp DeviceRole
         // alles abfragen zu dem es getrackte Daten gibt.
         // Hmd, der Default, ist klar.
         // Die beiden Controller erhalten wir mit Device1 (rechts)
         // und Device 2 (links).
-        Vector3 trackerTrace = VivePose.GetPoseEx(trackedObject).pos;
-        info = trackerTrace.x.ToString() + seperator + 
-                   trackerTrace.y.ToString() + seperator +
-                   trackerTrace.z.ToString() + seperator +
+        var trackerTrace = VivePose.GetPoseEx(trackedObject).pos;
+        info = trackerTrace.x.ToString() + separator + 
+                   trackerTrace.y.ToString() + separator +
+                   trackerTrace.z.ToString() + separator +
                    trackedObject.ToString();
         Log.Info(info);
     }
