@@ -43,15 +43,19 @@
 
   <!--- Konfiguration für einzelne Klassen -->
   <logger name="PlayerControlWithLogs">
-    <appender-ref ref="AssetsAppender"/>
-    <level value="INFO"/>
+    <appender-ref ref="UnityConsoleAppender"/>
+    <level value="WARN"/>
   </logger>
 
-
+  <logger name="LogPosition">
+    <appender-ref ref="UnityConsoleAppender"/>
+    <level value="INFO"/>
+  </logger>
+  
   <logger name="FollowerWithLogs">
 	<!-- Achten Sie darauf, dass der Pfad in der Konfiguration des Appenders korrekt ist! -->
 	<appender-ref ref="UnityConsoleAppender"/>
-    <level value="INFO"/>
+    <level value="WARN"/>
   </logger>
 
   
