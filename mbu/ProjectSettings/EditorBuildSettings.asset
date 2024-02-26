@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/MBU/Examples/1 HelloWorld/Scenes/helloScene.unity
+    guid: c7692156f3a757b43a3a313e30d0adc7
   m_configObjects: {}
